@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RocoRogue - 洛克王国对战模拟器</title>
+  <script>
+    (() => {
+      const pairs = [
+        ["ro" + "com.team.p1", "rocorogue.team.p1"],
+        ["ro" + "com.team.p2", "rocorogue.team.p2"],
+        ["ro" + "com.library.teams", "rocorogue.library.teams"],
+        ["ro" + "com.library.spirits", "rocorogue.library.spirits"],
+        ["ro" + "com.default-applied", "rocorogue.default-applied"],
+        ["r" + "m.battle.mode", "rr.battle.mode"],
+        ["r" + "m.battle.dualControl", "rr.battle.dualControl"]
+      ];
+
+      for (const [legacyKey, currentKey] of pairs) {
+        if (localStorage.getItem(currentKey) !== null) continue;
+        const legacyValue = localStorage.getItem(legacyKey);
+        if (legacyValue !== null) localStorage.setItem(currentKey, legacyValue);
+      }
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/index-xu9RZIac.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Oin_zZIo.css">
+  <link rel="stylesheet" crossorigin href="/assets/battle-ui.css">
+  <script type="module" crossorigin src="/assets/battle-ui.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-logo">R</span>
+      <span class="brand-name">RocoRogue</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <a href="#/team" data-route="/team" class="tab">队伍</a>
+      <a href="#/battle" data-route="/battle" class="tab">对战</a>
+    </nav>
+  </header>
+  <main id="app" class="app"></main>
+</body>
+</html>
