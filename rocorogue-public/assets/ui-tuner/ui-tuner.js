@@ -15,7 +15,9 @@
     styleFile: "rocorogue-public/assets/index-Oin_zZIo.css",
   });
 
-  const restoredLayout = loadStoredLayout();
+  const params = new URLSearchParams(location.search);
+  const shouldRestoreLayout = params.get("uiTuneRestore") === "1";
+  const restoredLayout = shouldRestoreLayout ? loadStoredLayout() : null;
   const restoredItems = restoredLayout?.items && typeof restoredLayout.items === "object"
     ? restoredLayout.items
     : {};

@@ -52,9 +52,9 @@ const CAPTURE_BALLS = [
 const CAPTURE_BALL_COUNT_STORAGE_KEY = "rocorogue.capture-balls";
 
 const BAG_ITEMS = [
-  { id: "boss", label: "首领之力", count: 1, image: "/items/boss.png", colors: ["#ffd15a", "#b06b20"] },
-  { id: "wish", label: "愿力强化", count: 2, image: "/items/wish.png", colors: ["#86c5ff", "#2d60d6"] },
-  { id: "energybottle", label: "能量瓶", count: 1, image: "/items/energybottle.png", colors: ["#b56dff", "#5a32c8"] }
+  { id: "boss", label: "首领之力", count: 1, image: "/assets/items/boss.png", colors: ["#ffd15a", "#b06b20"] },
+  { id: "wish", label: "愿力强化", count: 2, image: "/assets/items/wish.png", colors: ["#86c5ff", "#2d60d6"] },
+  { id: "energybottle", label: "能量瓶", count: 1, image: "/assets/items/energybottle.png", colors: ["#b56dff", "#5a32c8"] }
 ];
 
 const SPECIES_TYPES_URL = "/assets/battle-ui/species-types.json";
@@ -918,6 +918,12 @@ function genderForSide(side, info, sprite) {
   return side.classList.contains("p2") ? "♀" : "♂";
 }
 
+function genderIconSrc(symbol) {
+  if (symbol === "♂") return "/assets/ui/gender_male.png";
+  if (symbol === "♀") return "/assets/ui/gender_female.png";
+  return "";
+}
+
 function loadSpeciesTypes() {
   if (speciesTypeMap || speciesTypesLoading) return;
   speciesTypesLoading = true;
@@ -967,11 +973,11 @@ function displayedPowerText(button) {
 }
 
 function moveTypeFromButton(button) {
-  return button.querySelector(".move-tooltip .type-badge")?.textContent?.trim() || "普通";
+  return button.dataset.moveType?.trim() || "普通";
 }
 
 function moveCategoryFromButton(button) {
-  return button.querySelector(".move-tooltip .move-tooltip-cat")?.textContent?.trim() || "";
+  return button.dataset.moveCategory?.trim() || "";
 }
 
 function activeSideTypes(view, selector) {
@@ -1071,10 +1077,10 @@ function syncSwitchCards(view) {
     card.classList.toggle("roco-has-counter-move", hasOffense);
     card.classList.toggle("roco-type-threatened", isThreatened);
 
-    up.textContent = "▲";
+    up.textContent = "";
     up.hidden = !hasOffense;
     up.title = "携带技能克制对方在场精灵";
-    down.textContent = "▼";
+    down.textContent = "";
     down.hidden = !isThreatened;
     down.title = "属性被对方在场精灵克制";
   });
@@ -1115,23 +1121,23 @@ function updateMoveCardDetails(view, button) {
     icon.loading = "lazy";
     type.append(icon);
   }
-  const typeSrc = `/types/${encodeURIComponent(moveType)}.webp`;
+  const typeSrc = `/assets/types/${encodeURIComponent(moveType)}.webp`;
   if (icon.getAttribute("src") !== typeSrc) icon.src = typeSrc;
   icon.alt = moveType;
   icon.onerror = () => {
-    const fallback = `/types/${encodeURIComponent(moveType)}.png`;
+    const fallback = `/assets/types/${encodeURIComponent(moveType)}.png`;
     if (icon.getAttribute("src") !== fallback) icon.src = fallback;
   };
 
   const effect = ensureMoveBadge(button, "roco-move-effect");
   effect.classList.remove("up", "down");
   if (effectiveness > 1) {
-    effect.textContent = "▲";
+    effect.textContent = "";
     effect.title = "克制对方精灵";
     effect.hidden = false;
     effect.classList.add("up");
   } else if (effectiveness < 1) {
-    effect.textContent = "▼";
+    effect.textContent = "";
     effect.title = "对方精灵属性抵抗";
     effect.hidden = false;
     effect.classList.add("down");
@@ -1155,7 +1161,7 @@ function updateHudTypes(info, speciesName) {
   wrap.replaceChildren(...types.map(type => {
     const img = document.createElement("img");
     img.className = "roco-hud-type";
-    img.src = `/types/${encodeURIComponent(type)}.png`;
+    img.src = `/assets/types/${encodeURIComponent(type)}.png`;
     img.alt = type;
     img.title = type;
     return img;
@@ -1164,13 +1170,23 @@ function updateHudTypes(info, speciesName) {
 
 function updateHudGender(side, info, sprite) {
   let gender = info.querySelector(".roco-gender");
-  if (!gender) {
-    gender = document.createElement("span");
-    gender.className = "roco-gender";
-    info.querySelector(".name")?.after(gender);
+  if (!gender || gender.tagName !== "IMG") {
+    const image = document.createElement("img");
+    image.className = "roco-gender";
+    image.decoding = "async";
+    if (gender) {
+      gender.replaceWith(image);
+    } else {
+      info.querySelector(".name")?.after(image);
+    }
+    gender = image;
   }
   const symbol = genderForSide(side, info, sprite);
-  gender.textContent = symbol;
+  const src = genderIconSrc(symbol);
+  if (src && gender.getAttribute("src") !== src) gender.src = src;
+  if (!src) gender.removeAttribute("src");
+  gender.alt = symbol === "♂" ? "雄" : symbol === "♀" ? "雌" : "";
+  gender.title = gender.alt;
   gender.hidden = !symbol;
   gender.classList.toggle("male", symbol === "♂");
   gender.classList.toggle("female", symbol === "♀");
@@ -1211,7 +1227,7 @@ function hudPortraitSources(info, sprite) {
   const sources = [];
   const headFile = headFileFor(info, sprite);
   if (headFile) {
-    const headPath = `/heads/${encodeURIComponent(headFile)}`;
+    const headPath = `/assets/heads/${encodeURIComponent(headFile)}`;
     sources.push(headPath.replace(/\.png$/i, ".webp"), headPath);
   }
   sources.push(sprite.currentSrc || sprite.src);

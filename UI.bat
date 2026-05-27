@@ -8,6 +8,7 @@ set "START_PORT=4174"
 set "END_PORT=4191"
 set "PORT_FILE=%ROOT%.rocorogue-ui-port"
 set "SERVER_JS=%ROOT%rocorogue-server.js"
+set "INDEX_FILE=%SITE%\index.html"
 set "ROCO_UI_TUNER=1"
 set "VITE_ROCO_UI_TUNER=1"
 
@@ -72,7 +73,7 @@ call :open_page
 exit /b 0
 
 :server_matches_site
-powershell -NoProfile -ExecutionPolicy Bypass -Command "try { $r=Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:%PORT%/__ui_tuner/health' -TimeoutSec 1; if ($r.StatusCode -eq 200 -and $r.Content -match 'ui-tuner') { exit 0 } } catch {}; exit 1" >nul 2>nul
+powershell -NoProfile -ExecutionPolicy Bypass -Command "try { $local=Get-Content -Raw -LiteralPath '%INDEX_FILE%'; $server=Get-Content -Raw -LiteralPath '%SERVER_JS%'; $mark=[regex]::Match($local, 'pet-box-view\.js\?v=([^\x22&?#]+)').Groups[1].Value; $tunerMark=[regex]::Match($server, 'ui-tuner\.js\?v=([^\x22]+)').Groups[1].Value; $h=Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:%PORT%/__ui_tuner/health' -TimeoutSec 1; $r=Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:%PORT%/' -TimeoutSec 1; if ($mark -and $tunerMark -and $h.StatusCode -eq 200 -and $h.Content -match 'ui-tuner' -and $r.StatusCode -eq 200 -and $r.Content -match [regex]::Escape($mark) -and $r.Content -match [regex]::Escape($tunerMark)) { exit 0 } } catch {}; exit 1" >nul 2>nul
 exit /b %errorlevel%
 
 :find_free_port
@@ -82,7 +83,7 @@ if not defined PORT exit /b 1
 exit /b 0
 
 :open_page
-set "URL=http://127.0.0.1:%PORT%/?uiTune=1^&v=%RANDOM%#/mechanics?view=pet-box"
+set "URL=http://127.0.0.1:%PORT%/?v=20260528-pet-box-41^&uiTune=1#/mechanics?view=pet-box"
 echo Opening: %URL%
 start "" "%URL%"
 exit /b 0

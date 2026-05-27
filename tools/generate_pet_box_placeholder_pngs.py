@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "rocorogue-public" / "assets" / "ui" / "pet_box"
-PORTRAIT_DIR = ROOT / "rocorogue-public" / "portraits_256"
+PORTRAIT_DIR = ROOT / "rocorogue-public" / "assets" / "portraits_256"
 
 FONT_REGULAR = Path("C:/Windows/Fonts/msyh.ttc")
 FONT_BOLD = Path("C:/Windows/Fonts/msyhbd.ttc")
@@ -165,7 +165,7 @@ PET_BOX_MOCK_PETS = [
         "talent_title": "炽热的天分",
         "stats": {"hp": 55, "attack": 60, "magic_attack": 58, "defense": 46, "speed": 57, "magic_defense": 43},
         "trait_name": "猛火",
-        "nature_name": "热血",
+        "nature_name": "热情",
         "secondary_nature_name": "无",
         "colors": ("#a95c35", "#f3b449", "#3a241d"),
         "accent": "#f39a42",
@@ -185,7 +185,7 @@ PET_BOX_MOCK_PETS = [
         "talent_title": "清澈的天分",
         "stats": {"hp": 62, "attack": 47, "magic_attack": 60, "defense": 56, "speed": 48, "magic_defense": 59},
         "trait_name": "激流",
-        "nature_name": "沉着",
+        "nature_name": "冷静",
         "secondary_nature_name": "无",
         "colors": ("#d4efff", "#4ba5d9", "#34414b"),
         "accent": "#55bde8",
@@ -205,17 +205,57 @@ PET_BOX_MOCK_PETS = [
         "talent_title": "自然的天分",
         "stats": {"hp": 60, "attack": 50, "magic_attack": 57, "defense": 52, "speed": 52, "magic_defense": 61},
         "trait_name": "茂盛",
-        "nature_name": "轻盈",
+        "nature_name": "开朗",
         "secondary_nature_name": "无",
         "colors": ("#cde86c", "#79bd54", "#2f5134"),
         "accent": "#9ed65b",
         "portrait": "JL_miaomiao.png",
         "trait_symbol": "leaf",
     },
+    {
+        "id": "luoyin",
+        "name": "罗隐",
+        "level": 5,
+        "max_level": 60,
+        "exp": 0,
+        "exp_max": 30,
+        "type_labels": ["地", "恶"],
+        "stars": 1,
+        "max_stars": 6,
+        "talent_title": "一般般的天分",
+        "stats": {"hp": 107, "attack": 159, "magic_attack": 78, "defense": 112, "speed": 75, "magic_defense": 70},
+        "trait_name": "石头大餐",
+        "nature_name": "固执",
+        "secondary_nature_name": "无",
+        "colors": ("#c9ad64", "#4a414d", "#292525"),
+        "accent": "#b99044",
+        "portrait": "JL_luoyin.png",
+        "trait_symbol": "star",
+    },
+    {
+        "id": "huajianchentieshou",
+        "name": "画间沉铁兽",
+        "level": 5,
+        "max_level": 60,
+        "exp": 0,
+        "exp_max": 30,
+        "type_labels": ["普通", "武"],
+        "stars": 1,
+        "max_stars": 6,
+        "talent_title": "一般般的天分",
+        "stats": {"hp": 100, "attack": 160, "magic_attack": 67, "defense": 100, "speed": 105, "magic_defense": 76},
+        "trait_name": "变形活画",
+        "secondary_nature_name": "无",
+        "colors": ("#d9d0bf", "#f1913b", "#4b4540"),
+        "accent": "#c3b395",
+        "portrait": "JL_huajianchentieshou.png",
+        "trait_symbol": "star",
+    },
 ]
 
 
 TYPE_COLORS = {
+    "普通": "#c3b395",
     "萌": "#57c47a",
     "武": "#f1913b",
     "火": "#e66b38",
@@ -223,6 +263,8 @@ TYPE_COLORS = {
     "草": "#7fca58",
     "光": "#f2c94c",
     "水": "#4da8e8",
+    "地": "#b99044",
+    "恶": "#5c5362",
 }
 
 PET_SPECIFIC_PATTERNS = (
@@ -611,14 +653,8 @@ def make_background() -> None:
     hz.ellipse((1180, 180, 1800, 760), fill=(255, 255, 255, 18))
     haze = haze.filter(ImageFilter.GaussianBlur(65))
 
-    edge = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-    ed = ImageDraw.Draw(edge)
-    ed.polygon([(1854, 0), (1920, 0), (1920, 1080), (1835, 1080), (1808, 710), (1814, 348)], fill=(35, 43, 43, 255))
-    ed.polygon([(0, 0), (34, 0), (0, 1080)], fill=(35, 43, 43, 36))
-
     image = Image.alpha_composite(image, pattern)
     image = Image.alpha_composite(image, haze)
-    image = Image.alpha_composite(image, edge)
     save_png(image, "bg_pet_box.png")
 
 

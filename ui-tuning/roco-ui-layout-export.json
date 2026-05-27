@@ -2,17 +2,17 @@
   "version": 1,
   "app": "RocoRogue",
   "mode": "ui-tuner",
-  "createdAt": "2026-05-27T01:07:44.016Z",
-  "route": "/?uiTune=1^&v=29842#/mechanics?view=pet-box",
+  "createdAt": "2026-05-27T15:01:26.250Z",
+  "route": "/?v=20260527-pet-box-26^&uiTune=1#/mechanics?view=pet-box",
   "viewport": {
-    "width": 1991,
-    "height": 1280,
+    "width": 2552,
+    "height": 1267,
     "devicePixelRatio": 1,
     "designWidth": 1920,
     "designHeight": 1080
   },
   "base": {
-    "gitCommit": "cef8d11b65b2cc48c228db0953bd0ad00d3702b5",
+    "gitCommit": "cc81ba8de0374670d1b4866c0d0c4f6c2058e23b",
     "branch": "main"
   },
   "items": {
@@ -36,14 +36,14 @@
       "boundsBefore": {
         "x": 0,
         "y": 0,
-        "width": 1991,
-        "height": 1280
+        "width": 2552,
+        "height": 1308
       },
       "boundsAfter": {
         "x": 0,
         "y": 0,
-        "width": 1991,
-        "height": 1280
+        "width": 2552,
+        "height": 1267
       }
     },
     "bag.backdrop": {
@@ -66,14 +66,14 @@
       "boundsBefore": {
         "x": 0,
         "y": 76,
-        "width": 1991,
-        "height": 1204
+        "width": 2552,
+        "height": 1232
       },
       "boundsAfter": {
         "x": 0,
         "y": 76,
-        "width": 1991,
-        "height": 1204
+        "width": 2552,
+        "height": 1191
       }
     },
     "bag.background": {
@@ -94,16 +94,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 0,
-        "y": 118,
-        "width": 1991,
-        "height": 1119.938
+        "x": 181,
+        "y": 76,
+        "width": 2190.222,
+        "height": 1232
       },
       "boundsAfter": {
-        "x": 0,
-        "y": 118,
-        "width": 1991,
-        "height": 1119.938
+        "x": 217,
+        "y": 76,
+        "width": 2117.333,
+        "height": 1191
       }
     },
     "bag.bottomBoxSelector": {
@@ -124,16 +124,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 518.49,
-        "y": 1018.098,
-        "width": 400.274,
-        "height": 85.032
+        "x": 751.37,
+        "y": 1066.163,
+        "width": 440.326,
+        "height": 93.541
       },
       "boundsAfter": {
-        "x": 518.49,
-        "y": 1018.098,
-        "width": 400.274,
-        "height": 85.032
+        "x": 768.389,
+        "y": 1033.211,
+        "width": 425.672,
+        "height": 90.428
       }
     },
     "bag.bottomBoxSelector.next": {
@@ -154,16 +154,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 842.027,
-        "y": 1028.468,
-        "width": 64.293,
-        "height": 64.293
+        "x": 1107.281,
+        "y": 1077.57,
+        "width": 70.726,
+        "height": 70.726
       },
       "boundsAfter": {
-        "x": 842.027,
-        "y": 1028.468,
-        "width": 64.293,
-        "height": 64.293
+        "x": 1112.456,
+        "y": 1044.239,
+        "width": 68.372,
+        "height": 68.372
       }
     },
     "bag.bottomBoxSelector.pageIcon": {
@@ -184,16 +184,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 593.136,
-        "y": 1027.463,
-        "width": 72.589,
-        "height": 64.293
+        "x": 833.486,
+        "y": 1076.465,
+        "width": 79.852,
+        "height": 70.726
       },
       "boundsAfter": {
-        "x": 593.136,
-        "y": 1027.463,
-        "width": 72.589,
-        "height": 64.293
+        "x": 847.772,
+        "y": 1043.171,
+        "width": 77.194,
+        "height": 68.372
       }
     },
     "bag.bottomBoxSelector.prev": {
@@ -214,16 +214,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 531.97,
-        "y": 1028.468,
-        "width": 64.293,
-        "height": 64.293
+        "x": 766.2,
+        "y": 1077.57,
+        "width": 70.726,
+        "height": 70.726
       },
       "boundsAfter": {
-        "x": 531.97,
-        "y": 1028.468,
-        "width": 64.293,
-        "height": 64.293
+        "x": 782.725,
+        "y": 1044.239,
+        "width": 68.372,
+        "height": 68.372
       }
     },
     "bag.bottomBoxSelector.title": {
@@ -244,46 +244,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 669.03,
-        "y": 1038.838,
-        "width": 116.142,
-        "height": 43.553
+        "x": 916.974,
+        "y": 1088.978,
+        "width": 127.763,
+        "height": 47.911
       },
       "boundsAfter": {
-        "x": 669.03,
-        "y": 1038.838,
-        "width": 116.142,
-        "height": 43.553
-      }
-    },
-    "bag.closeButton": {
-      "id": "bag.closeButton",
-      "label": "关闭按钮",
-      "selector": "[data-ui-id='bag.closeButton']",
-      "sourceHint": {
-        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
-        "component": "renderPetBox",
-        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
-      },
-      "transform": {
-        "x": 0,
-        "y": 0,
-        "scaleX": 1,
-        "scaleY": 1,
-        "origin": "center center"
-      },
-      "deleted": false,
-      "boundsBefore": {
-        "x": 1816.788,
-        "y": 147.035,
-        "width": 70.515,
-        "height": 70.515
-      },
-      "boundsAfter": {
-        "x": 1816.788,
-        "y": 147.035,
-        "width": 70.515,
-        "height": 70.515
+        "x": 928.481,
+        "y": 1055.267,
+        "width": 123.511,
+        "height": 46.317
       }
     },
     "bag.detail.action.feed": {
@@ -304,16 +274,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1391.626,
-        "y": 1082.391,
-        "width": 238.505,
-        "height": 62.219
+        "x": 1711.874,
+        "y": 1136.889,
+        "width": 262.37,
+        "height": 68.444
       },
       "boundsAfter": {
-        "x": 1391.626,
-        "y": 1082.391,
-        "width": 238.505,
-        "height": 62.219
+        "x": 1696.928,
+        "y": 1101.583,
+        "width": 253.639,
+        "height": 66.167
       }
     },
     "bag.detail.action.growth": {
@@ -334,16 +304,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1729.681,
-        "y": 1082.391,
-        "width": 219.84,
-        "height": 62.219
+        "x": 2083.756,
+        "y": 1136.889,
+        "width": 241.837,
+        "height": 68.444
       },
       "boundsAfter": {
-        "x": 1729.681,
-        "y": 1082.391,
-        "width": 219.84,
-        "height": 62.219
+        "x": 2056.433,
+        "y": 1101.583,
+        "width": 233.789,
+        "height": 66.167
       }
     },
     "bag.detail.bloodline": {
@@ -364,16 +334,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1767.013,
-        "y": 302.582,
-        "width": 122.364,
-        "height": 39.405
+        "x": 2124.822,
+        "y": 317.837,
+        "width": 134.607,
+        "height": 43.348
       },
       "boundsAfter": {
-        "x": 1767.013,
-        "y": 302.582,
-        "width": 122.364,
-        "height": 39.405
+        "x": 2096.133,
+        "y": 309.789,
+        "width": 130.128,
+        "height": 41.906
       }
     },
     "bag.detail.bloodline.icon": {
@@ -386,24 +356,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 27.966,
-        "y": -19.287,
+        "x": 0,
+        "y": -34,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1767.013,
-        "y": 304.656,
-        "width": 35.257,
-        "height": 35.257
+        "x": 2156.709,
+        "y": 298.124,
+        "width": 38.785,
+        "height": 38.785
       },
       "boundsAfter": {
-        "x": 1796.013,
-        "y": 284.656,
-        "width": 35.257,
-        "height": 35.257
+        "x": 2126.959,
+        "y": 253.237,
+        "width": 37.494,
+        "height": 37.494
       }
     },
     "bag.detail.bloodline.label": {
@@ -416,54 +386,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 25.073,
-        "y": -21.215,
+        "x": 0,
+        "y": -33,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1808.492,
-        "y": 302.582,
-        "width": 68.441,
-        "height": 39.405
+        "x": 2199.042,
+        "y": 293.65,
+        "width": 75.289,
+        "height": 43.348
       },
       "boundsAfter": {
-        "x": 1834.492,
-        "y": 280.583,
-        "width": 68.441,
-        "height": 39.405
-      }
-    },
-    "bag.detail.elementIcon": {
-      "id": "bag.detail.elementIcon",
-      "label": "精灵属性图标",
-      "selector": "[data-ui-id='bag.detail.elementIcon']",
-      "sourceHint": {
-        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
-        "component": "renderPetDetail",
-        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
-      },
-      "transform": {
-        "x": 6.751,
-        "y": 7.715,
-        "scaleX": 1,
-        "scaleY": 1,
-        "origin": "center center"
-      },
-      "deleted": true,
-      "boundsBefore": {
-        "x": 1353.517,
-        "y": 239.586,
-        "width": 35.257,
-        "height": 35.257
-      },
-      "boundsAfter": {
-        "x": 1360.518,
-        "y": 247.586,
-        "width": 35.257,
-        "height": 35.257
+        "x": 2167.883,
+        "y": 250.015,
+        "width": 72.783,
+        "height": 41.906
       }
     },
     "bag.detail.expBar.bg": {
@@ -484,16 +424,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1387.478,
-        "y": 361.69,
-        "width": 501.898,
-        "height": 29.035
+        "x": 1707.311,
+        "y": 344.074,
+        "width": 552.119,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1387.478,
-        "y": 361.69,
-        "width": 501.898,
-        "height": 29.035
+        "x": 1692.517,
+        "y": 335.153,
+        "width": 533.744,
+        "height": 30.878
       }
     },
     "bag.detail.expText": {
@@ -506,24 +446,84 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -22.18,
-        "y": -1.929,
-        "scaleX": 0.794,
-        "scaleY": 0.794,
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1831.305,
-        "y": 333.692,
-        "width": 82.958,
-        "height": 26.961
+        "x": 2179.631,
+        "y": 314.112,
+        "width": 72.455,
+        "height": 23.546
       },
       "boundsAfter": {
-        "x": 1816.85,
-        "y": 334.468,
-        "width": 65.869,
-        "height": 21.407
+        "x": 2149.118,
+        "y": 306.188,
+        "width": 70.044,
+        "height": 22.762
+      }
+    },
+    "bag.detail.gender": {
+      "id": "bag.detail.gender",
+      "label": "精灵性别",
+      "selector": "[data-ui-id='bag.detail.gender']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1852.185,
+        "y": 211.748,
+        "width": 36.504,
+        "height": 36.504
+      },
+      "boundsAfter": {
+        "x": 1832.569,
+        "y": 207.231,
+        "width": 35.289,
+        "height": 35.289
+      }
+    },
+    "bag.detail.ivButton": {
+      "id": "bag.detail.ivButton",
+      "label": "个体值说明按钮",
+      "selector": "[data-ui-id='bag.detail.ivButton']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1668.882,
+        "y": 422.447,
+        "width": 216.741,
+        "height": 55.896
+      },
+      "boundsAfter": {
+        "x": 1655.367,
+        "y": 410.917,
+        "width": 209.528,
+        "height": 54.036
       }
     },
     "bag.detail.ivButton.bg": {
@@ -537,28 +537,28 @@
       },
       "transform": {
         "x": 0,
-        "y": 0.964,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1384.367,
-        "y": 437.39,
-        "width": 197.026,
-        "height": 50.812
+        "x": 1658.705,
+        "y": 419.826,
+        "width": 237.114,
+        "height": 61.137
       },
       "boundsAfter": {
-        "x": 1384.367,
-        "y": 438.389,
-        "width": 197.026,
-        "height": 50.812
+        "x": 1645.528,
+        "y": 408.384,
+        "width": 229.223,
+        "height": 59.102
       }
     },
     "bag.detail.ivButton.help": {
       "id": "bag.detail.ivButton.help",
-      "label": "个体值说明按钮",
+      "label": "个体值说明",
       "selector": "[data-ui-id='bag.detail.ivButton.help']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -566,24 +566,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -52.074,
-        "y": 0.964,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1586.578,
-        "y": 445.685,
-        "width": 31.109,
-        "height": 31.109
+        "x": 1849.886,
+        "y": 436.545,
+        "width": 28.251,
+        "height": 28.251
       },
       "boundsAfter": {
-        "x": 1532.578,
-        "y": 446.685,
-        "width": 31.109,
-        "height": 31.109
+        "x": 1830.347,
+        "y": 424.547,
+        "width": 27.311,
+        "height": 27.311
       }
     },
     "bag.detail.ivButton.text": {
@@ -596,24 +596,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -2.893,
-        "y": 4.822,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1406.144,
-        "y": 444.648,
-        "width": 165.917,
-        "height": 31.109
+        "x": 1694.727,
+        "y": 433.979,
+        "width": 170.095,
+        "height": 31.887
       },
       "boundsAfter": {
-        "x": 1403.144,
-        "y": 449.649,
-        "width": 165.917,
-        "height": 31.109
+        "x": 1680.352,
+        "y": 422.065,
+        "width": 164.434,
+        "height": 30.826
       }
     },
     "bag.detail.level": {
@@ -626,24 +626,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -88.719,
-        "y": 24.108,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1389.552,
-        "y": 333.692,
-        "width": 136.881,
-        "height": 37.331
+        "x": 1608.37,
+        "y": 340.759,
+        "width": 150.578,
+        "height": 41.067
       },
       "boundsAfter": {
-        "x": 1297.552,
-        "y": 358.691,
-        "width": 136.881,
-        "height": 37.331
+        "x": 1596.868,
+        "y": 331.948,
+        "width": 145.567,
+        "height": 39.7
       }
     },
     "bag.detail.name": {
@@ -664,16 +664,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1408.218,
-        "y": 234.142,
-        "width": 311.094,
-        "height": 45.627
+        "x": 1730.126,
+        "y": 203.763,
+        "width": 342.222,
+        "height": 50.193
       },
       "boundsAfter": {
-        "x": 1408.218,
-        "y": 234.142,
-        "width": 311.094,
-        "height": 45.627
+        "x": 1714.572,
+        "y": 199.511,
+        "width": 330.833,
+        "height": 48.522
       }
     },
     "bag.detail.nature.name": {
@@ -686,24 +686,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 57.861,
-        "y": 40.502,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1491.176,
-        "y": 881.217,
-        "width": 191.841,
-        "height": 47.701
+        "x": 1887.388,
+        "y": 961.785,
+        "width": 211.037,
+        "height": 52.474
       },
       "boundsAfter": {
-        "x": 1551.177,
-        "y": 923.216,
-        "width": 191.841,
-        "height": 47.701
+        "x": 1866.6,
+        "y": 932.307,
+        "width": 204.014,
+        "height": 50.728
       }
     },
     "bag.detail.nature.pillBg": {
@@ -716,24 +716,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 60.754,
-        "y": 41.467,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1491.176,
-        "y": 881.217,
-        "width": 191.841,
-        "height": 47.701
+        "x": 1890.685,
+        "y": 962.872,
+        "width": 211.037,
+        "height": 52.474
       },
       "boundsAfter": {
-        "x": 1554.177,
-        "y": 924.217,
-        "width": 191.841,
-        "height": 47.701
+        "x": 1869.788,
+        "y": 933.358,
+        "width": 204.014,
+        "height": 50.728
       }
     },
     "bag.detail.panelBg": {
@@ -746,7 +746,7 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 0.964,
+        "x": 0,
         "y": 0,
         "scaleX": 1,
         "scaleY": 1,
@@ -754,16 +754,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1162.405,
-        "y": 118,
-        "width": 829.583,
-        "height": 1119.938
+        "x": 1460.822,
+        "y": 76,
+        "width": 912.593,
+        "height": 1232
       },
       "boundsAfter": {
-        "x": 1163.405,
-        "y": 118,
-        "width": 829.583,
-        "height": 1119.938
+        "x": 1454.23,
+        "y": 76,
+        "width": 882.222,
+        "height": 1191
       }
     },
     "bag.detail.radar.base": {
@@ -784,16 +784,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1472.51,
-        "y": 501.682,
-        "width": 342.203,
-        "height": 342.203
+        "x": 1800.852,
+        "y": 498.074,
+        "width": 376.444,
+        "height": 376.444
       },
       "boundsAfter": {
-        "x": 1472.51,
-        "y": 501.682,
-        "width": 342.203,
-        "height": 342.203
+        "x": 1782.944,
+        "y": 484.028,
+        "width": 363.917,
+        "height": 363.917
       }
     },
     "bag.detail.radar.fill": {
@@ -814,21 +814,21 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1472.51,
-        "y": 501.682,
-        "width": 342.203,
-        "height": 342.203
+        "x": 1800.852,
+        "y": 498.074,
+        "width": 376.444,
+        "height": 376.444
       },
       "boundsAfter": {
-        "x": 1472.51,
-        "y": 501.682,
-        "width": 342.203,
-        "height": 342.203
+        "x": 1782.944,
+        "y": 484.028,
+        "width": 363.917,
+        "height": 363.917
       }
     },
     "bag.detail.star.0": {
       "id": "bag.detail.star.0",
-      "label": "星级 1",
+      "label": "觉醒等级 1",
       "selector": "[data-ui-id='bag.detail.star.0']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -844,21 +844,21 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1408.218,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1730.126,
+        "y": 265.363,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1408.218,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1714.572,
+        "y": 259.061,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.star.1": {
       "id": "bag.detail.star.1",
-      "label": "星级 2",
+      "label": "觉醒等级 2",
       "selector": "[data-ui-id='bag.detail.star.1']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -874,21 +874,21 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1441.401,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1766.63,
+        "y": 265.363,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1441.401,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1749.861,
+        "y": 259.061,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.star.2": {
       "id": "bag.detail.star.2",
-      "label": "星级 3",
+      "label": "觉醒等级 3",
       "selector": "[data-ui-id='bag.detail.star.2']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -904,21 +904,21 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1474.584,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1803.133,
+        "y": 265.363,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1474.584,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1785.15,
+        "y": 259.061,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.star.3": {
       "id": "bag.detail.star.3",
-      "label": "星级 4",
+      "label": "觉醒等级 4",
       "selector": "[data-ui-id='bag.detail.star.3']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -934,21 +934,21 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1507.768,
-        "y": 290.139,
-        "width": 29.036,
-        "height": 29.035
+        "x": 1839.637,
+        "y": 265.363,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1507.768,
-        "y": 290.139,
-        "width": 29.036,
-        "height": 29.035
+        "x": 1820.439,
+        "y": 259.061,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.star.4": {
       "id": "bag.detail.star.4",
-      "label": "星级 5",
+      "label": "觉醒等级 5",
       "selector": "[data-ui-id='bag.detail.star.4']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -964,46 +964,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1540.951,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1876.141,
+        "y": 265.363,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1540.951,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
-      }
-    },
-    "bag.detail.star.5": {
-      "id": "bag.detail.star.5",
-      "label": "星级 6",
-      "selector": "[data-ui-id='bag.detail.star.5']",
-      "sourceHint": {
-        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
-        "component": "renderPetDetail",
-        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
-      },
-      "transform": {
-        "x": 0,
-        "y": 0,
-        "scaleX": 1,
-        "scaleY": 1,
-        "origin": "center center"
-      },
-      "deleted": true,
-      "boundsBefore": {
-        "x": 1574.134,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
-      },
-      "boundsAfter": {
-        "x": 1574.134,
-        "y": 290.139,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1855.728,
+        "y": 259.061,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.stat.attack.icon": {
@@ -1016,24 +986,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 9.643,
-        "y": 42.431,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1408.218,
-        "y": 534.866,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1741.123,
+        "y": 582.97,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1418.217,
-        "y": 578.866,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1725.204,
+        "y": 566.099,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.stat.attack.value": {
@@ -1046,24 +1016,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 12.536,
-        "y": 44.36,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1439.327,
-        "y": 534.866,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1778.643,
+        "y": 585.18,
+        "width": 59.318,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1452.327,
-        "y": 580.866,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1761.475,
+        "y": 568.235,
+        "width": 57.344,
+        "height": 30.878
       }
     },
     "bag.detail.stat.defense.icon": {
@@ -1076,24 +1046,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 32.788,
-        "y": 10.608,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1408.218,
-        "y": 736.04,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1767.521,
+        "y": 767.966,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1442.218,
-        "y": 747.04,
-        "width": 29.036,
-        "height": 29.035
+        "x": 1750.723,
+        "y": 744.938,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.stat.defense.value": {
@@ -1106,24 +1076,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 25.073,
-        "y": 11.572,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1439.327,
-        "y": 736.04,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1792.938,
+        "y": 769.071,
+        "width": 59.318,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1465.327,
-        "y": 748.04,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1775.294,
+        "y": 746.006,
+        "width": 57.344,
+        "height": 30.878
       }
     },
     "bag.detail.stat.hp.icon": {
@@ -1136,24 +1106,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -6.75,
-        "y": 54.003,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1615.614,
-        "y": 431.168,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1950.574,
+        "y": 482.104,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1608.614,
-        "y": 487.168,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1927.684,
+        "y": 468.589,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.stat.hp.value": {
@@ -1166,24 +1136,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -14.465,
-        "y": 53.039,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1646.723,
-        "y": 431.168,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1975.991,
+        "y": 480.999,
+        "width": 59.318,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1631.723,
-        "y": 486.168,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1952.255,
+        "y": 467.521,
+        "width": 57.344,
+        "height": 30.878
       }
     },
     "bag.detail.stat.magicAttack.icon": {
@@ -1196,24 +1166,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -45.324,
-        "y": 41.467,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1823.009,
-        "y": 534.866,
-        "width": 29.035,
-        "height": 29.035
+        "x": 2134.715,
+        "y": 581.865,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1776.009,
-        "y": 577.866,
-        "width": 29.035,
-        "height": 29.035
+        "x": 2105.696,
+        "y": 565.03,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.stat.magicAttack.value": {
@@ -1226,24 +1196,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -54.003,
-        "y": 41.467,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1854.119,
-        "y": 534.866,
-        "width": 53.923,
-        "height": 29.035
+        "x": 2159.027,
+        "y": 581.865,
+        "width": 59.319,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1798.119,
-        "y": 577.866,
-        "width": 53.923,
-        "height": 29.035
+        "x": 2129.199,
+        "y": 565.03,
+        "width": 57.345,
+        "height": 30.878
       }
     },
     "bag.detail.stat.magicDefense.icon": {
@@ -1256,24 +1226,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -39.538,
-        "y": 2.893,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1823.009,
-        "y": 736.04,
-        "width": 29.035,
-        "height": 29.035
+        "x": 2141.31,
+        "y": 759.179,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1782.009,
-        "y": 739.04,
-        "width": 29.035,
-        "height": 29.035
+        "x": 2112.072,
+        "y": 736.443,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.stat.magicDefense.value": {
@@ -1286,24 +1256,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -49.181,
-        "y": 3.857,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1854.119,
-        "y": 736.04,
-        "width": 53.923,
-        "height": 29.035
+        "x": 2164.534,
+        "y": 760.266,
+        "width": 59.319,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1803.119,
-        "y": 740.039,
-        "width": 53.923,
-        "height": 29.035
+        "x": 2134.524,
+        "y": 737.494,
+        "width": 57.344,
+        "height": 30.878
       }
     },
     "bag.detail.stat.speed.icon": {
@@ -1316,24 +1286,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -1.929,
-        "y": 33.752,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1615.614,
-        "y": 794.11,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1956.064,
+        "y": 858.263,
+        "width": 31.941,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1613.613,
-        "y": 829.111,
-        "width": 29.035,
-        "height": 29.035
+        "x": 1932.991,
+        "y": 832.23,
+        "width": 30.878,
+        "height": 30.878
       }
     },
     "bag.detail.stat.speed.value": {
@@ -1346,24 +1316,24 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": -7.714,
-        "y": 34.717,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1646.723,
-        "y": 794.11,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1983.691,
+        "y": 859.35,
+        "width": 59.319,
+        "height": 31.941
       },
       "boundsAfter": {
-        "x": 1638.724,
-        "y": 830.111,
-        "width": 53.923,
-        "height": 29.035
+        "x": 1959.699,
+        "y": 833.281,
+        "width": 57.344,
+        "height": 30.878
       }
     },
     "bag.detail.trait.icon": {
@@ -1376,29 +1346,29 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 27.966,
-        "y": 44.36,
+        "x": 0,
+        "y": 0,
         "scaleX": 1,
         "scaleY": 1,
         "origin": "center center"
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1379.182,
-        "y": 850.107,
-        "width": 89.18,
-        "height": 89.18
+        "x": 1730.073,
+        "y": 931.966,
+        "width": 98.104,
+        "height": 98.104
       },
       "boundsAfter": {
-        "x": 1408.183,
-        "y": 896.108,
-        "width": 89.18,
-        "height": 89.18
+        "x": 1714.521,
+        "y": 903.48,
+        "width": 94.839,
+        "height": 94.839
       }
     },
     "bag.detail.type.1": {
       "id": "bag.detail.type.1",
-      "label": "属性1光",
+      "label": "属性1地",
       "selector": "[data-ui-id='bag.detail.type.1']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -1414,21 +1384,21 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1793.974,
-        "y": 242.438,
-        "width": 95.402,
-        "height": 39.405
+        "x": 2154.481,
+        "y": 212.889,
+        "width": 104.948,
+        "height": 43.348
       },
       "boundsAfter": {
-        "x": 1793.974,
-        "y": 242.438,
-        "width": 95.402,
-        "height": 39.405
+        "x": 2124.805,
+        "y": 208.333,
+        "width": 101.456,
+        "height": 41.906
       }
     },
     "bag.detail.type.1.icon": {
       "id": "bag.detail.type.1.icon",
-      "label": "属性1光图标",
+      "label": "属性1地图标",
       "selector": "[data-ui-id='bag.detail.type.1.icon']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -1436,7 +1406,7 @@
         "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
       },
       "transform": {
-        "x": 0,
+        "x": -87,
         "y": 0,
         "scaleX": 1,
         "scaleY": 1,
@@ -1444,22 +1414,52 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1793.974,
-        "y": 244.511,
-        "width": 35.257,
-        "height": 35.257
+        "x": 2154.481,
+        "y": 215.17,
+        "width": 38.785,
+        "height": 38.785
       },
       "boundsAfter": {
-        "x": 1793.974,
-        "y": 244.511,
-        "width": 35.257,
-        "height": 35.257
+        "x": 2028.864,
+        "y": 210.539,
+        "width": 37.495,
+        "height": 37.494
       }
     },
     "bag.detail.type.1.label": {
       "id": "bag.detail.type.1.label",
-      "label": "属性1光名称",
+      "label": "属性1地名称",
       "selector": "[data-ui-id='bag.detail.type.1.label']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -88,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 2200.111,
+        "y": 212.889,
+        "width": 52.474,
+        "height": 43.348
+      },
+      "boundsAfter": {
+        "x": 2071.872,
+        "y": 208.333,
+        "width": 50.728,
+        "height": 41.906
+      }
+    },
+    "bag.detail.type.2": {
+      "id": "bag.detail.type.2",
+      "label": "属性2恶",
+      "selector": "[data-ui-id='bag.detail.type.2']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
         "component": "renderPetDetail",
@@ -1474,16 +1474,76 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1835.453,
-        "y": 242.438,
-        "width": 47.701,
-        "height": 39.405
+        "x": 2154.481,
+        "y": 265.363,
+        "width": 104.948,
+        "height": 43.348
       },
       "boundsAfter": {
-        "x": 1835.453,
-        "y": 242.438,
-        "width": 47.701,
-        "height": 39.405
+        "x": 2124.805,
+        "y": 259.061,
+        "width": 101.456,
+        "height": 41.906
+      }
+    },
+    "bag.detail.type.2.icon": {
+      "id": "bag.detail.type.2.icon",
+      "label": "属性2恶图标",
+      "selector": "[data-ui-id='bag.detail.type.2.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": -46,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 2154.481,
+        "y": 267.644,
+        "width": 38.785,
+        "height": 38.785
+      },
+      "boundsAfter": {
+        "x": 2124.805,
+        "y": 210.539,
+        "width": 37.494,
+        "height": 37.494
+      }
+    },
+    "bag.detail.type.2.label": {
+      "id": "bag.detail.type.2.label",
+      "label": "属性2恶名称",
+      "selector": "[data-ui-id='bag.detail.type.2.label']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": -46,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 2200.111,
+        "y": 265.363,
+        "width": 52.474,
+        "height": 43.348
+      },
+      "boundsAfter": {
+        "x": 2168.917,
+        "y": 208.333,
+        "width": 50.728,
+        "height": 41.906
       }
     },
     "bag.detailPanel": {
@@ -1504,16 +1564,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 1161.417,
-        "y": 118,
-        "width": 829.583,
-        "height": 1119.938
+        "x": 1458.63,
+        "y": 76,
+        "width": 912.593,
+        "height": 1232
       },
       "boundsAfter": {
-        "x": 1161.417,
-        "y": 118,
-        "width": 829.583,
-        "height": 1119.938
+        "x": 1452.111,
+        "y": 76,
+        "width": 882.222,
+        "height": 1191
       }
     },
     "bag.filterButton": {
@@ -1534,16 +1594,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 311.094,
-        "y": 1030.542,
-        "width": 66.367,
-        "height": 66.367
+        "x": 523.222,
+        "y": 1079.852,
+        "width": 73.007,
+        "height": 73.007
       },
       "boundsAfter": {
-        "x": 311.094,
-        "y": 1030.542,
-        "width": 66.367,
-        "height": 66.367
+        "x": 547.833,
+        "y": 1046.444,
+        "width": 70.578,
+        "height": 70.578
       }
     },
     "bag.leftCategoryBar": {
@@ -1564,16 +1624,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 126.511,
-        "y": 293.249,
-        "width": 126.511,
-        "height": 769.438
+        "x": 320.17,
+        "y": 268.785,
+        "width": 139.17,
+        "height": 846.43
       },
       "boundsAfter": {
-        "x": 126.511,
-        "y": 293.249,
-        "width": 126.511,
-        "height": 769.438
+        "x": 351.539,
+        "y": 262.369,
+        "width": 134.539,
+        "height": 818.261
       }
     },
     "bag.leftCategoryBar.tab.0": {
@@ -1594,16 +1654,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 142.066,
-        "y": 334.729,
-        "width": 95.402,
-        "height": 95.402
+        "x": 337.281,
+        "y": 314.415,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 142.066,
-        "y": 334.729,
-        "width": 95.402,
-        "height": 95.402
+        "x": 368.081,
+        "y": 306.481,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.leftCategoryBar.tab.1": {
@@ -1624,16 +1684,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 142.066,
-        "y": 440.501,
-        "width": 95.402,
-        "height": 95.402
+        "x": 337.281,
+        "y": 430.77,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 142.066,
-        "y": 440.501,
-        "width": 95.402,
-        "height": 95.402
+        "x": 368.081,
+        "y": 418.964,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.leftCategoryBar.tab.2": {
@@ -1654,16 +1714,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 142.066,
-        "y": 546.272,
-        "width": 95.402,
-        "height": 95.402
+        "x": 337.281,
+        "y": 547.126,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 142.066,
-        "y": 546.272,
-        "width": 95.402,
-        "height": 95.402
+        "x": 368.081,
+        "y": 531.447,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.leftCategoryBar.tab.3": {
@@ -1684,16 +1744,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 142.066,
-        "y": 652.044,
-        "width": 95.402,
-        "height": 95.402
+        "x": 337.281,
+        "y": 663.482,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 142.066,
-        "y": 652.044,
-        "width": 95.402,
-        "height": 95.402
+        "x": 368.081,
+        "y": 643.931,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.leftCategoryBar.tab.4": {
@@ -1714,16 +1774,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 142.066,
-        "y": 757.816,
-        "width": 95.402,
-        "height": 95.402
+        "x": 337.281,
+        "y": 779.837,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 142.066,
-        "y": 757.816,
-        "width": 95.402,
-        "height": 95.402
+        "x": 368.081,
+        "y": 756.414,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.leftCategoryBar.tab.5": {
@@ -1744,16 +1804,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 142.066,
-        "y": 863.588,
-        "width": 95.402,
-        "height": 95.402
+        "x": 337.281,
+        "y": 896.193,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 142.066,
-        "y": 863.588,
-        "width": 95.402,
-        "height": 95.402
+        "x": 368.081,
+        "y": 868.897,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.0": {
@@ -1774,16 +1834,106 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 330.796,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 544.896,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 330.796,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 568.786,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.0.base": {
+      "id": "bag.petCard.0.base",
+      "label": "精灵槽位底图",
+      "selector": "[data-ui-id='bag.petCard.0.base']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 544.896,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 568.786,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.0.level": {
+      "id": "bag.petCard.0.level",
+      "label": "精灵等级",
+      "selector": "[data-ui-id='bag.petCard.0.level']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 615.622,
+        "y": 381.719,
+        "width": 31.941,
+        "height": 25.096
+      },
+      "boundsAfter": {
+        "x": 637.158,
+        "y": 371.544,
+        "width": 30.878,
+        "height": 24.261
+      }
+    },
+    "bag.petCard.0.selected": {
+      "id": "bag.petCard.0.selected",
+      "label": "选中精灵",
+      "selector": "[data-ui-id='bag.petCard.0.selected']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 544.896,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 568.786,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.1": {
@@ -1804,16 +1954,106 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 463.53,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 690.911,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 463.53,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 709.942,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.1.base": {
+      "id": "bag.petCard.1.base",
+      "label": "精灵槽位底图",
+      "selector": "[data-ui-id='bag.petCard.1.base']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 690.911,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 709.942,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.1.level": {
+      "id": "bag.petCard.1.level",
+      "label": "精灵等级",
+      "selector": "[data-ui-id='bag.petCard.1.level']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 761.637,
+        "y": 381.719,
+        "width": 31.941,
+        "height": 25.096
+      },
+      "boundsAfter": {
+        "x": 778.314,
+        "y": 371.544,
+        "width": 30.878,
+        "height": 24.261
+      }
+    },
+    "bag.petCard.1.selected": {
+      "id": "bag.petCard.1.selected",
+      "label": "选中精灵",
+      "selector": "[data-ui-id='bag.petCard.1.selected']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 690.911,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 709.942,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.10": {
@@ -1834,16 +2074,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 861.73,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1128.956,
+        "y": 454.726,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 861.73,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1133.408,
+        "y": 442.122,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.11": {
@@ -1864,16 +2104,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 994.463,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.97,
+        "y": 454.726,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 994.463,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.564,
+        "y": 442.122,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.12": {
@@ -1894,16 +2134,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 330.796,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 544.896,
+        "y": 597.319,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 330.796,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 568.786,
+        "y": 579.969,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.13": {
@@ -1924,16 +2164,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 463.53,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 690.911,
+        "y": 597.319,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 463.53,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 709.942,
+        "y": 579.969,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.14": {
@@ -1954,16 +2194,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 596.263,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 836.926,
+        "y": 597.319,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 596.263,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 851.097,
+        "y": 579.969,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.15": {
@@ -1984,16 +2224,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 728.996,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 982.941,
+        "y": 597.319,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 728.996,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 992.253,
+        "y": 579.969,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.16": {
@@ -2014,16 +2254,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 861.73,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1128.956,
+        "y": 597.319,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 861.73,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1133.408,
+        "y": 579.969,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.17": {
@@ -2044,16 +2284,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 994.463,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.97,
+        "y": 597.319,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 994.463,
-        "y": 591.9,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.564,
+        "y": 579.969,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.18": {
@@ -2074,16 +2314,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 330.796,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 544.896,
+        "y": 739.911,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 330.796,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 568.786,
+        "y": 717.817,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.19": {
@@ -2104,16 +2344,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 463.53,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 690.911,
+        "y": 739.911,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 463.53,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 709.942,
+        "y": 717.817,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.2": {
@@ -2134,16 +2374,106 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 596.263,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 836.926,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 596.263,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 851.097,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.2.base": {
+      "id": "bag.petCard.2.base",
+      "label": "精灵槽位底图",
+      "selector": "[data-ui-id='bag.petCard.2.base']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 836.926,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 851.097,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.2.level": {
+      "id": "bag.petCard.2.level",
+      "label": "精灵等级",
+      "selector": "[data-ui-id='bag.petCard.2.level']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 907.652,
+        "y": 381.719,
+        "width": 31.941,
+        "height": 25.096
+      },
+      "boundsAfter": {
+        "x": 919.469,
+        "y": 371.544,
+        "width": 30.878,
+        "height": 24.261
+      }
+    },
+    "bag.petCard.2.selected": {
+      "id": "bag.petCard.2.selected",
+      "label": "选中精灵",
+      "selector": "[data-ui-id='bag.petCard.2.selected']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 836.926,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 851.097,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.20": {
@@ -2164,16 +2494,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 596.263,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 836.926,
+        "y": 739.911,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 596.263,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 851.097,
+        "y": 717.817,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.21": {
@@ -2194,16 +2524,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 728.996,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 982.941,
+        "y": 739.911,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 728.996,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 992.253,
+        "y": 717.817,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.22": {
@@ -2224,16 +2554,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 861.73,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1128.956,
+        "y": 739.911,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 861.73,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1133.408,
+        "y": 717.817,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.23": {
@@ -2254,16 +2584,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 994.463,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.97,
+        "y": 739.911,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 994.463,
-        "y": 721.522,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.564,
+        "y": 717.817,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.24": {
@@ -2284,16 +2614,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 330.796,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 544.896,
+        "y": 882.504,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 330.796,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 568.786,
+        "y": 855.664,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.25": {
@@ -2314,16 +2644,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 463.53,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 690.911,
+        "y": 882.504,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 463.53,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 709.942,
+        "y": 855.664,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.26": {
@@ -2344,16 +2674,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 596.263,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 836.926,
+        "y": 882.504,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 596.263,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 851.097,
+        "y": 855.664,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.27": {
@@ -2374,16 +2704,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 728.996,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 982.941,
+        "y": 882.504,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 728.996,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 992.253,
+        "y": 855.664,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.28": {
@@ -2404,16 +2734,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 861.73,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1128.956,
+        "y": 882.504,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 861.73,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1133.408,
+        "y": 855.664,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.29": {
@@ -2434,16 +2764,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 994.463,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.97,
+        "y": 882.504,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 994.463,
-        "y": 851.144,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.564,
+        "y": 855.664,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.3": {
@@ -2464,21 +2794,111 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 728.996,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 982.941,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 728.996,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 992.253,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.3.base": {
+      "id": "bag.petCard.3.base",
+      "label": "精灵槽位底图",
+      "selector": "[data-ui-id='bag.petCard.3.base']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 982.941,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 992.253,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.3.level": {
+      "id": "bag.petCard.3.level",
+      "label": "精灵等级",
+      "selector": "[data-ui-id='bag.petCard.3.level']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1053.667,
+        "y": 381.719,
+        "width": 31.941,
+        "height": 25.096
+      },
+      "boundsAfter": {
+        "x": 1060.625,
+        "y": 371.544,
+        "width": 30.878,
+        "height": 24.261
+      }
+    },
+    "bag.petCard.3.selected": {
+      "id": "bag.petCard.3.selected",
+      "label": "选中精灵",
+      "selector": "[data-ui-id='bag.petCard.3.selected']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 982.941,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 992.253,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.4": {
       "id": "bag.petCard.4",
-      "label": "空精灵槽位 5",
+      "label": "罗隐",
       "selector": "[data-ui-id='bag.petCard.4']",
       "sourceHint": {
         "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
@@ -2494,16 +2914,106 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 861.73,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1128.956,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 861.73,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1133.408,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.4.base": {
+      "id": "bag.petCard.4.base",
+      "label": "精灵槽位底图",
+      "selector": "[data-ui-id='bag.petCard.4.base']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1128.956,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 1133.408,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
+      }
+    },
+    "bag.petCard.4.level": {
+      "id": "bag.petCard.4.level",
+      "label": "精灵等级",
+      "selector": "[data-ui-id='bag.petCard.4.level']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1199.682,
+        "y": 381.719,
+        "width": 31.941,
+        "height": 25.096
+      },
+      "boundsAfter": {
+        "x": 1201.781,
+        "y": 371.544,
+        "width": 30.878,
+        "height": 24.261
+      }
+    },
+    "bag.petCard.4.selected": {
+      "id": "bag.petCard.4.selected",
+      "label": "选中精灵",
+      "selector": "[data-ui-id='bag.petCard.4.selected']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1128.956,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
+      },
+      "boundsAfter": {
+        "x": 1133.408,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.5": {
@@ -2524,16 +3034,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 994.463,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.97,
+        "y": 312.133,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 994.463,
-        "y": 332.655,
-        "width": 95.402,
-        "height": 95.402
+        "x": 1274.564,
+        "y": 304.275,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.6": {
@@ -2554,16 +3064,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 330.796,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 544.896,
+        "y": 454.726,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 330.796,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 568.786,
+        "y": 442.122,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.7": {
@@ -2584,16 +3094,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 463.53,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 690.911,
+        "y": 454.726,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 463.53,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 709.942,
+        "y": 442.122,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.8": {
@@ -2614,16 +3124,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 596.263,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 836.926,
+        "y": 454.726,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 596.263,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 851.097,
+        "y": 442.122,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petCard.9": {
@@ -2644,16 +3154,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 728.996,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 982.941,
+        "y": 454.726,
+        "width": 104.948,
+        "height": 104.948
       },
       "boundsAfter": {
-        "x": 728.996,
-        "y": 462.277,
-        "width": 95.402,
-        "height": 95.402
+        "x": 992.253,
+        "y": 442.122,
+        "width": 101.456,
+        "height": 101.456
       }
     },
     "bag.petGrid": {
@@ -2674,16 +3184,16 @@
       },
       "deleted": false,
       "boundsBefore": {
-        "x": 330.796,
-        "y": 332.655,
-        "width": 759.069,
-        "height": 613.892
+        "x": 544.896,
+        "y": 312.133,
+        "width": 835.022,
+        "height": 675.318
       },
       "boundsAfter": {
-        "x": 330.796,
-        "y": 332.655,
-        "width": 759.069,
-        "height": 613.892
+        "x": 568.786,
+        "y": 304.275,
+        "width": 807.233,
+        "height": 652.844
       }
     },
     "bag.root": {
@@ -2706,14 +3216,14 @@
       "boundsBefore": {
         "x": 0,
         "y": 76,
-        "width": 1991,
-        "height": 1204
+        "width": 2552,
+        "height": 1232
       },
       "boundsAfter": {
         "x": 0,
         "y": 76,
-        "width": 1991,
-        "height": 1204
+        "width": 2552,
+        "height": 1191
       }
     },
     "nav.brand": {
@@ -2946,13 +3456,13 @@
       "boundsBefore": {
         "x": 0,
         "y": 0,
-        "width": 1991,
+        "width": 2552,
         "height": 58.188
       },
       "boundsAfter": {
         "x": 0,
         "y": 0,
-        "width": 1991,
+        "width": 2552,
         "height": 58.188
       }
     }

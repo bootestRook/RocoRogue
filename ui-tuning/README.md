@@ -7,10 +7,12 @@
 它会启动与 `run.bat` 相同的 `rocorogue-public` webapp，但使用独立端口：
 
 - 默认从 `4174` 开始查找可用端口
-- 自动打开 `http://127.0.0.1:4174/?uiTune=1#/mechanics?view=pet-box`
+- 自动打开 `http://127.0.0.1:4174/?v=1&uiTune=1#/mechanics?view=pet-box`
 - 设置 `ROCO_UI_TUNER=1` 和 `VITE_ROCO_UI_TUNER=1`
 
 `run.bat` 不会加载 UI 调节器，不会读取调节草稿，也不会应用导出的布局。
+
+默认 `uiTune=1` 只加载调节器，不会自动套用浏览器里保存过的旧草稿布局。需要恢复旧草稿时，在 URL 里额外加 `uiTuneRestore=1`。
 
 ## 快捷键
 

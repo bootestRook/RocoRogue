@@ -114,8 +114,8 @@ function injectUiTuner(html) {
 
   const injection = [
     `<script>window.__ROCO_UI_TUNER__=${payload};</script>`,
-    `<link rel="stylesheet" href="/assets/ui-tuner/ui-tuner.css?v=20260527-1">`,
-    `<script type="module" src="/assets/ui-tuner/ui-tuner.js?v=20260527-1"></script>`,
+    `<link rel="stylesheet" href="/assets/ui-tuner/ui-tuner.css?v=20260527-2">`,
+    `<script type="module" src="/assets/ui-tuner/ui-tuner.js?v=20260527-2"></script>`,
   ].join("\n");
 
   return html.includes("</body>")

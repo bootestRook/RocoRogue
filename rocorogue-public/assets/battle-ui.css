@@ -250,17 +250,9 @@ body[data-roco-route="battle"] .spirit-info .lv {
 
 body[data-roco-route="battle"] .roco-gender {
   flex: 0 0 auto;
-  font-size: clamp(23px, 1.65vw, 31px);
-  line-height: 1;
-  font-weight: 900;
-}
-
-body[data-roco-route="battle"] .roco-gender.male {
-  color: #4ea5ff;
-}
-
-body[data-roco-route="battle"] .roco-gender.female {
-  color: #ff6aa6;
+  width: clamp(23px, 1.65vw, 31px);
+  height: clamp(23px, 1.65vw, 31px);
+  object-fit: contain;
 }
 
 body[data-roco-route="battle"] .spirit-info .mana-row,
@@ -770,11 +762,9 @@ body[data-roco-route="battle"] .move-btn .roco-move-effect {
   top: 8px;
   width: 22px;
   height: 22px;
-  border: 2px solid rgba(20, 24, 20, .9);
-  border-radius: 50%;
-  font-size: 12px;
-  line-height: 1;
-  box-shadow: 1px 1px 0 rgba(0, 0, 0, .55), inset 0 0 0 2px rgba(255, 255, 255, .22);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 body[data-roco-route="battle"] .move-btn .roco-move-effect[hidden] {
@@ -782,22 +772,11 @@ body[data-roco-route="battle"] .move-btn .roco-move-effect[hidden] {
 }
 
 body[data-roco-route="battle"] .move-btn .roco-move-effect.up {
-  background: linear-gradient(180deg, #adff73, #3dbb24);
-  color: #12350c;
+  background-image: url("/assets/ui/common/arrow_up_green.png");
 }
 
 body[data-roco-route="battle"] .move-btn .roco-move-effect.down {
-  background: linear-gradient(180deg, #ff918d, #d83d42);
-  color: #3b0809;
-}
-
-body[data-roco-route="battle"] .move-btn .move-tooltip {
-  left: 92px;
-  bottom: auto;
-  top: 0;
-  min-width: 280px;
-  border: 2px solid rgba(222, 199, 154, .78);
-  background: rgba(24, 25, 26, .96);
+  background-image: url("/assets/ui/common/arrow_down_red.png");
 }
 
 body[data-roco-route="battle"] .battle-controls .item-bar {
@@ -1173,14 +1152,9 @@ body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-effect {
   height: 20px;
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  border: 2px solid rgba(22, 38, 28, .72);
-  color: #15240f;
-  font-size: 12px;
-  line-height: 1;
-  font-weight: 1000;
-  text-shadow: none;
-  box-shadow: 1px 2px 0 rgba(0, 0, 0, .2);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   pointer-events: none;
 }
 
@@ -1189,14 +1163,12 @@ body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-effect[hidd
 }
 
 body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-effect-up {
-  background: linear-gradient(180deg, #92ff57, #39c828);
+  background-image: url("/assets/ui/common/arrow_up_green.png");
 }
 
 body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-effect-down {
   right: 1px;
-  border-color: rgba(66, 17, 17, .72);
-  color: #fff8f5;
-  background: linear-gradient(180deg, #ff7771, #d93239);
+  background-image: url("/assets/ui/common/arrow_down_red.png");
 }
 
 body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-badge {

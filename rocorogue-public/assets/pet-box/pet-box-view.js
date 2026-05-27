@@ -1,13 +1,14 @@
-import { PET_BOX_ASSETS } from "./pet-box-assets.js";
-import { PET_BOX_LAYOUT } from "./pet-box-layout.js";
-import { PET_BOX_MOCK_PETS } from "./pet-box-mock-pets.js";
+import { PET_BOX_ASSETS } from "./pet-box-assets.js?v=20260528-pet-box-99";
+import { PET_BOX_LAYOUT } from "./pet-box-layout.js?v=20260528-pet-box-98";
+import { PET_BOX_MOCK_PETS } from "./pet-box-mock-pets.js?v=20260528-pet-box-98";
+import { requiredPetExpForNextLevel } from "./pet-level-exp-spec.js?v=20260528-pet-box-01";
 
 const PET_BOX_ROUTE = "/mechanics";
 const PET_BOX_VIEW_PARAM = "pet-box";
 const PET_BOX_DEFAULT_PAGE = 1;
 const PET_BOX_PLACEHOLDER_PET_COUNT = 0;
 const PET_BOX_PETS_KEY = "rocorogue.pet-box.pets";
-const PET_BOX_PETS_VERSION = 2;
+const PET_BOX_PETS_VERSION = 9;
 const PET_BOX_MAX_LEVEL = 60;
 const PET_BOX_MAX_TALENT = 10;
 const PET_BOX_MAX_AWAKENING = 5;
@@ -18,10 +19,15 @@ const PET_BOX_RANDOM_IV_MIN_COUNT = 1;
 const PET_BOX_RANDOM_IV_MAX_COUNT = 3;
 const PET_BOX_RADAR_RADIUS = 125;
 const PET_BOX_TALENT_BAR_MAX = 500;
+const PET_BOX_COMMON_FRAME_BLACK = "/assets/ui/common/common_frame_black.png";
+const PET_BOX_COMMON_FRAME_YELLOW = "/assets/ui/common/common_frame_yellow.png";
+const PET_BOX_TYPE_BADGE_FRAME_WIDTH = 102;
+const PET_BOX_TYPE_ICON_SCALE = 1.15;
+const PET_BOX_STAT_ICON_SCALE = 1.25;
 const PET_BOX_ENGINE_STAT_KEYS = Object.freeze(["hp", "atk", "def", "spa", "spd", "spe"]);
 const PET_BOX_RADAR_STAT_ORDER = Object.freeze(["hp", "spa", "spd", "spe", "def", "atk"]);
 const PET_BOX_TALENT_STAT_ORDER = Object.freeze(["hp", "atk", "spa", "def", "spd", "spe"]);
-const PET_BOX_STARTER_SPECIES = Object.freeze(["迪莫", "火花", "水蓝蓝", "喵喵"]);
+const PET_BOX_STARTER_SPECIES = Object.freeze(["迪莫", "火花", "水蓝蓝", "喵喵", "罗隐", "画间沉铁兽"]);
 const PET_BOX_DETAIL_STAT_KEYS = Object.freeze({
   hp: "hp",
   attack: "atk",
@@ -296,7 +302,7 @@ function abilityIconAsset(abilityName) {
     warnMissingAbilityIcon(name);
     return "";
   }
-  return `/abilities/${iconFile}`;
+  return `/assets/abilities/${iconFile}`;
 }
 
 function abilityDescription(abilityName) {
@@ -310,7 +316,7 @@ function speciesHeadAsset(speciesName) {
   if (!name || !speciesAvatarMap) return "";
 
   const avatar = speciesAvatarMap[name];
-  return avatar?.head ? `/heads/${avatar.head}` : "";
+  return avatar?.head ? `/assets/heads/${avatar.head}` : "";
 }
 
 function speciesAbilityName(speciesName) {
@@ -366,17 +372,20 @@ function randomGenderValue() {
 function createStarterPetBoxPets() {
   return PET_BOX_STARTER_SPECIES.map((species, index) => {
     const ivs = randomIvStats();
+    const isHuajianChentieshou = species === "画间沉铁兽";
+    const starterIvs = isHuajianChentieshou ? ["hp", "spe", "atk"] : ivs;
+    const starterIvTiers = isHuajianChentieshou ? { hp: 10, spe: 10, atk: 10 } : randomIvTiers(starterIvs);
     return {
       id: `starter-${index + 1}`,
       species,
-      level: PET_BOX_STARTER_LEVEL,
+      level: isHuajianChentieshou ? PET_BOX_MAX_LEVEL : PET_BOX_STARTER_LEVEL,
       maxLevel: PET_BOX_MAX_LEVEL,
-      awakening: PET_BOX_STARTER_AWAKENING,
-      starLevel: 0,
+      awakening: isHuajianChentieshou ? PET_BOX_MAX_AWAKENING : PET_BOX_STARTER_AWAKENING,
+      starLevel: isHuajianChentieshou ? PET_BOX_MAX_AWAKENING : PET_BOX_STARTER_AWAKENING,
       growthStars: 0,
-      nature: randomNatureName(),
-      ivs,
-      ivTiers: randomIvTiers(ivs),
+      nature: isHuajianChentieshou ? "固执" : randomNatureName(),
+      ivs: starterIvs,
+      ivTiers: starterIvTiers,
       gender: randomGenderValue(),
       moves: [],
       bloodline: "首领",
@@ -468,6 +477,29 @@ function clampRounded(value, min, max, fallback = min) {
   return Math.max(min, Math.min(max, rounded));
 }
 
+function resolvePetExpForLevel(pet, storedPet, level) {
+  const expMax = requiredPetExpForNextLevel(level);
+  const rawExp =
+    storedPet?.exp ??
+    storedPet?.currentExp ??
+    storedPet?.experience ??
+    storedPet?.["\u7ecf\u9a8c"] ??
+    storedPet?.["\u5f53\u524d\u7ecf\u9a8c"] ??
+    pet?.exp ??
+    0;
+  const exp = Math.max(0, Math.round(normalizeNumber(rawExp, 0)));
+  return {
+    exp: expMax > 0 ? Math.min(exp, expMax) : 0,
+    expMax,
+  };
+}
+
+function awakeningStarLevel(awakening, starLevel = awakening) {
+  const normalizedAwakening = clampRounded(awakening, 0, PET_BOX_MAX_AWAKENING, 0);
+  const normalizedStarLevel = clampRounded(starLevel, 0, PET_BOX_MAX_STAR_LEVEL, normalizedAwakening);
+  return Math.max(normalizedAwakening, normalizedStarLevel);
+}
+
 function gameRound(value) {
   const floor = Math.floor(value);
   return value - floor > 0.5 ? floor + 1 : floor;
@@ -540,6 +572,34 @@ function talentTitleFor(natureName, ivs) {
   return natureUpStat && ivSet.has(natureUpStat) ? "了不起的天分" : "相当好的天分";
 }
 
+function talentLabelBgFor(talentTitle) {
+  if (talentTitle === "一般般的天分" || talentTitle === "还不错的天分") {
+    return PET_BOX_ASSETS.detailTalentLabelBgBasic;
+  }
+  if (talentTitle === "相当好的天分") return PET_BOX_ASSETS.detailTalentLabelBgQuiteGood;
+  return PET_BOX_ASSETS.detailTalentLabelBg;
+}
+
+function talentLabelBgRectFor(talentTitle, rect) {
+  if (talentTitle !== "了不起的天分") return rect;
+  const w = 200;
+  const h = 70;
+  return {
+    x: rect.x - (210 - rect.w) / 2 + 10,
+    y: rect.y - (h - rect.h) / 2,
+    w,
+    h,
+  };
+}
+
+function talentTextRectFor(talentTitle, rect) {
+  return talentTitle === "了不起的天分" ? { ...rect, x: rect.x - 4 } : rect;
+}
+
+function talentQuestionRectFor(talentTitle, rect) {
+  return talentTitle === "了不起的天分" ? { ...rect, x: rect.x + 1 } : rect;
+}
+
 function actualNatureMultiplier(natureName, statKey, starLevel = 0) {
   const effect = PET_BOX_NATURE_EFFECTS[natureName];
   if (!effect) return 1;
@@ -554,8 +614,8 @@ function actualNatureMultiplier(natureName, statKey, starLevel = 0) {
 function calculateActualStats(baseStats, options = {}) {
   if (!baseStats) return null;
   const level = Math.max(1, Math.round(normalizeNumber(options.level, PET_BOX_MAX_LEVEL)));
-  const awakening = Math.max(0, Math.round(normalizeNumber(options.awakening, 0)));
-  const starLevel = Math.max(0, Math.round(normalizeNumber(options.starLevel, 0)));
+  const awakening = clampRounded(options.awakening, 0, PET_BOX_MAX_AWAKENING, 0);
+  const starLevel = awakeningStarLevel(awakening, options.starLevel);
   const growthStars = Math.max(0, Math.round(normalizeNumber(options.growthStars, 0)));
   const ivs = normalizeIvList(options.ivs);
   const ivTiers = normalizeIvTiers(options.ivTiers);
@@ -584,7 +644,7 @@ function fullPositiveNatureMultiplier(starLevel = PET_BOX_MAX_STAR_LEVEL) {
 function calculateRadarCapStats(baseStats, options = {}) {
   const level = clampRounded(options.level, 1, PET_BOX_MAX_LEVEL, PET_BOX_MAX_LEVEL);
   const awakening = clampRounded(options.awakening, 0, PET_BOX_MAX_AWAKENING, PET_BOX_MAX_AWAKENING);
-  const starLevel = clampRounded(options.starLevel, 0, PET_BOX_MAX_STAR_LEVEL, PET_BOX_MAX_STAR_LEVEL);
+  const starLevel = awakeningStarLevel(awakening, options.starLevel);
   const growthStars = Math.max(0, Math.round(normalizeNumber(options.growthStars, 0)));
   const natureMultiplier = fullPositiveNatureMultiplier(starLevel);
   const stats = {};
@@ -611,10 +671,12 @@ function mergeStoredPetData(pet, storedPet) {
     const actualStats = engineStatsFromDetailStats(pet.stats);
     const natureName = pet.natureName || "";
     const ivs = pet.ivs || [];
+    const expInfo = resolvePetExpForLevel(pet, null, pet.level);
     return {
       ...pet,
       speciesName,
-      avatarAsset: realHeadAsset || pet.avatarAsset,
+      ...expInfo,
+      avatarAsset: realHeadAsset || "",
       gender: "",
       genderIconAsset: "",
       traitName: "",
@@ -640,8 +702,12 @@ function mergeStoredPetData(pet, storedPet) {
     "";
   const natureName = String(storedPet.nature ?? storedPet.natureName ?? storedPet["性格"] ?? "中立").trim() || "中立";
   const level = normalizeNumber(storedPet.level ?? pet.level, pet.level || PET_BOX_MAX_LEVEL);
-  const starLevel = normalizeNumber(storedPet.starLevel ?? storedPet.star ?? storedPet.stars ?? pet.starLevel, pet.starLevel || 0);
+  const expInfo = resolvePetExpForLevel(pet, storedPet, level);
   const awakening = normalizeNumber(storedPet.awakening ?? storedPet.awaken ?? storedPet["觉醒"] ?? pet.awakening, pet.awakening || 0);
+  const starLevel = awakeningStarLevel(
+    awakening,
+    storedPet.starLevel ?? storedPet.star ?? storedPet.stars ?? pet.starLevel ?? awakening,
+  );
   const growthStars = normalizeNumber(storedPet.growthStars ?? storedPet.growth ?? storedPet["成长"] ?? pet.growthStars, pet.growthStars || 0);
   const maxLevel = normalizeNumber(storedPet.maxLevel ?? storedPet.max ?? pet.maxLevel, pet.maxLevel || PET_BOX_MAX_LEVEL);
   const ivs = [...normalizeIvList(storedPet.ivs)];
@@ -679,10 +745,11 @@ function mergeStoredPetData(pet, storedPet) {
     actualStats,
     stats: detailStatsFromEngineStats(actualStats) || pet.stats,
     level,
+    ...expInfo,
     awakening,
     growthStars,
     maxLevel,
-    avatarAsset: realHeadAsset || pet.avatarAsset,
+    avatarAsset: realHeadAsset || "",
     gender: gender?.label || "",
     genderIconAsset: gender?.iconAsset || "",
     traitName: abilityName,
@@ -718,6 +785,17 @@ function rectRelativeTo(rect, parentRect) {
     y: rect.y - parentRect.y,
     w: rect.w,
     h: rect.h,
+  };
+}
+
+function scaleRectFromCenter(rect, scale) {
+  const w = rect.w * scale;
+  const h = rect.h * scale;
+  return {
+    x: rect.x + (rect.w - w) / 2,
+    y: rect.y + (rect.h - h) / 2,
+    w,
+    h,
   };
 }
 
@@ -770,6 +848,51 @@ function addText(parent, rect, text, className = "", uiMeta = null) {
   return node;
 }
 
+function measureTextWidth(node) {
+  const probe = document.createElement("span");
+  probe.className = node.className;
+  probe.textContent = node.textContent || "";
+  Object.assign(probe.style, {
+    position: "absolute",
+    left: "-10000px",
+    top: "-10000px",
+    width: "auto",
+    height: "auto",
+    visibility: "hidden",
+    display: "inline-block",
+    overflow: "visible",
+    whiteSpace: "nowrap",
+  });
+  node.parentElement?.append(probe);
+  const width = probe.offsetWidth || probe.scrollWidth || 0;
+  probe.remove();
+  return width;
+}
+
+function rectAfterText(node, textRect, iconRect, gap = 8) {
+  const textWidth = measureTextWidth(node);
+  const maxX = textRect.x + textRect.w - iconRect.w;
+  return {
+    ...iconRect,
+    x: Math.min(textRect.x + Math.ceil(textWidth) + gap, maxX),
+  };
+}
+
+function genderIconRectAfterText(node, textRect, iconRect) {
+  const scale = 0.5;
+  const w = iconRect.w * scale;
+  const h = iconRect.h * scale;
+  const textWidth = measureTextWidth(node);
+  const maxX = textRect.x + textRect.w - w;
+  return {
+    ...iconRect,
+    x: Math.min(textRect.x + Math.ceil(textWidth) + 8, maxX),
+    y: textRect.y + textRect.h - h,
+    w,
+    h,
+  };
+}
+
 function addSvgNode(parent, tagName, attributes = {}) {
   const node = document.createElementNS("http://www.w3.org/2000/svg", tagName);
   for (const [key, value] of Object.entries(attributes)) {
@@ -781,6 +904,40 @@ function addSvgNode(parent, tagName, attributes = {}) {
 
 function formatRatioText(current, max) {
   return `${current}/${max}`;
+}
+
+function levelFrameRect(levelRect) {
+  return {
+    x: levelRect.x + 6,
+    y: levelRect.y - 9,
+    w: 156,
+    h: 54,
+  };
+}
+
+function levelBadgeGroupRect(levelRect) {
+  const frame = levelFrameRect(levelRect);
+  return {
+    x: frame.x,
+    y: frame.y,
+    w: frame.w,
+    h: frame.h,
+  };
+}
+
+function addLevelRatioText(parent, rect, current, max, uiMeta = null) {
+  const node = addText(parent, { ...rect, x: rect.x + 18, w: 122 }, "", "pet-box-detail-level", uiMeta);
+  node.append(
+    Object.assign(document.createElement("span"), {
+      className: "pet-box-detail-level-current",
+      textContent: String(current),
+    }),
+    Object.assign(document.createElement("span"), {
+      className: "pet-box-detail-level-max",
+      textContent: `/${max}`,
+    })
+  );
+  return node;
 }
 
 function setDetailAction(detailLayer, action, pet = null) {
@@ -839,7 +996,11 @@ function addNatureModalText(parent, text, className, uiMeta) {
 
 function addNatureModalImage(parent, src, className, alt, uiMeta) {
   const image = addNatureModalElement(parent, "img", className, uiMeta);
-  image.src = src;
+  if (src) {
+    image.src = src;
+  } else {
+    image.hidden = true;
+  }
   image.alt = alt;
   image.draggable = false;
   return image;
@@ -922,6 +1083,7 @@ function renderTalentPopup(detailLayer, pet) {
     component: "renderPetDetail",
   });
   body.dataset.barMax = String(PET_BOX_TALENT_BAR_MAX);
+  const natureEffect = PET_BOX_NATURE_EFFECTS[pet.natureName] || null;
 
   for (const statKey of PET_BOX_TALENT_STAT_ORDER) {
     const statLabel = PET_BOX_STAT_LABELS[statKey] || statKey;
@@ -949,6 +1111,16 @@ function renderTalentPopup(detailLayer, pet) {
       label: `${statLabel}资质文本`,
       component: "renderPetDetail",
     });
+    const natureDirection = natureEffect?.up === statKey ? "up" : natureEffect?.down === statKey ? "down" : "";
+    const natureArrow = addNatureModalElement(row, "span", `pet-box-talent-modal-nature-arrow ${natureDirection || "neutral"}`, {
+      id: `bag.detail.talent.modal.stat.${statKey}.natureArrow`,
+      label: natureDirection === "up" ? "正面性格向上箭头" : natureDirection === "down" ? "负面性格向下箭头" : "性格无影响占位",
+      component: "renderPetDetail",
+    });
+    natureArrow.dataset.statKey = statKey;
+    natureArrow.dataset.nature = pet.natureName || "";
+    natureArrow.dataset.natureDirection = natureDirection;
+
     const bar = addNatureModalElement(row, "div", "pet-box-talent-modal-bar", {
       id: `bag.detail.talent.modal.stat.${statKey}.bar`,
       label: `${statLabel}资质条形图`,
@@ -1113,16 +1285,24 @@ function addNaturePill(detailLayer, pet) {
   const detail = PET_BOX_LAYOUT.detail;
   const openNaturePopup = () => renderNaturePopup(detailLayer, pet);
   const pillBgRect = detail.naturePillBg || detail.naturePill;
-  const pillTextRect = detail.naturePillText || detail.naturePill;
-  const pillBg = addClickableImage(detailLayer, PET_BOX_ASSETS.detailPillBg, pillBgRect, pet.natureName || "性格", openNaturePopup, {
+  const scaledPillWidth = 170;
+  const scaledPillHeight = pillBgRect.h * 1.2;
+  const scaledPillRect = {
+    x: pillBgRect.x + (pillBgRect.w - scaledPillWidth) / 2 - 40,
+    y: pillBgRect.y + (pillBgRect.h - scaledPillHeight) / 2,
+    w: scaledPillWidth,
+    h: scaledPillHeight,
+  };
+  const pillBg = addClickableImage(detailLayer, PET_BOX_ASSETS.commonFrameBlack, scaledPillRect, pet.natureName || "性格", openNaturePopup, {
     id: "bag.detail.nature.pillBg",
     label: "精灵性格底",
     component: "renderPetDetail",
   });
+  pillBg.classList.add("pet-box-nature-pill-frame");
   pillBg.dataset.nature = pet.natureName || "";
   pillBg.title = natureEffectText(pet.natureName);
 
-  const pillText = addText(detailLayer, pillTextRect, pet.natureName || "", "pet-box-detail-pill-text center pet-box-nature-pill-text", {
+  const pillText = addText(detailLayer, scaledPillRect, pet.natureName || "", "pet-box-detail-pill-text center pet-box-nature-pill-text", {
     id: "bag.detail.nature.name",
     label: "精灵性格",
     component: "renderPetDetail",
@@ -1283,22 +1463,22 @@ function renderPetGrid(stage, onSelectPet, storedPets) {
         w: slotSize,
         h: slotSize,
       };
-      if (pet) {
-        addImage(gridGroup, PET_BOX_ASSETS.slotEmpty, rect, "pet-box-pet-slot-base", "精灵槽位底图", {
-          id: `bag.petCard.${slotIndex}.base`,
-          label: "精灵槽位底图",
-          component: "renderPetGrid",
-        });
-        const overlay = addImage(gridGroup, PET_BOX_ASSETS.slotSelected, rect, "pet-box-selected-slot", "选中精灵", {
-          id: `bag.petCard.${slotIndex}.selected`,
-          label: "选中精灵",
-          component: "renderPetGrid",
-        });
-        overlay.dataset.petId = pet.id;
-        overlay.style.opacity = "0";
-        selectedOverlays.push(overlay);
-        const petCard = addClickableImage(gridGroup, pet.avatarAsset || pet.slotAsset, rect, pet.name, () => onSelectPet(pet), {
-          id: `bag.petCard.${slotIndex}`,
+        if (pet) {
+          addImage(gridGroup, PET_BOX_ASSETS.slotEmpty, rect, "pet-box-pet-slot-base", "精灵槽位底图", {
+            id: `bag.petCard.${slotIndex}.base`,
+            label: "精灵槽位底图",
+            component: "renderPetGrid",
+          });
+          const overlay = addGroup(gridGroup, rect, "pet-box-selected-slot", {
+            id: `bag.petCard.${slotIndex}.selected`,
+            label: "选中精灵底圈",
+            component: "renderPetGrid",
+          });
+          overlay.dataset.petId = pet.id;
+          overlay.style.opacity = "0";
+          selectedOverlays.push(overlay);
+          const petCard = addClickableImage(gridGroup, pet.avatarAsset || PET_BOX_ASSETS.slotEmpty, rect, pet.name, () => onSelectPet(pet), {
+            id: `bag.petCard.${slotIndex}`,
           label: pet.name,
           component: "renderPetGrid",
         });
@@ -1351,8 +1531,33 @@ function renderDetailStars(detailLayer, pet) {
   }
 }
 
+function badgeFrameRect(rect) {
+  const { h, iconSize, labelX, labelW } = rect;
+  const iconX = rect.iconX ?? 0;
+  const iconY = rect.iconY ?? Math.round((h - iconSize) / 2);
+  const labelY = rect.labelY ?? 0;
+  const left = Math.min(iconX, labelX) - 2;
+  const top = Math.min(iconY, labelY) - 2;
+  const bottom = Math.max(iconY + iconSize, labelY + h) + 2;
+  return { x: left, y: top, w: PET_BOX_TYPE_BADGE_FRAME_WIDTH, h: bottom - top };
+}
+
+function addBadgeFrame(parent, rect, id, label) {
+  return addImage(parent, PET_BOX_ASSETS.commonFrameBlack || PET_BOX_COMMON_FRAME_BLACK, badgeFrameRect(rect), "pet-box-common-frame", "", {
+    id,
+    label,
+    component: "renderPetDetail",
+  });
+}
+
 function addIconTextBadge(parent, rect, badge, idPrefix, labelPrefix) {
   const { x, y, w, h, iconSize, labelX, labelW } = rect;
+  const iconX = rect.iconX ?? 0;
+  const iconY = rect.iconY ?? Math.round((h - iconSize) / 2);
+  const scaledIconSize = Math.round(iconSize * PET_BOX_TYPE_ICON_SCALE);
+  const scaledIconX = iconX - Math.round((scaledIconSize - iconSize) / 2);
+  const scaledIconY = iconY - Math.round((scaledIconSize - iconSize) / 2);
+  const labelY = rect.labelY ?? 0;
   const badgeGroup = addGroup(
     parent,
     { x, y, w, h },
@@ -1363,10 +1568,11 @@ function addIconTextBadge(parent, rect, badge, idPrefix, labelPrefix) {
       component: "renderPetDetail",
     }
   );
+  addBadgeFrame(badgeGroup, rect, `${idPrefix}.frame`, `${labelPrefix}${badge.label}搴曟`);
   addImage(
     badgeGroup,
     badge.iconAsset,
-    { x: 0, y: Math.round((h - iconSize) / 2), w: iconSize, h: iconSize },
+    { x: scaledIconX, y: scaledIconY, w: scaledIconSize, h: scaledIconSize },
     "",
     `${badge.label}图标`,
     {
@@ -1375,7 +1581,7 @@ function addIconTextBadge(parent, rect, badge, idPrefix, labelPrefix) {
       component: "renderPetDetail",
     }
   );
-  addText(badgeGroup, { x: labelX, y: 0, w: labelW, h }, badge.label, "pet-box-detail-type-text", {
+  addText(badgeGroup, { x: labelX, y: labelY, w: labelW, h }, badge.label, "pet-box-detail-type-text", {
     id: `${idPrefix}.label`,
     label: `${labelPrefix}${badge.label}名称`,
     component: "renderPetDetail",
@@ -1386,13 +1592,13 @@ function addIconTextBadge(parent, rect, badge, idPrefix, labelPrefix) {
 function renderDetailTypeBadges(detailLayer, pet) {
   const { primary, secondary, bloodline } = PET_BOX_LAYOUT.detail.typeBadges;
   pet.types.forEach((badge, index) => {
-    const rect = index === 0 ? primary : secondary;
+    const rect = pet.types.length === 1 ? secondary : index === 0 ? primary : secondary;
     if (!rect) return;
     addIconTextBadge(detailLayer, rect, badge, `bag.detail.type.${index + 1}`, `属性${index + 1}`);
   });
 
   if (pet.bloodlineType) {
-    const bloodlineRect = pet.types.length > 1 ? { ...bloodline, y: secondary.y + 46 } : bloodline;
+    const bloodlineRect = { ...bloodline, y: secondary.y + 58 };
     const bloodlineIconX = bloodlineRect.iconX ?? 0;
     const bloodlineIconY = bloodlineRect.iconY ?? Math.round((bloodlineRect.h - bloodlineRect.iconSize) / 2);
     const bloodlineLabelY = bloodlineRect.labelY ?? 0;
@@ -1406,10 +1612,16 @@ function renderDetailTypeBadges(detailLayer, pet) {
         component: "renderPetDetail",
       }
     );
+    addBadgeFrame(badgeGroup, bloodlineRect, "bag.detail.bloodline.frame", "琛€鑴夊睘鎬у簳妗?");
     addImage(
       badgeGroup,
       pet.bloodlineType.iconAsset,
-      { x: bloodlineIconX, y: bloodlineIconY, w: bloodlineRect.iconSize, h: bloodlineRect.iconSize },
+      {
+        x: bloodlineIconX - Math.round((Math.round(bloodlineRect.iconSize * PET_BOX_TYPE_ICON_SCALE) - bloodlineRect.iconSize) / 2),
+        y: bloodlineIconY - Math.round((Math.round(bloodlineRect.iconSize * PET_BOX_TYPE_ICON_SCALE) - bloodlineRect.iconSize) / 2),
+        w: Math.round(bloodlineRect.iconSize * PET_BOX_TYPE_ICON_SCALE),
+        h: Math.round(bloodlineRect.iconSize * PET_BOX_TYPE_ICON_SCALE),
+      },
       "",
       `${pet.bloodlineType.label}血脉图标`,
       {
@@ -1460,7 +1672,20 @@ function renderDetailExp(detailLayer, pet) {
 
 function renderDetailLevelExp(detailLayer, pet) {
   const detail = PET_BOX_LAYOUT.detail;
-  const levelText = addText(detailLayer, detail.levelText, formatRatioText(pet.level, pet.maxLevel), "pet-box-detail-level", {
+  renderDetailExp(detailLayer, pet);
+
+  const levelBadgeRect = levelBadgeGroupRect(detail.levelText);
+  const levelBadge = addGroup(detailLayer, levelBadgeRect, "pet-box-rotate-ccw-5 pet-box-level-badge-group", {
+    id: "bag.detail.level.group",
+    label: "等级牌",
+    component: "renderPetDetail",
+  });
+  addImage(levelBadge, PET_BOX_ASSETS.commonFrameYellow || PET_BOX_COMMON_FRAME_YELLOW, rectRelativeTo(levelFrameRect(detail.levelText), levelBadgeRect), "pet-box-level-frame", "", {
+    id: "bag.detail.level.frame",
+    label: "等级底框",
+    component: "renderPetDetail",
+  });
+  const levelText = addLevelRatioText(levelBadge, rectRelativeTo(detail.levelText, levelBadgeRect), pet.level, pet.maxLevel, {
     id: "bag.detail.level",
     label: "等级",
     component: "renderPetDetail",
@@ -1475,28 +1700,65 @@ function renderDetailLevelExp(detailLayer, pet) {
   });
   expText.dataset.exp = String(pet.exp);
   expText.dataset.expMax = String(pet.expMax);
+}
 
-  renderDetailExp(detailLayer, pet);
+function statValueFrameRect(rects) {
+  const left = Math.min(rects.icon.x, rects.value.x) - 10;
+  const top = Math.min(rects.icon.y, rects.value.y) - 4;
+  const right = Math.max(rects.icon.x + rects.icon.w, rects.value.x + rects.value.w) + 8;
+  const bottom = Math.max(rects.icon.y + rects.icon.h, rects.value.y + rects.value.h) + 4;
+  return { x: left, y: top, w: right - left, h: bottom - top };
+}
+
+function natureArrowRect(rects) {
+  const frame = statValueFrameRect(rects);
+  return {
+    x: frame.x + frame.w - 16,
+    y: rects.value.y - 11,
+    w: 18,
+    h: 26,
+  };
 }
 
 function renderDetailStats(detailLayer, pet) {
+  const boostedIvStats = normalizeIvList(pet.ivs);
+  const natureEffect = PET_BOX_NATURE_EFFECTS[pet.natureName] || null;
   Object.entries(PET_BOX_LAYOUT.detail.stats).forEach(([key, rects]) => {
-    addImage(detailLayer, PET_BOX_ASSETS.statIcons[key], rects.icon, "", "属性图标", {
+    addImage(detailLayer, PET_BOX_ASSETS.commonFrameBlack || PET_BOX_COMMON_FRAME_BLACK, statValueFrameRect(rects), "pet-box-common-frame pet-box-stat-value-frame", "", {
+      id: `bag.detail.stat.${key}.frame`,
+      label: "六维属性数值底框",
+      component: "renderPetDetail",
+    });
+    addImage(detailLayer, PET_BOX_ASSETS.statIcons[key], scaleRectFromCenter(rects.icon, PET_BOX_STAT_ICON_SCALE), "", "属性图标", {
       id: `bag.detail.stat.${key}.icon`,
       label: "六维属性图标",
       component: "renderPetDetail",
     });
     const engineKey = PET_BOX_DETAIL_STAT_KEYS[key];
     const value = engineKey ? pet.actualStats?.[engineKey] : pet.stats[key];
-    const statValue = addText(detailLayer, rects.value, value ?? pet.stats[key] ?? "", "pet-box-detail-stat-value center", {
+    const statValue = addText(detailLayer, rects.value, value ?? pet.stats[key] ?? "", "pet-box-detail-stat-value", {
       id: `bag.detail.stat.${key}.value`,
       label: "六维属性数值",
       component: "renderPetDetail",
     });
+    if (engineKey && boostedIvStats.has(engineKey)) {
+      statValue.classList.add("is-iv-boosted");
+    }
     if (engineKey) {
       statValue.dataset.statKey = engineKey;
       statValue.dataset.valueKind = "actual";
       statValue.dataset.capValue = String(pet.radarCapStats?.[engineKey] ?? "");
+      const natureDirection = natureEffect?.up === engineKey ? "up" : natureEffect?.down === engineKey ? "down" : "";
+      if (natureDirection) {
+        const natureArrow = addGroup(detailLayer, natureArrowRect(rects), `pet-box-detail-nature-arrow ${natureDirection}`, {
+          id: `bag.detail.stat.${key}.natureArrow`,
+          label: natureDirection === "up" ? "正面性格向上箭头" : "负面性格向下箭头",
+          component: "renderPetDetail",
+        });
+        natureArrow.dataset.statKey = engineKey;
+        natureArrow.dataset.nature = pet.natureName || "";
+        natureArrow.dataset.natureDirection = natureDirection;
+      }
     }
   });
 }
@@ -1556,19 +1818,88 @@ function renderTraitIcon(detailLayer, pet) {
     return;
   }
 
-  const traitIcon = addClickableImage(detailLayer, pet.traitIconAsset, PET_BOX_LAYOUT.detail.traitIcon, pet.traitName, () => {
+  const detail = PET_BOX_LAYOUT.detail;
+  const title = pet.traitDescription || abilityDescription(pet.traitName) || pet.traitName;
+  const traitCard = addGroup(detailLayer, detail.traitCard, "pet-box-trait-card pet-box-clickable", {
+    id: "bag.detail.trait",
+    label: "精灵特性",
+    component: "renderPetDetail",
+  });
+  traitCard.role = "button";
+  traitCard.tabIndex = 0;
+  traitCard.setAttribute("aria-label", pet.traitName);
+  traitCard.dataset.ability = pet.traitName;
+  traitCard.title = title;
+
+  const openTraitPopup = () => {
     renderTraitPopup(detailLayer, pet);
-  }, {
+  };
+  traitCard.addEventListener("click", openTraitPopup);
+  traitCard.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openTraitPopup();
+    }
+  });
+
+  addImage(traitCard, PET_BOX_ASSETS.commonFrameYellow || PET_BOX_COMMON_FRAME_YELLOW, detail.traitTitleFrame, "pet-box-trait-title-frame", "", {
+    id: "bag.detail.trait.titleFrame",
+    label: "特性标题底框",
+    component: "renderPetDetail",
+  });
+  addText(traitCard, detail.traitTitleText, "特性", "pet-box-trait-title-text center", {
+    id: "bag.detail.trait.title",
+    label: "特性标题",
+    component: "renderPetDetail",
+  });
+
+  const iconClip = addGroup(traitCard, detail.traitIcon, "pet-box-trait-icon-clip", {
+    id: "bag.detail.trait.iconClip",
+    label: "特性圆形裁剪",
+    component: "renderPetDetail",
+  });
+  const traitIcon = addImage(iconClip, pet.traitIconAsset, { x: 0, y: 0, w: detail.traitIcon.w, h: detail.traitIcon.h }, "pet-box-trait-icon-image", pet.traitName, {
     id: "bag.detail.trait.icon",
     label: "精灵特性图标",
     component: "renderPetDetail",
   });
   traitIcon.dataset.ability = pet.traitName;
-  traitIcon.title = pet.traitDescription || abilityDescription(pet.traitName) || pet.traitName;
+  traitIcon.title = title;
   traitIcon.addEventListener("error", () => {
     warnMissingAbilityIcon(pet.traitName);
-    traitIcon.remove();
+    traitCard.remove();
   });
+
+  addText(traitCard, detail.traitNameText, pet.traitName, "pet-box-trait-name-text center", {
+    id: "bag.detail.trait.name",
+    label: "特性名称",
+    component: "renderPetDetail",
+  });
+}
+
+function addDetailActionButton(detailLayer, rect, text, action, uiMeta) {
+  const button = addGroup(detailLayer, rect, "pet-box-detail-action-button pet-box-clickable", uiMeta);
+  button.role = "button";
+  button.tabIndex = 0;
+  button.setAttribute("aria-label", text);
+  button.addEventListener("click", () => setDetailAction(detailLayer, action));
+  button.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setDetailAction(detailLayer, action);
+    }
+  });
+  addImage(button, PET_BOX_ASSETS.detailPillBg, { x: 0, y: 0, w: rect.w, h: rect.h }, "pet-box-detail-action-bg", "", {
+    ...uiMeta,
+    id: `${uiMeta.id}.bg`,
+    label: `${uiMeta.label}底图`,
+  });
+  addText(button, { x: 0, y: 0, w: rect.w, h: rect.h }, text, "pet-box-detail-action-text center", {
+    ...uiMeta,
+    id: `${uiMeta.id}.text`,
+    label: `${uiMeta.label}文字`,
+  });
+  return button;
 }
 
 function renderPetDetail(detailLayer, pet) {
@@ -1601,7 +1932,7 @@ function renderPetDetail(detailLayer, pet) {
     });
   }
 
-  if (!isDeletedItem("bag.detail.avatar")) {
+  if (pet.avatarAsset && !isDeletedItem("bag.detail.avatar")) {
     addImage(detailLayer, pet.avatarAsset, detail.avatar, "", pet.name, {
       id: "bag.detail.avatar",
       label: "精灵头像",
@@ -1615,13 +1946,13 @@ function renderPetDetail(detailLayer, pet) {
       component: "renderPetDetail",
     });
   }
-  addText(detailLayer, detail.name, pet.name, "pet-box-detail-name", {
+  const nameText = addText(detailLayer, detail.name, pet.name, "pet-box-detail-name", {
     id: "bag.detail.name",
     label: "精灵名称",
     component: "renderPetDetail",
   });
   if (pet.genderIconAsset) {
-    addImage(detailLayer, pet.genderIconAsset, detail.genderIcon, "", pet.gender, {
+    addImage(detailLayer, pet.genderIconAsset, genderIconRectAfterText(nameText, detail.name, detail.genderIcon), "", pet.gender, {
       id: "bag.detail.gender",
       label: "精灵性别",
       component: "renderPetDetail",
@@ -1647,7 +1978,7 @@ function renderPetDetail(detailLayer, pet) {
 
   renderDetailLevelExp(detailLayer, pet);
 
-  const talentButton = addGroup(detailLayer, detail.talentLabelBg, "pet-box-talent-button", {
+  const talentButton = addGroup(detailLayer, { ...detail.talentLabelBg, y: detail.talentLabelBg.y + 30 }, "pet-box-rotate-ccw-5 pet-box-talent-button", {
     id: "bag.detail.ivButton",
     label: "个体值说明按钮",
     component: "renderPetDetail",
@@ -1668,17 +1999,17 @@ function renderPetDetail(detailLayer, pet) {
     }
   });
 
-  addImage(talentButton, PET_BOX_ASSETS.detailTalentLabelBg, rectRelativeTo(detail.talentLabelBg, detail.talentLabelBg), "", "个体值按钮底", {
+  addImage(talentButton, talentLabelBgFor(pet.talentTitle), talentLabelBgRectFor(pet.talentTitle, rectRelativeTo(detail.talentLabelBg, detail.talentLabelBg)), "", "个体值按钮底", {
     id: "bag.detail.ivButton.bg",
     label: "个体值按钮底",
     component: "renderPetDetail",
   });
-  addText(talentButton, rectRelativeTo(detail.talentText, detail.talentLabelBg), pet.talentTitle, "pet-box-detail-talent", {
+  addText(talentButton, talentTextRectFor(pet.talentTitle, rectRelativeTo(detail.talentText, detail.talentLabelBg)), pet.talentTitle, "pet-box-detail-talent", {
     id: "bag.detail.ivButton.text",
     label: "个体值按钮文字",
     component: "renderPetDetail",
   });
-  addImage(talentButton, PET_BOX_ASSETS.detailQuestionIcon, rectRelativeTo(detail.talentQuestion, detail.talentLabelBg), "", "个体值说明", {
+  addImage(talentButton, PET_BOX_ASSETS.detailQuestionIcon, talentQuestionRectFor(pet.talentTitle, scaleRectFromCenter(rectRelativeTo(detail.talentQuestion, detail.talentLabelBg), 0.8)), "", "个体值说明", {
     id: "bag.detail.ivButton.help",
     label: "个体值说明",
     component: "renderPetDetail",
@@ -1695,12 +2026,12 @@ function renderPetDetail(detailLayer, pet) {
   if (pet.natureName) {
     addNaturePill(detailLayer, pet);
   }
-  addClickableImage(detailLayer, PET_BOX_ASSETS.detailBtnFeed, detail.feedButton, "精灵喂养", () => setDetailAction(detailLayer, "feed"), {
+  addDetailActionButton(detailLayer, detail.feedButton, "精灵喂养", "feed", {
     id: "bag.detail.action.feed",
     label: "精灵喂养按钮",
     component: "renderPetDetail",
   });
-  addClickableImage(detailLayer, PET_BOX_ASSETS.detailBtnGrowth, detail.growthButton, "精灵成长", () => setDetailAction(detailLayer, "growth"), {
+  addDetailActionButton(detailLayer, detail.growthButton, "精灵成长", "growth", {
     id: "bag.detail.action.growth",
     label: "精灵成长按钮",
     component: "renderPetDetail",
@@ -1842,13 +2173,15 @@ function renderPetBox(app) {
     label: "筛选按钮",
     component: "renderPetBox",
   });
-  closeButtonImage = addClickableImage(stage, PET_BOX_ASSETS.btnClose, PET_BOX_LAYOUT.closeButton, "关闭", () => {
-    location.hash = "#/team";
-  }, {
-    id: "bag.closeButton",
-    label: "关闭按钮",
-    component: "renderPetBox",
-  });
+  if (!isDeletedItem("bag.closeButton")) {
+    closeButtonImage = addClickableImage(stage, PET_BOX_ASSETS.btnClose, PET_BOX_LAYOUT.closeButton, "关闭", () => {
+      location.hash = "#/team";
+    }, {
+      id: "bag.closeButton",
+      label: "关闭按钮",
+      component: "renderPetBox",
+    });
+  }
 
   root.append(backdrop, stage);
   app.append(root);

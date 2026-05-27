@@ -6,6 +6,7 @@ set "SITE=%ROOT%rocorogue-public"
 set "PORT=4173"
 set "PORT_FILE=%ROOT%.rocorogue-port"
 set "SERVER_JS=%ROOT%rocorogue-server.js"
+set "INDEX_FILE=%SITE%\index.html"
 
 if not exist "%SITE%\index.html" (
   echo [ERROR] Cannot find rocorogue-public\index.html.
@@ -81,7 +82,7 @@ call :open_page
 exit /b 0
 
 :server_matches_site
-powershell -NoProfile -ExecutionPolicy Bypass -Command "try { $r=Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:%PORT%/assets/pet-box/pet-box-view.js?v=probe' -TimeoutSec 1; if ($r.StatusCode -eq 200 -and $r.Content -match 'PET_BOX_MOCK_PETS') { exit 0 } } catch {}; exit 1" >nul 2>nul
+powershell -NoProfile -ExecutionPolicy Bypass -Command "try { $local=Get-Content -Raw -LiteralPath '%INDEX_FILE%'; $mark=[regex]::Match($local, 'pet-box-view\.js\?v=([^\x22&?#]+)').Groups[1].Value; $r=Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:%PORT%/' -TimeoutSec 1; if ($mark -and $r.StatusCode -eq 200 -and $r.Content -match [regex]::Escape($mark)) { exit 0 } } catch {}; exit 1" >nul 2>nul
 exit /b %errorlevel%
 
 :find_free_port
@@ -91,7 +92,7 @@ if not defined PORT exit /b 1
 exit /b 0
 
 :open_page
-set "URL=http://127.0.0.1:%PORT%/?v=%RANDOM%#/mechanics?view=pet-box"
+set "URL=http://127.0.0.1:%PORT%/?v=20260528-assets-1#/mechanics?view=pet-box"
 echo Opening: %URL%
 start "" "%URL%"
 exit /b 0

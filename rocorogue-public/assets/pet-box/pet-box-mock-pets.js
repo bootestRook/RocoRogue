@@ -1,5 +1,6 @@
 const PET_BOX_UI_BASE = "/assets/ui/pet_box";
-const TYPE_ASSET_BASE = "/types";
+const UI_ASSET_BASE = "/assets/ui";
+const TYPE_ASSET_BASE = "/assets/types";
 
 function typeIconAsset(type) {
   return `${TYPE_ASSET_BASE}/${type}.png`;
@@ -33,7 +34,7 @@ function makePet({
     id,
     name,
     gender,
-    genderIconAsset: `${PET_BOX_UI_BASE}/${gender === "雌" ? "gender_female" : "gender_male"}.svg`,
+    genderIconAsset: `${UI_ASSET_BASE}/${gender === "雌" ? "gender_female" : "gender_male"}.png`,
     level,
     maxLevel,
     exp,
@@ -99,7 +100,7 @@ export const PET_BOX_MOCK_PETS = Object.freeze([
       magicDefense: 43,
     },
     traitName: "猛火",
-    natureName: "热血",
+    natureName: "热情",
   }),
   makePet({
     id: "shuilanlan",
@@ -122,7 +123,7 @@ export const PET_BOX_MOCK_PETS = Object.freeze([
       magicDefense: 59,
     },
     traitName: "激流",
-    natureName: "沉着",
+    natureName: "冷静",
   }),
   makePet({
     id: "miaomiao",
@@ -145,6 +146,51 @@ export const PET_BOX_MOCK_PETS = Object.freeze([
       magicDefense: 61,
     },
     traitName: "茂盛",
-    natureName: "轻盈",
+    natureName: "开朗",
+  }),
+  makePet({
+    id: "luoyin",
+    name: "罗隐",
+    gender: "",
+    types: ["地", "恶"],
+    bloodlineType: "地",
+    level: 5,
+    maxLevel: 60,
+    exp: 0,
+    expMax: 30,
+    stars: 1,
+    talentTitle: "一般般的天分",
+    stats: {
+      hp: 107,
+      attack: 159,
+      magicAttack: 78,
+      defense: 112,
+      speed: 75,
+      magicDefense: 70,
+    },
+    traitName: "石头大餐",
+    natureName: "固执",
+  }),
+  makePet({
+    id: "huajianchentieshou",
+    name: "画间沉铁兽",
+    gender: "",
+    types: ["普通", "武"],
+    bloodlineType: "普通",
+    level: 5,
+    maxLevel: 60,
+    exp: 0,
+    expMax: 30,
+    stars: 1,
+    talentTitle: "一般般的天分",
+    stats: {
+      hp: 100,
+      attack: 160,
+      magicAttack: 67,
+      defense: 100,
+      speed: 105,
+      magicDefense: 76,
+    },
+    traitName: "变形活画",
   }),
 ]);

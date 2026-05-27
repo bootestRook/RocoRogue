@@ -31,3 +31,19 @@
 - Safety rule: broad game asset folders may be referenced dynamically by IDs or manifests, so only remove files with strong evidence of being generated verification screenshots, temporary source assets, or orphaned UI art.
 - Runtime-confirmed removals: `battle-bg.png`, `message-banner.png`, `move-card-frame.png`, five unused pet-box UI placeholders, and five verification screenshots.
 - Preserved dynamic asset directories: `portraits_256`, `heads`, `skills`, `abilities`, `ability-buffs`, `conditions`, `types`, and `items`.
+
+## Asset Migration 2026-05-28
+- Art resources currently outside `rocorogue-public/assets`: `rocorogue-public/abilities` (336), `ability-buffs` (88), `conditions` (108), `heads` (970), `items` (6), `portraits_256` (970), `skills` (952), and `types` (72).
+- User clarified root `图标生成` generated PNGs are out of scope and should not be touched.
+- Existing resources already under `rocorogue-public/assets`: `battle-ui`, `pet-box`, `ui`, and `ui-tuner` code/assets.
+- Migration should preserve dynamic directory names under `assets/` so runtime path construction can be updated mechanically: `/heads/...` -> `/assets/heads/...`, `/skills/...` -> `/assets/skills/...`, etc.
+- After migration, `rocorogue-public` top level contains only `assets`; the moved runtime art counts are: `abilities` 336, `ability-buffs` 88, `conditions` 108, `heads` 970, `items` 6, `portraits_256` 970, `skills` 952, `types` 72.
+- `asset-manifest.json` was regenerated from actual files under `rocorogue-public/assets` and validates to 3502 existing entries when read as UTF-8.
+- `asset-missing.json` remains an explicit missing inventory and now points to `/assets/skills/700025.{png,webp}`.
+
+## Common Frame Assets 2026-05-28
+- User requested processing `图标生成` after initially marking it out of scope.
+- Current source folder contains two generated common frame PNGs: `黄色通用底框图.png` and `黑色通用底框图.png`; the earlier arrow filenames are no longer present.
+- Processed outputs are transparent cutout PNGs under `rocorogue-public/assets/ui/common`: `common_frame_yellow.png` and `common_frame_black.png`.
+- Final validation: both outputs have transparent corners, no detected green-fringe edge pixels, and are included in the regenerated `asset-manifest.json`.
+- Source images were left in `图标生成`; only cleaned project-ready copies were added under `assets`.

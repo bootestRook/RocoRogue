@@ -8,13 +8,15 @@ This directory contains the original public frontend bundle and assets, retained
 - Original production bundle: `assets/index-xu9RZIac.js`
 - Original production CSS: `assets/index-Oin_zZIo.css`
 - Public image/icon assets:
-  - `portraits_256/`
-  - `heads/`
-  - `skills/`
-  - `abilities/`
-  - `ability-buffs/`
-  - `conditions/`
-  - `types/`
+  - `assets/portraits_256/`
+  - `assets/heads/`
+  - `assets/skills/`
+  - `assets/abilities/`
+  - `assets/ability-buffs/`
+  - `assets/conditions/`
+  - `assets/types/`
+  - `assets/items/`
+  - `assets/ui/common/`
 - Asset inventories:
   - `asset-manifest.json`
   - `asset-missing.json`

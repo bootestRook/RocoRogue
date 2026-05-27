@@ -15,6 +15,7 @@ body.pet-box-active .pet-box-app {
   position: relative;
   width: 100vw;
   height: calc(100dvh - 76px);
+  background: #0d1220;
   overflow: hidden;
 }
 
@@ -26,6 +27,7 @@ body.pet-box-active .pet-box-app {
 }
 
 .pet-box-backdrop {
+  display: none;
   position: absolute;
   left: 0;
   top: 0;
@@ -52,6 +54,11 @@ body.pet-box-active .pet-box-app {
   position: absolute;
   display: block;
   overflow: visible;
+  pointer-events: none;
+}
+
+.pet-box-common-frame {
+  object-fit: fill;
   pointer-events: none;
 }
 
@@ -86,6 +93,10 @@ body.pet-box-active .pet-box-app {
   opacity: 0.72;
 }
 
+.pet-box-root [data-ui-id="bag.closeButton"] {
+  display: none !important;
+}
+
 .pet-box-pet-slot-base {
   z-index: 1;
 }
@@ -96,7 +107,11 @@ body.pet-box-active .pet-box-app {
 }
 
 .pet-box-selected-slot {
-  z-index: 3;
+  z-index: 1;
+  box-sizing: border-box;
+  border: 8px solid #fff8e8;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 248, 232, 0.42);
   pointer-events: none;
 }
 
@@ -138,8 +153,32 @@ body.pet-box-active .pet-box-app {
 }
 
 .pet-box-detail-level {
-  color: #f5b94c;
-  font-size: 34px;
+  z-index: 6;
+  justify-content: center;
+  gap: 2px;
+  color: #242727;
+  font-family: "Arial Rounded MT Bold", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-weight: 900;
+  text-shadow: none;
+}
+
+.pet-box-level-frame {
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.pet-box-detail-level-current {
+  color: #242727;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.pet-box-detail-level-max {
+  align-self: center;
+  color: #6d675a;
+  font-size: 25px;
+  line-height: 1;
+  transform: translateY(2px);
 }
 
 .pet-box-detail-exp {
@@ -153,10 +192,92 @@ body.pet-box-active .pet-box-app {
   font-size: 23px;
 }
 
+.pet-box-trait-card {
+  z-index: 5;
+  transform-origin: center;
+}
+
+.pet-box-trait-card:hover {
+  opacity: 1;
+  filter: brightness(1.04);
+}
+
+.pet-box-trait-card:active {
+  filter: brightness(0.94);
+  transform: translateY(2px) scale(0.98);
+}
+
+.pet-box-trait-title-frame {
+  z-index: 4;
+  object-fit: fill;
+  transform: rotate(-5deg);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.pet-box-trait-title-text {
+  z-index: 5;
+  color: #242727;
+  font-size: 22px;
+  text-shadow: none;
+  transform: rotate(-5deg);
+  transform-origin: center;
+}
+
+.pet-box-trait-icon-clip {
+  z-index: 2;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 5px solid #222829;
+  border-radius: 50%;
+  background: #172021;
+  box-shadow:
+    0 0 0 4px rgba(255, 200, 74, 0.56),
+    0 5px 0 rgba(0, 0, 0, 0.34);
+  pointer-events: none;
+}
+
+.pet-box-trait-icon-image {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.pet-box-trait-name-text {
+  color: #b9b6ae;
+  font-size: 23px;
+  line-height: 1;
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.88),
+    0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.pet-box-rotate-ccw-5 {
+  transform: rotate(-5deg);
+  transform-origin: center;
+}
+
 .pet-box-talent-button {
   cursor: pointer;
-  transform-origin: center;
+  z-index: 20;
+  width: 200px !important;
+  height: 70px !important;
+  overflow: visible;
+  transform-origin: 95px 24.5px;
   transition: filter 100ms ease, transform 100ms ease;
+}
+
+.pet-box-talent-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -10.5px;
+  z-index: 10;
+  width: 200px;
+  height: 70px;
 }
 
 .pet-box-talent-button:hover {
@@ -166,12 +287,24 @@ body.pet-box-active .pet-box-app {
 .pet-box-talent-button:active,
 .pet-box-talent-button.is-pressed {
   filter: brightness(0.94);
-  transform: translateY(3px) scale(0.98);
+  transform: rotate(-5deg) translateY(3px) scale(0.98);
 }
 
 .pet-box-detail-type-text {
   color: #fff8e8;
-  font-size: 24px;
+  font-size: 20.4px;
+}
+
+.pet-box-detail-type-badge .pet-box-detail-type-text,
+.pet-box-detail-bloodline-badge .pet-box-detail-type-text {
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-weight: 700;
+  color: #d8d2c7;
+  -webkit-text-stroke: 0;
+  paint-order: normal;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.78),
+    0 0 2px rgba(0, 0, 0, 0.48);
 }
 
 .pet-box-detail-stat-name {
@@ -181,9 +314,36 @@ body.pet-box-active .pet-box-app {
 }
 
 .pet-box-detail-stat-value {
-  justify-content: center;
-  color: #ffd26c;
+  justify-content: flex-start;
+  text-align: left;
+  color: #fff8e8;
   font-size: 22px;
+}
+
+.pet-box-detail-stat-value.is-iv-boosted {
+  color: #ffd26c;
+}
+
+.pet-box-detail-nature-arrow {
+  position: absolute;
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.pet-box-detail-nature-arrow::before,
+.pet-box-detail-nature-arrow::after {
+  display: none;
+}
+
+.pet-box-detail-nature-arrow.up {
+  background-image: url("/assets/ui/common/arrow_up_green.png");
+}
+
+.pet-box-detail-nature-arrow.down {
+  background-image: url("/assets/ui/common/arrow_down_red.png");
 }
 
 .pet-box-detail-pill-text {
@@ -192,7 +352,42 @@ body.pet-box-active .pet-box-app {
   font-size: 24px;
 }
 
+.pet-box-detail-action-button {
+  z-index: 5;
+  transform-origin: center;
+}
+
+.pet-box-detail-action-button:hover {
+  opacity: 1;
+  filter: brightness(1.04);
+}
+
+.pet-box-detail-action-button:active {
+  filter: brightness(0.94);
+  transform: translateY(2px) scale(0.98);
+}
+
+.pet-box-detail-action-bg {
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.pet-box-detail-action-text {
+  justify-content: center;
+  color: #222829;
+  font-size: 28.8px;
+  text-align: center;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.pet-box-nature-pill-frame {
+  object-fit: fill;
+}
+
 .pet-box-nature-pill-text {
+  color: #fff8e8;
+  font-size: 28.8px;
   pointer-events: none;
 }
 
@@ -313,45 +508,23 @@ body.pet-box-active .pet-box-app {
   position: relative;
   width: 18px;
   height: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   flex: 0 0 auto;
 }
 
 .pet-box-nature-modal-arrow::before,
 .pet-box-nature-modal-arrow::after {
-  position: absolute;
-  left: 50%;
-  content: "";
-  transform: translateX(-50%);
+  display: none;
 }
 
-.pet-box-nature-modal-arrow.up::before {
-  top: 0;
-  border-right: 9px solid transparent;
-  border-bottom: 11px solid #79df27;
-  border-left: 9px solid transparent;
+.pet-box-nature-modal-arrow.up {
+  background-image: url("/assets/ui/common/arrow_up_green.png");
 }
 
-.pet-box-nature-modal-arrow.up::after {
-  top: 10px;
-  width: 8px;
-  height: 16px;
-  border-radius: 3px;
-  background: #79df27;
-}
-
-.pet-box-nature-modal-arrow.down::before {
-  bottom: 0;
-  border-top: 11px solid #df5757;
-  border-right: 9px solid transparent;
-  border-left: 9px solid transparent;
-}
-
-.pet-box-nature-modal-arrow.down::after {
-  bottom: 10px;
-  width: 8px;
-  height: 16px;
-  border-radius: 3px;
-  background: #df5757;
+.pet-box-nature-modal-arrow.down {
+  background-image: url("/assets/ui/common/arrow_down_red.png");
 }
 
 .pet-box-trait-modal {
@@ -359,12 +532,12 @@ body.pet-box-active .pet-box-app {
 }
 
 .pet-box-trait-modal-header {
-  min-height: 96px;
+  min-height: 106px;
 }
 
 .pet-box-trait-modal-avatar {
-  width: 58px;
-  height: 58px;
+  width: 70px;
+  height: 70px;
   flex: 0 0 auto;
   margin-left: auto;
   object-fit: contain;
@@ -409,7 +582,7 @@ body.pet-box-active .pet-box-app {
 }
 
 .pet-box-talent-modal-header {
-  min-height: 96px;
+  min-height: 106px;
 }
 
 .pet-box-talent-modal-body {
@@ -420,10 +593,10 @@ body.pet-box-active .pet-box-app {
 
 .pet-box-talent-modal-row {
   display: grid;
-  grid-template-columns: 34px 122px minmax(120px, 1fr) 116px;
+  grid-template-columns: 41px 122px 20px minmax(120px, 1fr) 116px;
   min-height: 50px;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   border-bottom: 2px dotted rgba(255, 248, 232, 0.16);
 }
 
@@ -432,8 +605,8 @@ body.pet-box-active .pet-box-app {
 }
 
 .pet-box-talent-modal-stat-icon {
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
 }
 
@@ -442,6 +615,30 @@ body.pet-box-active .pet-box-app {
   font-size: 24px;
   line-height: 1;
   white-space: nowrap;
+}
+
+.pet-box-talent-modal-nature-arrow {
+  display: block;
+  align-self: center;
+  justify-self: center;
+  width: 18px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: translateX(-5px);
+}
+
+.pet-box-talent-modal-nature-arrow.up {
+  background-image: url("/assets/ui/common/arrow_up_green.png");
+}
+
+.pet-box-talent-modal-nature-arrow.down {
+  background-image: url("/assets/ui/common/arrow_down_red.png");
+}
+
+.pet-box-talent-modal-nature-arrow.neutral {
+  visibility: hidden;
 }
 
 .pet-box-talent-modal-bar {
@@ -522,7 +719,7 @@ body.pet-box-active .pet-box-app {
   }
 
   .pet-box-talent-modal-row {
-    grid-template-columns: 24px 76px minmax(54px, 1fr) 72px;
+    grid-template-columns: 29px 76px 20px minmax(54px, 1fr) 72px;
     gap: 4px;
   }
 

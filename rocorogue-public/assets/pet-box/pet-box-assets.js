@@ -1,7 +1,8 @@
 const PET_BOX_ASSET_BASE = "/assets/ui/pet_box";
+const UI_ASSET_BASE = "/assets/ui";
 
 export const PET_BOX_ASSETS = Object.freeze({
-  bg: `${PET_BOX_ASSET_BASE}/bg_pet_box.png`,
+  bg: `${PET_BOX_ASSET_BASE}/bg_pet_box.png?v=20260528-pet-box-99`,
   sidePanel: `${PET_BOX_ASSET_BASE}/side_panel.png`,
   tabPetActive: `${PET_BOX_ASSET_BASE}/tab_pet_active.png`,
   tabPetNormal: `${PET_BOX_ASSET_BASE}/tab_pet_normal.png`,
@@ -16,7 +17,7 @@ export const PET_BOX_ASSETS = Object.freeze({
   boxLabelTitle: `${PET_BOX_ASSET_BASE}/box_label_title.png`,
   btnFilter: `${PET_BOX_ASSET_BASE}/btn_filter.png`,
   btnClose: `${PET_BOX_ASSET_BASE}/btn_close.png`,
-  detailPanelBg: `${PET_BOX_ASSET_BASE}/detail_panel_bg.png`,
+  detailPanelBg: `${PET_BOX_ASSET_BASE}/detail_panel_bg.png?v=20260528-detail-panel-1`,
   detailBtnShare: `${PET_BOX_ASSET_BASE}/detail_btn_share.png`,
   detailBtnBook: `${PET_BOX_ASSET_BASE}/detail_btn_book.png`,
   detailBtnBack: `${PET_BOX_ASSET_BASE}/detail_btn_back.png`,
@@ -24,16 +25,20 @@ export const PET_BOX_ASSETS = Object.freeze({
   detailBtnCollapse: `${PET_BOX_ASSET_BASE}/detail_btn_collapse.png`,
   detailExpBarBg: `${PET_BOX_ASSET_BASE}/detail_exp_bar_bg.png`,
   detailExpBarFill: `${PET_BOX_ASSET_BASE}/detail_exp_bar_fill.png`,
-  detailStarOn: `${PET_BOX_ASSET_BASE}/detail_star_on.png`,
-  detailStarOff: `${PET_BOX_ASSET_BASE}/detail_star_off.png`,
+  detailStarOn: `${PET_BOX_ASSET_BASE}/detail_star_on.png?v=20260528-star-1`,
+  detailStarOff: `${PET_BOX_ASSET_BASE}/detail_star_off.png?v=20260528-star-1`,
   detailTalentLabelBg: `${PET_BOX_ASSET_BASE}/detail_talent_label_bg.png`,
+  detailTalentLabelBgBasic: `${PET_BOX_ASSET_BASE}/detail_talent_label_bg_basic.png`,
+  detailTalentLabelBgQuiteGood: `${PET_BOX_ASSET_BASE}/detail_talent_label_bg_quite_good.png`,
   detailQuestionIcon: `${PET_BOX_ASSET_BASE}/detail_question_icon.png`,
   detailRadarBase: `${PET_BOX_ASSET_BASE}/detail_radar_base.png`,
   detailPillBg: `${PET_BOX_ASSET_BASE}/detail_pill_bg.png`,
   detailBtnFeed: `${PET_BOX_ASSET_BASE}/detail_btn_feed.png`,
   detailBtnGrowth: `${PET_BOX_ASSET_BASE}/detail_btn_growth.png`,
-  genderMale: `${PET_BOX_ASSET_BASE}/gender_male.svg`,
-  genderFemale: `${PET_BOX_ASSET_BASE}/gender_female.svg`,
+  commonFrameBlack: `${UI_ASSET_BASE}/common/common_frame_black.png`,
+  commonFrameYellow: `${UI_ASSET_BASE}/common/common_frame_yellow.png`,
+  genderMale: `${UI_ASSET_BASE}/gender_male.png`,
+  genderFemale: `${UI_ASSET_BASE}/gender_female.png`,
   statIcons: Object.freeze({
     hp: `${PET_BOX_ASSET_BASE}/stat_icon_hp.png`,
     attack: `${PET_BOX_ASSET_BASE}/stat_icon_attack.png`,
