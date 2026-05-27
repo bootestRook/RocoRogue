@@ -1,0 +1,75 @@
+.roco-ui-tuner-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+.roco-ui-tuner-hover,
+.roco-ui-tuner-selected {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.roco-ui-tuner-hover {
+  border: 1px dashed rgba(106, 176, 255, 0.85);
+  background: rgba(106, 176, 255, 0.08);
+}
+
+.roco-ui-tuner-selected {
+  border: 2px solid rgba(255, 211, 92, 0.95);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.roco-ui-tuner-tip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  max-width: min(360px, calc(100vw - 24px));
+  padding: 3px 6px;
+  border-radius: 3px;
+  background: rgba(11, 15, 26, 0.92);
+  color: #f8fafc;
+  font-size: 11px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+}
+
+.roco-ui-tuner-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 8px);
+  display: block;
+  padding: 7px 12px;
+  border-radius: 5px;
+  background: rgba(12, 18, 32, 0.94);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.3;
+  opacity: 0;
+  transition: opacity 140ms ease, transform 140ms ease;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.roco-ui-tuner-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+body[data-roco-ui-tuner-active="true"] {
+  cursor: crosshair;
+}

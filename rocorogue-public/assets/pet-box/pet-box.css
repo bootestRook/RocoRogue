@@ -1,0 +1,544 @@
+body.pet-box-active {
+  overflow: hidden;
+}
+
+body.pet-box-active .pet-box-app {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  margin: 0;
+  padding: 76px 0 0;
+  overflow: hidden;
+}
+
+.pet-box-root {
+  position: relative;
+  width: 100vw;
+  height: calc(100dvh - 76px);
+  overflow: hidden;
+}
+
+.pet-box-stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+.pet-box-backdrop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.pet-box-ui-image {
+  position: absolute;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+}
+
+.pet-box-ui-group {
+  position: absolute;
+  display: block;
+  user-select: none;
+}
+
+.pet-box-radar-svg {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.pet-box-radar-max-outline {
+  fill: none;
+  stroke: rgba(255, 248, 232, 0.38);
+  stroke-width: 2;
+}
+
+.pet-box-radar-fill-shape {
+  fill: rgba(255, 211, 98, 0.72);
+  stroke: #ffd36a;
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.pet-box-background {
+  object-fit: fill;
+}
+
+.pet-box-clickable {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.pet-box-clickable:hover {
+  opacity: 0.86;
+}
+
+.pet-box-clickable:active {
+  opacity: 0.72;
+}
+
+.pet-box-pet-slot-base {
+  z-index: 1;
+}
+
+.pet-box-pet-card {
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.pet-box-selected-slot {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.pet-box-pet-level-badge {
+  z-index: 4;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: rgba(19, 25, 26, 0.88);
+  color: #fff8e8;
+  font-size: 16px;
+  line-height: 1;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+}
+
+.pet-box-detail-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff8e8;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pet-box-detail-text.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.pet-box-detail-name {
+  font-size: 36px;
+}
+
+.pet-box-detail-level {
+  color: #f5b94c;
+  font-size: 34px;
+}
+
+.pet-box-detail-exp {
+  justify-content: flex-end;
+  color: #d5d0c6;
+  font-size: 17.5px;
+}
+
+.pet-box-detail-talent {
+  color: #222829;
+  font-size: 23px;
+}
+
+.pet-box-talent-button {
+  cursor: pointer;
+  transform-origin: center;
+  transition: filter 100ms ease, transform 100ms ease;
+}
+
+.pet-box-talent-button:hover {
+  filter: brightness(1.05);
+}
+
+.pet-box-talent-button:active,
+.pet-box-talent-button.is-pressed {
+  filter: brightness(0.94);
+  transform: translateY(3px) scale(0.98);
+}
+
+.pet-box-detail-type-text {
+  color: #fff8e8;
+  font-size: 24px;
+}
+
+.pet-box-detail-stat-name {
+  justify-content: center;
+  color: #d6d2c8;
+  font-size: 18px;
+}
+
+.pet-box-detail-stat-value {
+  justify-content: center;
+  color: #ffd26c;
+  font-size: 22px;
+}
+
+.pet-box-detail-pill-text {
+  justify-content: center;
+  color: #222829;
+  font-size: 24px;
+}
+
+.pet-box-nature-pill-text {
+  pointer-events: none;
+}
+
+.pet-box-nature-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.pet-box-nature-modal {
+  width: min(620px, calc(100vw - 48px));
+  overflow: hidden;
+  border: 2px solid rgba(255, 226, 164, 0.92);
+  border-radius: 8px;
+  background: #1e2424;
+  color: #fff8e8;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  font-weight: 900;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.52);
+}
+
+.pet-box-nature-modal-header {
+  display: flex;
+  min-height: 106px;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 22px;
+  background: #fff8e8;
+  color: #242727;
+}
+
+.pet-box-nature-modal-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.pet-box-nature-modal-identity {
+  display: flex;
+  min-width: 160px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.pet-box-nature-modal-avatar {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.pet-box-nature-modal-nature {
+  min-width: 68px;
+  font-size: 32px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pet-box-nature-modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 142px;
+}
+
+.pet-box-nature-modal-effect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 34px 28px;
+}
+
+.pet-box-nature-modal-effect.up {
+  border-right: 1px dashed rgba(255, 248, 232, 0.22);
+}
+
+.pet-box-nature-modal-effect-top,
+.pet-box-nature-modal-effect-value-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pet-box-nature-modal-stat-icon {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.pet-box-nature-modal-stat-label {
+  font-size: 34px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pet-box-nature-modal-effect-value {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.pet-box-nature-modal-effect.up .pet-box-nature-modal-effect-value {
+  color: #79df27;
+}
+
+.pet-box-nature-modal-effect.down .pet-box-nature-modal-effect-value {
+  color: #df5757;
+}
+
+.pet-box-nature-modal-arrow {
+  position: relative;
+  width: 18px;
+  height: 26px;
+  flex: 0 0 auto;
+}
+
+.pet-box-nature-modal-arrow::before,
+.pet-box-nature-modal-arrow::after {
+  position: absolute;
+  left: 50%;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.pet-box-nature-modal-arrow.up::before {
+  top: 0;
+  border-right: 9px solid transparent;
+  border-bottom: 11px solid #79df27;
+  border-left: 9px solid transparent;
+}
+
+.pet-box-nature-modal-arrow.up::after {
+  top: 10px;
+  width: 8px;
+  height: 16px;
+  border-radius: 3px;
+  background: #79df27;
+}
+
+.pet-box-nature-modal-arrow.down::before {
+  bottom: 0;
+  border-top: 11px solid #df5757;
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+}
+
+.pet-box-nature-modal-arrow.down::after {
+  bottom: 10px;
+  width: 8px;
+  height: 16px;
+  border-radius: 3px;
+  background: #df5757;
+}
+
+.pet-box-trait-modal {
+  width: min(620px, calc(100vw - 48px));
+}
+
+.pet-box-trait-modal-header {
+  min-height: 96px;
+}
+
+.pet-box-trait-modal-avatar {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  object-fit: contain;
+}
+
+.pet-box-trait-modal-body {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 22px;
+  align-items: center;
+  min-height: 170px;
+  padding: 28px 34px 32px;
+}
+
+.pet-box-trait-modal-icon {
+  width: 92px;
+  height: 92px;
+  justify-self: center;
+  object-fit: contain;
+}
+
+.pet-box-trait-modal-copy {
+  min-width: 0;
+}
+
+.pet-box-trait-modal-name {
+  margin-bottom: 10px;
+  color: #fff8e8;
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.pet-box-trait-modal-desc {
+  color: #cfc8bd;
+  font-size: 22px;
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.pet-box-talent-modal {
+  width: min(620px, calc(100vw - 48px));
+}
+
+.pet-box-talent-modal-header {
+  min-height: 96px;
+}
+
+.pet-box-talent-modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 30px 24px;
+}
+
+.pet-box-talent-modal-row {
+  display: grid;
+  grid-template-columns: 34px 122px minmax(120px, 1fr) 116px;
+  min-height: 50px;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px dotted rgba(255, 248, 232, 0.16);
+}
+
+.pet-box-talent-modal-row:last-child {
+  border-bottom: 0;
+}
+
+.pet-box-talent-modal-stat-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.pet-box-talent-modal-stat-label {
+  color: #fff8e8;
+  font-size: 24px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pet-box-talent-modal-bar {
+  display: flex;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 248, 232, 0.12);
+}
+
+.pet-box-talent-modal-bar-base {
+  height: 100%;
+  flex: 0 0 auto;
+  background: #fff8e8;
+}
+
+.pet-box-talent-modal-bar-bonus {
+  height: 100%;
+  flex: 0 0 auto;
+  background: #f5bd45;
+}
+
+.pet-box-talent-modal-value {
+  display: grid;
+  grid-template-columns: 58px 58px;
+  align-items: baseline;
+  justify-content: end;
+  min-width: 0;
+  color: #fff8e8;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.pet-box-talent-modal-base-value,
+.pet-box-talent-modal-bonus-value {
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pet-box-talent-modal-base-value {
+  text-align: right;
+}
+
+.pet-box-talent-modal-bonus-value {
+  color: #f5bd45;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .pet-box-nature-modal-header {
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .pet-box-nature-modal-title,
+  .pet-box-nature-modal-stat-label,
+  .pet-box-nature-modal-effect-value {
+    font-size: 28px;
+  }
+
+  .pet-box-nature-modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .pet-box-nature-modal-effect.up {
+    border-right: 0;
+    border-bottom: 1px dashed rgba(255, 248, 232, 0.22);
+  }
+
+  .pet-box-trait-modal-body {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .pet-box-talent-modal-body {
+    padding: 16px 12px 22px;
+  }
+
+  .pet-box-talent-modal-row {
+    grid-template-columns: 24px 76px minmax(54px, 1fr) 72px;
+    gap: 4px;
+  }
+
+  .pet-box-talent-modal-stat-label {
+    font-size: 18px;
+  }
+
+  .pet-box-talent-modal-value {
+    grid-template-columns: 36px 36px;
+    font-size: 19px;
+  }
+}
+
+.pet-box-progress-clip {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+}

@@ -1,0 +1,150 @@
+const PET_BOX_UI_BASE = "/assets/ui/pet_box";
+const TYPE_ASSET_BASE = "/types";
+
+function typeIconAsset(type) {
+  return `${TYPE_ASSET_BASE}/${type}.png`;
+}
+
+function makeType(type) {
+  return {
+    iconAsset: typeIconAsset(type),
+    label: type,
+  };
+}
+
+function makePet({
+  id,
+  name,
+  gender,
+  types,
+  bloodlineType,
+  level,
+  maxLevel,
+  exp,
+  expMax,
+  stars,
+  talentTitle,
+  stats,
+  traitName,
+  natureName,
+}) {
+  const typeItems = types.map(makeType);
+  return {
+    id,
+    name,
+    gender,
+    genderIconAsset: `${PET_BOX_UI_BASE}/${gender === "雌" ? "gender_female" : "gender_male"}.svg`,
+    level,
+    maxLevel,
+    exp,
+    expMax,
+    avatarAsset: `${PET_BOX_UI_BASE}/pet_avatar_${id}.png`,
+    slotAsset: `${PET_BOX_UI_BASE}/pet_slot_${id}.png`,
+    radarFillAsset: `${PET_BOX_UI_BASE}/detail_radar_fill_${id}.png`,
+    elementIconAsset: typeItems[0].iconAsset,
+    types: typeItems,
+    bloodlineType: makeType(bloodlineType),
+    stars,
+    maxStars: 6,
+    talentTitle,
+    stats,
+    traitName,
+    traitIconAsset: `${PET_BOX_UI_BASE}/trait_icon_${id}.png`,
+    natureName,
+  };
+}
+
+export const PET_BOX_MOCK_PETS = Object.freeze([
+  makePet({
+    id: "dimo",
+    name: "迪莫",
+    gender: "雄",
+    types: ["光"],
+    bloodlineType: "光",
+    level: 5,
+    maxLevel: 60,
+    exp: 0,
+    expMax: 30,
+    stars: 1,
+    talentTitle: "灵巧的天分",
+    stats: {
+      hp: 58,
+      attack: 52,
+      magicAttack: 62,
+      defense: 49,
+      speed: 56,
+      magicDefense: 54,
+    },
+    traitName: "伙伴",
+    natureName: "勇敢",
+  }),
+  makePet({
+    id: "huohua",
+    name: "火花",
+    gender: "雄",
+    types: ["火"],
+    bloodlineType: "火",
+    level: 5,
+    maxLevel: 60,
+    exp: 0,
+    expMax: 30,
+    stars: 1,
+    talentTitle: "炽热的天分",
+    stats: {
+      hp: 55,
+      attack: 60,
+      magicAttack: 58,
+      defense: 46,
+      speed: 57,
+      magicDefense: 43,
+    },
+    traitName: "猛火",
+    natureName: "热血",
+  }),
+  makePet({
+    id: "shuilanlan",
+    name: "水蓝蓝",
+    gender: "雌",
+    types: ["水"],
+    bloodlineType: "水",
+    level: 5,
+    maxLevel: 60,
+    exp: 0,
+    expMax: 30,
+    stars: 2,
+    talentTitle: "清澈的天分",
+    stats: {
+      hp: 62,
+      attack: 47,
+      magicAttack: 60,
+      defense: 56,
+      speed: 48,
+      magicDefense: 59,
+    },
+    traitName: "激流",
+    natureName: "沉着",
+  }),
+  makePet({
+    id: "miaomiao",
+    name: "喵喵",
+    gender: "雌",
+    types: ["草"],
+    bloodlineType: "草",
+    level: 5,
+    maxLevel: 60,
+    exp: 0,
+    expMax: 30,
+    stars: 1,
+    talentTitle: "自然的天分",
+    stats: {
+      hp: 60,
+      attack: 50,
+      magicAttack: 57,
+      defense: 52,
+      speed: 52,
+      magicDefense: 61,
+    },
+    traitName: "茂盛",
+    natureName: "轻盈",
+  }),
+]);

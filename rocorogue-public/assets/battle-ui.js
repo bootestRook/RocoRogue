@@ -7,23 +7,54 @@ const ACTIONS = [
 ];
 
 const CAPTURE_BALLS = [
-  { id: "frost", label: "冰晶球", count: 924, image: null, colors: ["#4fd3ff", "#206ee9"] },
-  { id: "arcane", label: "秘法球", count: 1646, image: null, colors: ["#f27cff", "#7530d4"] },
-  { id: "flora", label: "花叶球", count: 1751, image: null, colors: ["#67e76c", "#159b47"] },
-  { id: "aqua", label: "水纹球", count: 36, image: null, colors: ["#7df6ff", "#2c9fd7"] },
-  { id: "prism", label: "棱星彩球", count: 90, image: null, colors: ["#ffd25a", "#7a6cff"] },
-  { id: "sun", label: "日冕球", count: 98, image: null, colors: ["#ffc64c", "#94602b"] },
-  { id: "shadow", label: "幽影球", count: 64, image: null, colors: ["#5650d8", "#1e2557"] },
-  { id: "ember", label: "焰心球", count: 122, image: null, colors: ["#ff8a3a", "#d63b27"] }
+  {
+    id: "normal",
+    label: "普通咕噜球",
+    count: 1,
+    image: "/assets/battle-ui/capture-ball-normal.png?v=20260526-official",
+    detail: "60%概率捕捉；个体值随机1-3条，数值随机",
+    colors: ["#4fd3ff", "#206ee9"]
+  },
+  {
+    id: "advanced",
+    label: "高级咕噜球",
+    count: 1,
+    image: "/assets/battle-ui/capture-ball-advanced.png?v=20260526-official",
+    detail: "75%概率捕捉；个体值随机1-3条，数值随机",
+    colors: ["#f27cff", "#7530d4"]
+  },
+  {
+    id: "filllight",
+    label: "补光球",
+    count: 1,
+    image: "/assets/battle-ui/capture-ball-filllight.png?v=20260526-official",
+    detail: "100%概率捕捉；个体值随机1-3条，数值随机",
+    colors: ["#7df6ff", "#2c9fd7"]
+  },
+  {
+    id: "king",
+    label: "国王球",
+    count: 1,
+    image: "/assets/battle-ui/capture-ball-king.png?v=20260526-official",
+    detail: "100%概率捕捉；个体值随机3条，数值8-10随机",
+    colors: ["#ffc64c", "#94602b"]
+  },
+  {
+    id: "prism",
+    label: "棱镜球",
+    count: 0,
+    image: "/assets/battle-ui/capture-ball-prism.png?v=20260526-official",
+    detail: "100%概率捕捉；个体值随机3条，数值必定为10，给精灵随机染色",
+    colors: ["#ffd25a", "#7a6cff"]
+  }
 ];
 
+const CAPTURE_BALL_COUNT_STORAGE_KEY = "rocorogue.capture-balls";
+
 const BAG_ITEMS = [
-  { id: "potion", label: "回复药剂", count: 5, image: null, colors: ["#4fe8ff", "#177cc7"] },
-  { id: "energy", label: "能量药剂", count: 3, image: null, colors: ["#b56dff", "#5a32c8"] },
-  { id: "guard", label: "护盾药剂", count: 2, image: null, colors: ["#78ed92", "#1f9a57"] },
-  { id: "cleanse", label: "净化药剂", count: 4, image: null, colors: ["#ffe071", "#d28a22"] },
-  { id: "focus", label: "专注药剂", count: 1, image: null, colors: ["#86c5ff", "#2d60d6"] },
-  { id: "empty", label: "空槽位", count: 0, image: null, colors: ["#6e737d", "#2f333a"], empty: true }
+  { id: "boss", label: "首领之力", count: 1, image: "/items/boss.png", colors: ["#ffd15a", "#b06b20"] },
+  { id: "wish", label: "愿力强化", count: 2, image: "/items/wish.png", colors: ["#86c5ff", "#2d60d6"] },
+  { id: "energybottle", label: "能量瓶", count: 1, image: "/items/energybottle.png", colors: ["#b56dff", "#5a32c8"] }
 ];
 
 const SPECIES_TYPES_URL = "/assets/battle-ui/species-types.json";
@@ -32,6 +63,72 @@ let speciesTypeMap = null;
 let speciesTypesLoading = false;
 let speciesHeadMap = null;
 let speciesHeadsLoading = false;
+
+const TYPE_EFFECTIVENESS = {
+  火: { 草: 2, 冰: 2, 虫: 2, 机械: 2, 龙: .5, 地: .5, 水: .5 },
+  龙: { 龙: 2, 机械: .5 },
+  水: { 火: 2, 地: 2, 机械: 2, 冰: .5, 草: .5, 龙: .5 },
+  电: { 水: 2, 翼: 2, 电: .5, 草: .5, 龙: .5, 地: .5 },
+  武: { 普通: 2, 冰: 2, 地: 2, 机械: 2, 恶: 2, 毒: .5, 翼: .5, 幻: .5, 虫: .5, 萌: .5, 幽: .5 },
+  普通: { 机械: .5, 地: .5, 幽: .5 },
+  光: { 恶: 2, 幽: 2, 冰: .5, 草: .5 },
+  地: { 火: 2, 电: 2, 毒: 2, 冰: 2, 草: .5, 武: .5 },
+  机械: { 冰: 2, 地: 2, 萌: 2, 火: .5, 水: .5, 电: .5, 机械: .5 },
+  毒: { 草: 2, 萌: 2, 毒: .5, 地: .5, 机械: .5, 幽: .5 },
+  草: { 水: 2, 光: 2, 地: 2, 火: .5, 龙: .5, 毒: .5, 虫: .5, 翼: .5, 机械: .5 },
+  恶: { 幽: 2, 毒: 2, 萌: 2, 武: .5, 恶: .5, 光: .5 },
+  萌: { 龙: 2, 武: 2, 恶: 2, 火: .5, 毒: .5, 机械: .5 },
+  幻: { 武: 2, 毒: 2, 幻: .5, 机械: .5, 光: .5 },
+  虫: { 草: 2, 幻: 2, 恶: 2, 火: .5, 武: .5, 毒: .5, 翼: .5, 幽: .5, 机械: .5, 萌: .5 },
+  翼: { 草: 2, 武: 2, 虫: 2, 电: .5, 龙: .5, 机械: .5, 地: .5 },
+  冰: { 草: 2, 地: 2, 翼: 2, 龙: 2, 火: .5, 冰: .5, 机械: .5 },
+  幽: { 幻: 2, 幽: 2, 光: 2, 恶: .5, 普通: .5 }
+};
+
+const DEFAULT_MOVES_PATCH_KEY = "rocorogue.default-moves-applied";
+const DEFAULT_MOVES_PATCH_VERSION = "v1";
+const DEFAULT_DIMO_MOVES = ["光刃", "闪光冲击", "光球", "防御"];
+
+function isEmptyMoveList(moves) {
+  return !Array.isArray(moves) || moves.length === 0 || moves.every(move => !move);
+}
+
+function patchDefaultDimoMoves() {
+  try {
+    if (localStorage.getItem(DEFAULT_MOVES_PATCH_KEY) === DEFAULT_MOVES_PATCH_VERSION) return false;
+
+    let changed = false;
+    for (const key of ["rocorogue.team.p1", "rocorogue.team.p2"]) {
+      const raw = localStorage.getItem(key);
+      if (!raw) continue;
+
+      const data = JSON.parse(raw);
+      const team = Array.isArray(data) ? data : data?.team;
+      if (!Array.isArray(team) || team.length !== 6) continue;
+
+      const isDefaultDimoTeam = team.every(spirit => spirit?.species === "迪莫" && isEmptyMoveList(spirit.moves));
+      if (!isDefaultDimoTeam) continue;
+
+      team.forEach(spirit => {
+        spirit.moves = DEFAULT_DIMO_MOVES.slice();
+      });
+
+      localStorage.setItem(key, JSON.stringify(Array.isArray(data) ? team : data));
+      changed = true;
+    }
+
+    localStorage.setItem(DEFAULT_MOVES_PATCH_KEY, DEFAULT_MOVES_PATCH_VERSION);
+    return changed;
+  } catch (error) {
+    console.warn("[battle-ui] 默认技能补丁失败：", error);
+    return false;
+  }
+}
+
+const patchedDefaultDimoMoves = patchDefaultDimoMoves();
+if (patchedDefaultDimoMoves) {
+  queueMicrotask(() => window.dispatchEvent(new Event("hashchange")));
+}
 
 function routeName() {
   return (location.hash.slice(1).split("?")[0] || "/team").replace(/^\//, "") || "team";
@@ -99,26 +196,240 @@ function clickChargeMove(view) {
   return clickFirst(view, ".battle-controls .move-btn", button => button.classList.contains("roco-charge-move") || isChargeMove(button));
 }
 
+function clearCaptureSelection(view) {
+  view.__rocoPendingCaptureBall?.classList.remove("roco-ball-selected");
+  view.__rocoPendingCaptureBall = null;
+  syncTargeting(view);
+}
+
+function selectedBagItemCard(view) {
+  return view.querySelector(".roco-item-panel .roco-item-card.roco-item-armed:not(:disabled)");
+}
+
+function playerSideId() {
+  const state = currentBattleUiState();
+  return state?.playerSide === "p2" ? "p2" : "p1";
+}
+
+function opponentSideId() {
+  return playerSideId() === "p1" ? "p2" : "p1";
+}
+
+function sideHasTarget(view, sideId) {
+  return !!view.querySelector(`.battle-side.${sideId} .battle-spirit img`);
+}
+
+function isTrainerBattle() {
+  const state = currentBattleUiState();
+  const battle = state?.battle;
+  if (!battle) return true;
+
+  const sideIndex = state.playerSide === "p2" ? 1 : 0;
+  const foe = battle.sides?.[1 - sideIndex];
+  if (!foe) return true;
+
+  if (battle.isWild === true || battle.battleType === "wild" || foe.isWild === true) return false;
+  if (battle.isTrainer === true || battle.battleType === "trainer" || foe.trainer === true) return true;
+  if (state.mode && state.mode !== "solo") return true;
+
+  return Array.isArray(foe.spirit) && foe.spirit.length > 1;
+}
+
+function normalizedCount(value, fallback = 0) {
+  const count = Number(value);
+  return Number.isFinite(count) ? Math.max(0, Math.floor(count)) : fallback;
+}
+
+function captureBallCountsFrom(value) {
+  const counts = {};
+  const setCount = (key, count) => {
+    if (!key) return;
+    counts[String(key)] = normalizedCount(count);
+  };
+
+  if (Array.isArray(value)) {
+    value.forEach(entry => {
+      if (!entry || typeof entry !== "object") return;
+      const key = entry.id || entry.type || entry.name || entry.label;
+      setCount(key, entry.count ?? entry.amount ?? entry.owned);
+    });
+    return counts;
+  }
+
+  if (!value || typeof value !== "object") return counts;
+  Object.entries(value).forEach(([key, entry]) => {
+    if (entry && typeof entry === "object") {
+      setCount(entry.id || entry.type || entry.name || entry.label || key, entry.count ?? entry.amount ?? entry.owned);
+      return;
+    }
+    setCount(key, entry);
+  });
+  return counts;
+}
+
+function storedCaptureBallCounts() {
+  try {
+    return captureBallCountsFrom(JSON.parse(localStorage.getItem(CAPTURE_BALL_COUNT_STORAGE_KEY) || "null"));
+  } catch {
+    return {};
+  }
+}
+
+function captureBallInventoryCounts() {
+  const state = currentBattleUiState();
+  const battle = state?.battle;
+  const sideIndex = state?.playerSide === "p2" ? 1 : 0;
+  const side = battle?.sides?.[sideIndex];
+  const candidates = [
+    state?.captureBalls,
+    state?.ballInventory,
+    state?.inventory?.captureBalls,
+    state?.inventory?.balls,
+    battle?.captureBalls,
+    battle?.ballInventory,
+    battle?.inventory?.captureBalls,
+    battle?.inventory?.balls,
+    side?.captureBalls,
+    side?.ballInventory,
+    side?.inventory?.captureBalls,
+    side?.inventory?.balls
+  ];
+
+  for (const candidate of candidates) {
+    const counts = captureBallCountsFrom(candidate);
+    if (Object.keys(counts).length) return counts;
+  }
+  return storedCaptureBallCounts();
+}
+
+function captureBallCountForCard(card, counts) {
+  const ball = CAPTURE_BALLS.find(item => item.id === card.dataset.ballId);
+  const fallback = normalizedCount(card.dataset.defaultCount ?? ball?.count ?? 0);
+  const keys = [card.dataset.ballId, card.dataset.ballLabel, ball?.label].filter(Boolean);
+
+  for (const key of keys) {
+    if (Object.prototype.hasOwnProperty.call(counts, key)) return normalizedCount(counts[key], fallback);
+  }
+  return fallback;
+}
+
+function syncCapturePanel(view) {
+  const blocked = isTrainerBattle();
+  const panel = view.querySelector(".roco-ball-panel");
+  const action = view.querySelector(".roco-action-capture");
+  const counts = captureBallInventoryCounts();
+
+  if (action) {
+    action.classList.toggle("roco-action-disabled", blocked);
+    action.title = blocked ? "训练家作战时不能捕捉" : "捕捉";
+  }
+
+  if (!panel) return;
+  if (blocked && view.__rocoPendingCaptureBall) clearCaptureSelection(view);
+  if (view.__rocoPendingCaptureBall && captureBallCountForCard(view.__rocoPendingCaptureBall, counts) <= 0) {
+    clearCaptureSelection(view);
+  }
+
+  panel.querySelectorAll(".roco-ball-card").forEach(card => {
+    const count = captureBallCountForCard(card, counts);
+    const empty = count <= 0;
+    const countNode = card.querySelector(".roco-ball-count");
+    if (countNode) countNode.textContent = String(count);
+
+    card.disabled = blocked || empty;
+    card.classList.toggle("roco-ball-empty", empty);
+    card.title = blocked ? "训练家作战时不能捕捉" : `${card.dataset.ballLabel || card.title} × ${count}`;
+  });
+}
+
+function syncTargeting(view) {
+  view.classList.remove("roco-targeting", "roco-target-ally", "roco-target-foe", "roco-target-item", "roco-target-switch", "roco-target-capture");
+  view.querySelectorAll(".battle-side.roco-target-side").forEach(side => side.classList.remove("roco-target-side"));
+
+  let source = "";
+  let target = "";
+
+  if (view.classList.contains("roco-show-capture") && view.__rocoPendingCaptureBall && !isTrainerBattle()) {
+    source = "capture";
+    target = "foe";
+  } else if (view.classList.contains("roco-show-switch") && view.__rocoPendingSwitchCard?.isConnected && view.__rocoPendingSwitchCard.classList.contains("switchable")) {
+    source = "switch";
+    target = "ally";
+  } else if (view.classList.contains("roco-show-bag") && selectedBagItemCard(view)) {
+    source = "item";
+    target = "ally";
+  }
+
+  const sideId = target === "foe" ? opponentSideId() : target === "ally" ? playerSideId() : "";
+  if (!source || !target || !sideId || !sideHasTarget(view, sideId)) return;
+
+  view.classList.add("roco-targeting", `roco-target-${target}`, `roco-target-${source}`);
+  view.querySelector(`.battle-side.${sideId}`)?.classList.add("roco-target-side");
+}
+
+function returnToSkillInterface(view) {
+  delete view.dataset.rocoManualDrawer;
+  view.classList.remove("roco-show-report", "roco-show-switch", "roco-show-capture", "roco-show-bag");
+  syncTargeting(view);
+}
+
+function wireTargeting(view) {
+  if (view.dataset.rocoTargetingWired === "1") return;
+  view.dataset.rocoTargetingWired = "1";
+
+  view.addEventListener("click", event => {
+    if (!view.classList.contains("roco-targeting")) return;
+    const target = event.target.closest(".battle-side.roco-target-side .battle-spirit");
+    if (!target) return;
+
+    const isSwitchTarget = view.classList.contains("roco-target-switch");
+    const isItemTarget = view.classList.contains("roco-target-item");
+    const isCaptureTarget = view.classList.contains("roco-target-capture");
+
+    if (isSwitchTarget && view.__rocoPendingSwitchCard) {
+      event.preventDefault();
+      event.stopPropagation();
+      confirmSwitchSelection(view);
+      returnToSkillInterface(view);
+      requestAnimationFrame(() => returnToSkillInterface(view));
+      return;
+    }
+
+    if (isItemTarget && selectedBagItemCard(view)) {
+      event.preventDefault();
+      event.stopPropagation();
+      returnToSkillInterface(view);
+      return;
+    }
+
+    if (isCaptureTarget && view.__rocoPendingCaptureBall) {
+      event.preventDefault();
+      event.stopPropagation();
+      view.dataset.rocoManualDrawer = "capture";
+      view.classList.add("roco-show-capture");
+      syncTargeting(view);
+    }
+  }, true);
+}
+
 function toggleDrawer(view, name) {
-  const report = name === "report";
-  const switcher = name === "switch";
-  const capture = name === "capture";
-  const bag = name === "bag";
-  const nextReport = report && !view.classList.contains("roco-show-report");
-  const nextSwitch = switcher && !view.classList.contains("roco-show-switch");
-  const nextCapture = capture && !view.classList.contains("roco-show-capture");
-  const nextBag = bag && !view.classList.contains("roco-show-bag");
+  const drawerClass = {
+    report: "roco-show-report",
+    switch: "roco-show-switch",
+    capture: "roco-show-capture",
+    bag: "roco-show-bag"
+  }[name];
+
   view.classList.remove("roco-show-report", "roco-show-switch", "roco-show-capture", "roco-show-bag");
   delete view.dataset.rocoManualDrawer;
-  if (nextReport) view.classList.add("roco-show-report");
-  if (nextSwitch) view.classList.add("roco-show-switch");
-  if (nextCapture) view.classList.add("roco-show-capture");
-  if (nextBag) view.classList.add("roco-show-bag");
-  if (nextReport) view.dataset.rocoManualDrawer = "report";
-  if (nextSwitch) view.dataset.rocoManualDrawer = "switch";
-  if (nextCapture) view.dataset.rocoManualDrawer = "capture";
-  if (nextBag) view.dataset.rocoManualDrawer = "bag";
-  if (!nextSwitch) clearSwitchConfirm(view);
+  if (drawerClass) {
+    view.classList.add(drawerClass);
+    view.dataset.rocoManualDrawer = name;
+  }
+
+  if (name !== "switch") clearSwitchConfirm(view);
+  if (name !== "capture") clearCaptureSelection(view);
+  syncTargeting(view);
 }
 
 function makeCaptureBallButton(ball) {
@@ -126,7 +437,10 @@ function makeCaptureBallButton(ball) {
   button.type = "button";
   button.className = "roco-ball-card";
   button.dataset.ballId = ball.id;
-  button.title = `${ball.label} × ${ball.count}`;
+  button.dataset.ballLabel = ball.label;
+  button.dataset.defaultCount = String(ball.count ?? 0);
+  button.title = `${ball.label} × ${ball.count ?? 0}`;
+  button.dataset.defaultTitle = button.title;
   button.style.setProperty("--ball-a", ball.colors?.[0] || "#5fd4ff");
   button.style.setProperty("--ball-b", ball.colors?.[1] || "#2766d8");
 
@@ -147,7 +461,7 @@ function makeCaptureBallButton(ball) {
 
   const count = document.createElement("span");
   count.className = "roco-ball-count";
-  count.textContent = String(ball.count);
+  count.textContent = String(ball.count ?? 0);
 
   button.append(icon, count);
   return button;
@@ -173,6 +487,8 @@ function makeBagItemButton(item) {
   button.type = "button";
   button.className = `roco-item-card${item.empty ? " roco-item-empty" : ""}`;
   button.dataset.itemId = item.id;
+  button.dataset.defaultLabel = item.label;
+  button.dataset.defaultCount = String(item.count ?? "");
   button.title = item.empty ? item.label : `${item.label} × ${item.count}`;
   button.disabled = !!item.empty;
   button.style.setProperty("--item-a", item.colors?.[0] || "#5fd4ff");
@@ -197,7 +513,11 @@ function makeBagItemButton(item) {
   count.className = "roco-item-count";
   count.textContent = item.empty ? "" : String(item.count);
 
-  button.append(icon, count);
+  const label = document.createElement("span");
+  label.className = "roco-item-label";
+  label.textContent = item.label;
+
+  button.append(icon, label, count);
   return button;
 }
 
@@ -214,6 +534,43 @@ function ensureBagPanel(view) {
 
   panel.append(list);
   view.append(panel);
+}
+
+function bagCoreSlot(view, itemId) {
+  return view.querySelector(`.battle-controls .item-bar[data-item-slot="${itemId}"]`);
+}
+
+function itemCountFromMeta(card, meta) {
+  if (meta.includes("已使用")) return "0";
+  const ratio = meta.match(/(?:数量|次数)\s*(\d+\s*\/\s*\d+)/);
+  if (ratio) return ratio[1].replace(/\s+/g, "");
+  const match = meta.match(/(?:数量|次数)\s*(\d+)/);
+  return match?.[1] || card.dataset.defaultCount || card.querySelector(".roco-item-count")?.textContent || "";
+}
+
+function syncBagPanel(view) {
+  const panel = view.querySelector(".roco-item-panel");
+  if (!panel) return;
+
+  panel.querySelectorAll(".roco-item-card").forEach(card => {
+    const slot = bagCoreSlot(view, card.dataset.itemId);
+    const toggle = slot?.querySelector(".item-bar-toggle");
+    const meta = slot?.querySelector(".item-bar-meta")?.textContent?.trim() || "";
+    const name = slot?.querySelector(".item-bar-name")?.textContent?.trim() || card.dataset.defaultLabel || card.title || "";
+    const armed = !!slot?.classList.contains("armed");
+    const disabled = !slot || !toggle || toggle.disabled || slot.classList.contains("disabled");
+
+    card.disabled = disabled;
+    card.classList.toggle("roco-item-armed", armed);
+
+    const label = card.querySelector(".roco-item-label");
+    if (label) label.textContent = name;
+
+    const count = card.querySelector(".roco-item-count");
+    if (count) count.textContent = itemCountFromMeta(card, meta);
+
+    card.title = [name, meta, disabled ? toggle?.title : armed ? "已点亮，下次出招/换宠会使用" : "点击点亮本回合使用"].filter(Boolean).join(" · ");
+  });
 }
 
 function switchCardDisplayName(card) {
@@ -233,6 +590,24 @@ function clearSwitchConfirm(view) {
   panel.querySelector(".roco-switch-confirm-preview")?.replaceChildren();
   const name = panel.querySelector(".roco-switch-confirm-name");
   if (name) name.textContent = "";
+  syncTargeting(view);
+}
+
+function cancelBossWishForSwitch(view) {
+  const state = currentBattleUiState();
+  if (!state) return;
+
+  const shouldCancelBoss = !!state.useBossItemThisTurn;
+  const shouldCancelWish = !!state.useWishItemThisTurn;
+  if (!shouldCancelBoss && !shouldCancelWish) return;
+
+  state.useBossItemThisTurn = false;
+  state.useWishItemThisTurn = false;
+
+  for (const id of ["boss", "wish"]) {
+    bagCoreSlot(view, id)?.classList.remove("armed");
+    view.querySelector(`.roco-item-card[data-item-id="${id}"]`)?.classList.remove("roco-item-armed");
+  }
 }
 
 function confirmSwitchSelection(view) {
@@ -240,6 +615,7 @@ function confirmSwitchSelection(view) {
   clearSwitchConfirm(view);
   if (!card?.isConnected || !card.classList.contains("switchable")) return;
 
+  cancelBossWishForSwitch(view);
   view.dataset.rocoSwitchConfirmBypass = "1";
   card.click();
   setTimeout(() => {
@@ -251,25 +627,10 @@ function showSwitchConfirm(view, card) {
   ensureSwitchConfirm(view);
   clearSwitchConfirm(view);
 
-  const panel = view.querySelector(".roco-switch-confirm");
-  if (!panel) return;
-
-  const preview = panel.querySelector(".roco-switch-confirm-preview");
-  const clone = card.cloneNode(true);
-  clone.classList.remove("switchable", "roco-switch-selected");
-  clone.classList.add("roco-switch-confirm-card");
-  clone.removeAttribute("title");
-  clone.querySelectorAll("[id]").forEach(node => node.removeAttribute("id"));
-  preview.replaceChildren(clone);
-
-  const name = switchCardDisplayName(card);
-  panel.querySelector(".roco-switch-confirm-name").textContent = name;
   view.__rocoPendingSwitchCard = card;
   card.classList.add("roco-switch-selected");
   view.classList.add("roco-switch-confirm-open");
-  panel.hidden = false;
-  panel.classList.add("active");
-  panel.querySelector(".roco-switch-confirm-ok")?.focus?.();
+  syncTargeting(view);
 }
 
 function ensureSwitchConfirm(view) {
@@ -344,6 +705,10 @@ function wireSwitchConfirm(view) {
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();
+    if (view.__rocoPendingSwitchCard === card) {
+      clearSwitchConfirm(view);
+      return;
+    }
     showSwitchConfirm(view, card);
   }, true);
 }
@@ -360,8 +725,13 @@ function wireActions(view) {
     const button = event.target.closest(".roco-action-button");
     if (!button) return;
     const action = button.dataset.action;
+    view.classList.remove("roco-show-report");
+
     if (action === "run") {
       clearSwitchConfirm(view);
+      clearCaptureSelection(view);
+      view.classList.remove("roco-show-switch", "roco-show-capture", "roco-show-bag");
+      delete view.dataset.rocoManualDrawer;
       clickFirst(view, ".battle-controls button", el => textIncludes(el, "跳过") || textIncludes(el, "逃"));
     } else if (action === "bag") {
       toggleDrawer(view, "bag");
@@ -373,6 +743,7 @@ function wireActions(view) {
       delete view.dataset.rocoManualDrawer;
       view.classList.remove("roco-show-report", "roco-show-switch", "roco-show-capture", "roco-show-bag");
       clearSwitchConfirm(view);
+      clearCaptureSelection(view);
       view.querySelector(".battle-controls .move-btn:not(.roco-hidden-move):not(:disabled)")?.focus?.();
     }
   });
@@ -387,15 +758,57 @@ function wireActions(view) {
       clickChargeMove(view);
     });
   }
+
+  const bagPanel = view.querySelector(".roco-item-panel");
+  if (bagPanel && !bagPanel.dataset.rocoBagWired) {
+    bagPanel.dataset.rocoBagWired = "1";
+    bagPanel.addEventListener("click", event => {
+      const card = event.target.closest(".roco-item-card");
+      if (!card || card.disabled) return;
+      const toggle = bagCoreSlot(view, card.dataset.itemId)?.querySelector(".item-bar-toggle");
+      if (!toggle || toggle.disabled) return;
+      toggle.click();
+      syncBagPanel(view);
+      syncTargeting(view);
+    });
+  }
+
+  const ballPanel = view.querySelector(".roco-ball-panel");
+  if (ballPanel && !ballPanel.dataset.rocoCaptureWired) {
+    ballPanel.dataset.rocoCaptureWired = "1";
+    ballPanel.addEventListener("click", event => {
+      const card = event.target.closest(".roco-ball-card");
+      if (!card || card.disabled || card.classList.contains("roco-ball-empty") || isTrainerBattle()) return;
+      if (view.__rocoPendingCaptureBall === card) {
+        clearCaptureSelection(view);
+        return;
+      }
+
+      clearCaptureSelection(view);
+      view.__rocoPendingCaptureBall = card;
+      card.classList.add("roco-ball-selected");
+      syncTargeting(view);
+    });
+  }
 }
 
 function ensureOverlay(view) {
   view.querySelector(".roco-side-shortcuts")?.remove();
+  view.querySelector(".roco-battle-message")?.remove();
 
-  if (!view.querySelector(".roco-battle-message")) {
-    const msg = document.createElement("div");
-    msg.className = "roco-battle-message";
-    view.append(msg);
+  if (!view.querySelector(".roco-battle-info")) {
+    const info = document.createElement("div");
+    info.className = "roco-battle-info";
+
+    const title = document.createElement("div");
+    title.className = "roco-battle-info-title";
+    title.textContent = "战斗信息";
+
+    const list = document.createElement("div");
+    list.className = "roco-battle-info-list";
+
+    info.append(title, list);
+    view.append(info);
   }
 
   if (!view.querySelector(".roco-command-bar")) {
@@ -409,6 +822,7 @@ function ensureOverlay(view) {
   ensureBagPanel(view);
   ensureSwitchConfirm(view);
   wireSwitchConfirm(view);
+  wireTargeting(view);
 
   if (!view.querySelector(".roco-energy-widget")) {
     const widget = document.createElement("div");
@@ -432,6 +846,16 @@ function hpText(info) {
     return first?.textContent?.trim() === "HP";
   });
   return row?.querySelector("span:last-child")?.textContent?.replace(/\s+/g, "") || "";
+}
+
+function hpPercentText(info) {
+  const match = hpText(info).match(/^(\d+)\/(\d+)$/);
+  if (!match) return hpText(info);
+  const current = Number(match[1]);
+  const max = Number(match[2]);
+  if (!Number.isFinite(current) || !Number.isFinite(max) || max <= 0) return "--%";
+  const percent = Math.max(0, Math.min(100, Math.round(current / max * 100)));
+  return `${percent}%`;
 }
 
 function energyTextFromInfo(info) {
@@ -529,6 +953,193 @@ function speciesTypesFor(name) {
     if (Array.isArray(types)) return types;
   }
   return [];
+}
+
+function moveStatText(button, index) {
+  const stat = button.querySelectorAll(".move-meta .mv-stat")[index];
+  return stat?.textContent?.replace(/^[^\d-]+/, "").trim() || "";
+}
+
+function displayedPowerText(button) {
+  const power = moveStatText(button, 1);
+  if (!power) return "";
+  return power.match(/-?\d+(?:\.\d+)?/)?.[0] || power;
+}
+
+function moveTypeFromButton(button) {
+  return button.querySelector(".move-tooltip .type-badge")?.textContent?.trim() || "普通";
+}
+
+function moveCategoryFromButton(button) {
+  return button.querySelector(".move-tooltip .move-tooltip-cat")?.textContent?.trim() || "";
+}
+
+function activeSideTypes(view, selector) {
+  const side = view.querySelector(selector);
+  if (!side) return [];
+
+  const hudTypes = Array.from(side.querySelectorAll(".roco-hud-type"))
+    .map(icon => icon.alt || icon.title)
+    .filter(Boolean);
+  if (hudTypes.length) return hudTypes;
+
+  const info = side.querySelector(".spirit-info");
+  const sprite = side.querySelector(".battle-spirit img");
+  const speciesName = sprite?.alt || info?.querySelector(".name")?.textContent || "";
+  return speciesTypesFor(speciesName);
+}
+
+function typeEffectiveness(moveType, defenderTypes) {
+  const row = TYPE_EFFECTIVENESS[moveType] || {};
+  const value = defenderTypes.reduce((total, type) => total * (row[type] ?? 1), 1);
+  if (value >= 4) return 3;
+  if (value <= .25) return .25;
+  return value;
+}
+
+function currentBattleUiState() {
+  const state = window.__rocoBattleUiState;
+  return state?.battle && state?.playerSide ? state : null;
+}
+
+function offensiveMoveThreat(spirit, defender, battle) {
+  if (!spirit || !defender || !battle?.dex) return false;
+  const defenderTypes = defender.species?.types || defender.effectiveSpecies?.types || [];
+  if (!defenderTypes.length) return false;
+
+  return (spirit.moveSlots || []).some(slot => {
+    if (!slot || slot.id === "charge" || slot.id === "empty") return false;
+    const move = battle.dex.moves.get(slot.id);
+    if (!move?.exists) return false;
+    const overrides = typeof move.computeDynamicOverrides === "function"
+      ? move.computeDynamicOverrides(spirit, defender)
+      : null;
+    const category = overrides?.category ?? move.category;
+    if (category !== "物攻" && category !== "魔攻") return false;
+    const type = overrides?.type ?? move.type ?? "普通";
+    return typeEffectiveness(type, defenderTypes) > 1;
+  });
+}
+
+function typeIsThreatenedByActive(spirit, foe) {
+  const spiritTypes = spirit?.species?.types || spirit?.effectiveSpecies?.types || [];
+  const foeTypes = foe?.species?.types || foe?.effectiveSpecies?.types || [];
+  if (!spiritTypes.length || !foeTypes.length) return false;
+  return foeTypes.some(type => typeEffectiveness(type, spiritTypes) > 1);
+}
+
+function ensureCardBadge(card, className) {
+  const selectorClass = className.trim().split(/\s+/).at(-1);
+  let badge = card.querySelector(`:scope > .${selectorClass}`);
+  if (!badge) {
+    badge = document.createElement("span");
+    badge.className = className;
+    card.append(badge);
+  }
+  return badge;
+}
+
+function syncSwitchCards(view) {
+  const state = currentBattleUiState();
+  const cards = Array.from(view.querySelectorAll(".switch-panel .switch-card"));
+  if (!state || !cards.length) return;
+
+  const sideIndex = state.playerSide === "p1" ? 0 : 1;
+  const side = state.battle.sides?.[sideIndex];
+  const foe = state.battle.sides?.[1 - sideIndex]?.activeSpirit;
+  if (!side?.spirit?.length) return;
+
+  cards.forEach((card, index) => {
+    const spirit = side.spirit[index];
+    if (!spirit) return;
+
+    const hpText = `${Math.max(0, spirit.hp)}/${spirit.maxhp}`;
+    const energyText = String(Math.max(0, spirit.energy));
+    const hpBadge = ensureCardBadge(card, "switch-hp-text");
+    const energyBadge = ensureCardBadge(card, "roco-score switch-energy-chip");
+    const up = ensureCardBadge(card, "switch-effect switch-effect-up");
+    const down = ensureCardBadge(card, "switch-effect switch-effect-down");
+
+    hpBadge.textContent = hpText;
+    energyBadge.textContent = energyText;
+    card.dataset.rocoPosition = String((spirit.position ?? index) + 1);
+    card.dataset.rocoHp = hpText;
+    card.dataset.rocoEnergy = String(Math.max(0, spirit.energy));
+
+    const hasOffense = offensiveMoveThreat(spirit, foe, state.battle);
+    const isThreatened = typeIsThreatenedByActive(spirit, foe);
+    card.classList.toggle("roco-has-counter-move", hasOffense);
+    card.classList.toggle("roco-type-threatened", isThreatened);
+
+    up.textContent = "▲";
+    up.hidden = !hasOffense;
+    up.title = "携带技能克制对方在场精灵";
+    down.textContent = "▼";
+    down.hidden = !isThreatened;
+    down.title = "属性被对方在场精灵克制";
+  });
+}
+
+function ensureMoveBadge(button, className) {
+  let badge = button.querySelector(`:scope > .${className}`);
+  if (!badge) {
+    badge = document.createElement("span");
+    badge.className = className;
+    button.append(badge);
+  }
+  return badge;
+}
+
+function updateMoveCardDetails(view, button) {
+  const moveType = moveTypeFromButton(button);
+  const category = moveCategoryFromButton(button);
+  const costText = moveStatText(button, 0) || "0";
+  const powerText = displayedPowerText(button);
+  const defenderTypes = activeSideTypes(view, ".battle-side.p2");
+  const effectiveness = powerText && !/状态|防御/.test(category) ? typeEffectiveness(moveType, defenderTypes) : 1;
+
+  const cost = ensureMoveBadge(button, "roco-move-cost");
+  cost.textContent = costText;
+  cost.title = `实际耗能 ${costText}`;
+
+  const power = ensureMoveBadge(button, "roco-move-power");
+  power.textContent = powerText || "--";
+  power.title = powerText ? `显示威力 ${moveStatText(button, 1)}` : "无显示威力";
+  power.classList.toggle("empty", !powerText);
+
+  const type = ensureMoveBadge(button, "roco-move-type");
+  type.title = `属性 ${moveType}`;
+  let icon = type.querySelector("img");
+  if (!icon) {
+    icon = document.createElement("img");
+    icon.loading = "lazy";
+    type.append(icon);
+  }
+  const typeSrc = `/types/${encodeURIComponent(moveType)}.webp`;
+  if (icon.getAttribute("src") !== typeSrc) icon.src = typeSrc;
+  icon.alt = moveType;
+  icon.onerror = () => {
+    const fallback = `/types/${encodeURIComponent(moveType)}.png`;
+    if (icon.getAttribute("src") !== fallback) icon.src = fallback;
+  };
+
+  const effect = ensureMoveBadge(button, "roco-move-effect");
+  effect.classList.remove("up", "down");
+  if (effectiveness > 1) {
+    effect.textContent = "▲";
+    effect.title = "克制对方精灵";
+    effect.hidden = false;
+    effect.classList.add("up");
+  } else if (effectiveness < 1) {
+    effect.textContent = "▼";
+    effect.title = "对方精灵属性抵抗";
+    effect.hidden = false;
+    effect.classList.add("down");
+  } else {
+    effect.hidden = true;
+    effect.textContent = "";
+    effect.title = "";
+  }
 }
 
 function updateHudTypes(info, speciesName) {
@@ -650,7 +1261,7 @@ function enhanceHud(view) {
         hp.className = "roco-hp-text";
         hpBar.append(hp);
       }
-      hp.textContent = hpText(info);
+      hp.textContent = side.classList.contains("p2") ? hpPercentText(info) : hpText(info);
     }
 
     if (!info.querySelector(".roco-score")) {
@@ -669,27 +1280,66 @@ function enhanceMoves(view) {
     button.classList.toggle("roco-charge-move", isChargeMove(button));
     button.classList.toggle("roco-hidden-move", isHiddenMove(button));
     button.classList.remove("roco-second-col");
+    button.style.removeProperty("--roco-move-row");
+    button.style.removeProperty("--roco-move-col");
+    button.querySelectorAll(".move-meta .mv-stat").forEach(stat => {
+      const cleaned = stat.textContent.replace(/^[^\d-]+/, "").trim();
+      if (stat.textContent !== cleaned) stat.textContent = cleaned;
+    });
+    updateMoveCardDetails(view, button);
   });
 
   view.querySelectorAll(".battle-controls").forEach(controls => {
-    const visibleMoves = Array.from(controls.querySelectorAll(".move-btn:not(.roco-hidden-move)"));
+    let visibleMoves = Array.from(controls.querySelectorAll(".move-btn:not(.roco-hidden-move)"));
+    if (visibleMoves.length === 0) {
+      const chargeMove = controls.querySelector(".move-btn.roco-charge-move:not(:disabled)");
+      chargeMove?.classList.remove("roco-hidden-move");
+      visibleMoves = Array.from(controls.querySelectorAll(".move-btn:not(.roco-hidden-move)"));
+    }
+
     const moveCount = visibleMoves.length;
-    visibleMoves.forEach((button, index) => button.classList.toggle("roco-second-col", index >= 4));
+    visibleMoves.forEach((button, index) => {
+      button.classList.toggle("roco-second-col", index >= 4);
+      button.style.setProperty("--roco-move-row", String((index % 4) + 1));
+      button.style.setProperty("--roco-move-col", String(Math.floor(index / 4) + 1));
+    });
     controls.classList.toggle("roco-two-col", moveCount > 4);
     controls.classList.toggle("roco-single-col", moveCount <= 4);
   });
+}
 
-  view.querySelectorAll(".move-btn .move-meta .mv-stat").forEach(stat => {
-    stat.textContent = stat.textContent.replace(/^[^\d-]+/, "").trim();
-  });
+function formatBattleInfoLine(text) {
+  return String(text || "")
+    .replace(/\s*[（(][^（）()]*[）)]/g, "")
+    .replace(/([^\s])\s*HP\b/g, "$1 HP")
+    .replace(/\bHP\s*(\d+)\s*\/\s*(\d+)\b/g, (_match, currentText, maxText) => {
+      const current = Number(currentText);
+      const max = Number(maxText);
+      if (!Number.isFinite(current) || !Number.isFinite(max) || max <= 0) return "HP --%";
+      const percent = Math.max(0, Math.min(100, Math.round(current / max * 100)));
+      return `HP ${percent}%`;
+    })
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 function updateMessage(view) {
-  const target = view.querySelector(".roco-battle-message");
+  const target = view.querySelector(".roco-battle-info-list");
   if (!target) return;
-  const enemy = view.querySelector(".battle-side.p2 .spirit-info .name")?.textContent?.trim();
-  const lastLine = Array.from(view.querySelectorAll(".battle-log .log-line")).at(-1)?.textContent?.trim();
-  target.textContent = enemy ? `${enemy}正对着你。` : (lastLine || "战斗开始。");
+
+  const logLines = Array.from(view.querySelectorAll(".battle-log .log-line"))
+    .map(line => ({ text: formatBattleInfoLine(line.textContent?.trim()), kind: Array.from(line.classList).filter(name => name !== "log-line") }))
+    .filter(line => line.text);
+
+  const recentLines = logLines.length ? logLines.slice(-4) : [{ text: "战斗开始。", kind: [] }];
+  target.replaceChildren();
+
+  for (const line of recentLines) {
+    const row = document.createElement("div");
+    row.className = ["roco-battle-info-line", ...line.kind].join(" ");
+    row.textContent = line.text;
+    target.append(row);
+  }
 }
 
 function updateEnergy(view) {
@@ -744,6 +1394,541 @@ function autoSwitchDrawer(view) {
   }
 }
 
+const SWITCH_TUNER_STORAGE_KEY = "rocorogue.switch-card-tuning";
+const SWITCH_TUNER_ENABLED_KEY = "rocorogue.switch-card-tuner-enabled";
+const SWITCH_TUNER_HIDDEN_KEY = "rocorogue.switch-card-tuner-hidden";
+
+const SWITCH_TUNER_DEFAULTS = {
+  panelLeft: 98,
+  panelTop: 263,
+  cardSize: 108,
+  rowGap: 24,
+  gridPadTop: 28,
+  gridPadLeft: 52,
+  panelExtraRight: 14,
+  indexLeft: -52,
+  indexTop: 38,
+  indexSize: 34,
+  indexFont: 22,
+  artLeft: 14,
+  artTop: 8,
+  artSize: 75,
+  artScale: 1.26,
+  typeLeft: -5,
+  typeTop: -1,
+  typeSize: 27,
+  energyLeft: 3,
+  energyTop: 83,
+  energyGap: 3,
+  energyFont: 18,
+  starSize: 13,
+  hpLeft: 47,
+  hpWidth: 55,
+  hpTop: 84,
+  barHeight: 15,
+  effectRight: 1,
+  effectTop: 0,
+  effectDownRight: 1,
+  effectSize: 20
+};
+
+const SWITCH_TUNER_CONTROLS = [
+  ["panelLeft", "panel x", 0, 240, 1],
+  ["panelTop", "panel y", 120, 360, 1],
+  ["cardSize", "card size", 76, 132, 1],
+  ["rowGap", "row gap", 0, 24, 1],
+  ["gridPadTop", "grid top", 0, 28, 1],
+  ["gridPadLeft", "grid left", 24, 80, 1],
+  ["indexLeft", "index x", -80, -20, 1],
+  ["indexTop", "index y", 0, 80, 1],
+  ["indexSize", "index size", 20, 44, 1],
+  ["artLeft", "art x", -8, 32, 1],
+  ["artTop", "art y", -8, 20, 1],
+  ["artSize", "art size", 54, 98, 1],
+  ["artScale", "art scale", .9, 1.7, .01],
+  ["typeLeft", "type x", -12, 40, 1],
+  ["typeTop", "type y", -20, 78, 1],
+  ["typeSize", "type size", 16, 42, 1],
+  ["energyLeft", "energy x", 0, 56, 1],
+  ["energyTop", "energy y", 70, 102, 1],
+  ["energyFont", "energy font", 10, 24, 1],
+  ["starSize", "star size", 8, 20, 1],
+  ["energyGap", "star gap", 0, 10, 1],
+  ["hpLeft", "hp x", 34, 82, 1],
+  ["hpWidth", "hp width", 32, 72, 1],
+  ["hpTop", "hp y", 70, 102, 1],
+  ["barHeight", "hp height", 8, 22, 1],
+  ["effectRight", "arrow x", -18, 8, 1],
+  ["effectTop", "arrow y", -18, 8, 1],
+  ["effectDownRight", "red arrow x", -2, 34, 1],
+  ["effectSize", "arrow size", 14, 32, 1]
+].map(([key, label, min, max, step]) => ({ key, label, min, max, step }));
+
+let switchTunerPanel = null;
+let switchTunerStyle = null;
+let switchTunerHighlightLayer = null;
+
+function switchTunerEnabled() {
+  if (sessionStorage.getItem(SWITCH_TUNER_HIDDEN_KEY) === "1") return false;
+
+  const search = new URLSearchParams(location.search);
+  const hashQuery = location.hash.includes("?") ? location.hash.slice(location.hash.indexOf("?") + 1) : "";
+  const hashParams = new URLSearchParams(hashQuery);
+  return search.has("switchTuner")
+    || search.get("rocoSwitchTuner") === "1"
+    || hashParams.has("switchTuner")
+    || hashParams.get("rocoSwitchTuner") === "1"
+    || localStorage.getItem(SWITCH_TUNER_ENABLED_KEY) === "1";
+}
+
+function readSwitchTuning() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(SWITCH_TUNER_STORAGE_KEY) || "{}");
+    return { ...SWITCH_TUNER_DEFAULTS, ...(stored.values || stored) };
+  } catch {
+    return { ...SWITCH_TUNER_DEFAULTS };
+  }
+}
+
+function persistSwitchTuning(values) {
+  localStorage.setItem(SWITCH_TUNER_STORAGE_KEY, JSON.stringify({ values }));
+}
+
+function switchTuningPayload(values) {
+  return {
+    version: 1,
+    name: "roco-switch-card-tuning",
+    updatedAt: new Date().toISOString(),
+    viewport: {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      devicePixelRatio: window.devicePixelRatio || 1
+    },
+    values: Object.fromEntries(
+      Object.entries(values).map(([key, value]) => [key, Number(value)])
+    )
+  };
+}
+
+function numberValue(values, key) {
+  const fallback = SWITCH_TUNER_DEFAULTS[key];
+  const value = Number(values[key]);
+  return Number.isFinite(value) ? value : fallback;
+}
+
+function applySwitchTuning(values = readSwitchTuning()) {
+  if (!switchTunerStyle) {
+    switchTunerStyle = document.createElement("style");
+    switchTunerStyle.id = "roco-switch-tuner-style";
+    document.head.append(switchTunerStyle);
+  }
+
+  const v = key => numberValue(values, key);
+  switchTunerStyle.textContent = `
+body[data-roco-route="battle"] .battle-view.roco-show-switch .battle-side-panel {
+  --roco-switch-card-size: ${v("cardSize")}px;
+  --roco-switch-art-size: ${v("artSize")}px;
+  --roco-switch-label-height: ${v("barHeight")}px;
+  left: ${v("panelLeft")}px;
+  top: ${v("panelTop")}px;
+  width: calc(${v("gridPadLeft")}px + ${v("cardSize")}px + ${v("panelExtraRight")}px);
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-grid {
+  grid-template-columns: ${v("cardSize")}px;
+  grid-auto-rows: ${v("cardSize")}px;
+  row-gap: ${v("rowGap")}px;
+  padding-top: ${v("gridPadTop")}px;
+  padding-left: ${v("gridPadLeft")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-card {
+  width: ${v("cardSize")}px;
+  height: ${v("cardSize")}px;
+  min-height: ${v("cardSize")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-card:before {
+  left: ${v("indexLeft")}px;
+  top: ${v("indexTop")}px;
+  width: ${v("indexSize")}px;
+  height: ${v("indexSize")}px;
+  font-size: ${v("indexFont")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-art {
+  left: ${v("artLeft")}px;
+  top: ${v("artTop")}px;
+  width: ${v("artSize")}px;
+  height: ${v("artSize")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-art img {
+  transform: scale(${v("artScale")});
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-types {
+  left: ${v("typeLeft")}px;
+  top: ${v("typeTop")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-type-icon {
+  width: ${v("typeSize")}px;
+  height: ${v("typeSize")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-energy-chip {
+  left: ${v("energyLeft")}px;
+  top: ${v("energyTop")}px;
+  gap: ${v("energyGap")}px;
+  height: ${v("barHeight")}px;
+  font-size: ${v("energyFont")}px;
+  line-height: ${v("barHeight")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-energy-chip:before {
+  flex: 0 0 ${v("starSize")}px;
+  width: ${v("starSize")}px;
+  height: ${v("starSize")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-info {
+  left: ${v("hpLeft")}px;
+  right: auto;
+  top: ${v("hpTop")}px;
+  width: ${v("hpWidth")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-info .bar {
+  width: 100%;
+  height: ${v("barHeight")}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-effect {
+  right: ${v("effectRight")}px;
+  top: ${v("effectTop")}px;
+  width: ${v("effectSize")}px;
+  height: ${v("effectSize")}px;
+  font-size: ${Math.max(10, v("effectSize") - 8)}px;
+}
+body[data-roco-route="battle"] .battle-view.roco-show-switch .switch-effect-down {
+  right: ${v("effectDownRight")}px;
+}`;
+}
+
+function downloadSwitchTuning(payload) {
+  const blob = new Blob([JSON.stringify(payload, null, 2) + "\n"], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "switch-card-tuning.json";
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+async function saveSwitchTuning(values) {
+  const payload = switchTuningPayload(values);
+  try {
+    const response = await fetch("/__roco_switch_tuning", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(payload, null, 2)
+    });
+    if (response.ok) return await response.json();
+  } catch {}
+
+  downloadSwitchTuning(payload);
+  return { ok: true, path: "switch-card-tuning.json" };
+}
+
+function clearSwitchTunerHighlight() {
+  switchTunerHighlightLayer?.replaceChildren();
+}
+
+function ensureSwitchTunerHighlightLayer() {
+  if (switchTunerHighlightLayer?.isConnected) return switchTunerHighlightLayer;
+
+  switchTunerHighlightLayer = document.createElement("div");
+  switchTunerHighlightLayer.className = "roco-switch-tuner-highlight-layer";
+  document.body.append(switchTunerHighlightLayer);
+  return switchTunerHighlightLayer;
+}
+
+function addSwitchTunerHighlight(rect, label = "") {
+  if (!rect || rect.width <= 0 || rect.height <= 0) return;
+
+  const layer = ensureSwitchTunerHighlightLayer();
+  const marker = document.createElement("div");
+  marker.className = "roco-switch-tuner-highlight";
+  marker.style.left = `${Math.round(rect.left)}px`;
+  marker.style.top = `${Math.round(rect.top)}px`;
+  marker.style.width = `${Math.round(rect.width)}px`;
+  marker.style.height = `${Math.round(rect.height)}px`;
+  if (label) marker.dataset.label = label;
+  layer.append(marker);
+}
+
+function switchTunerTargetRect(key, values, view) {
+  const card = view.querySelector(".switch-card:not(.active)") || view.querySelector(".switch-card");
+  const cardRect = card?.getBoundingClientRect();
+  const v = name => numberValue(values, name);
+  const bySelector = selector => view.querySelector(selector)?.getBoundingClientRect();
+  const byCardSelector = selector => card?.querySelector(selector)?.getBoundingClientRect();
+
+  if (key.startsWith("panel")) return bySelector(".battle-side-panel");
+  if (key.startsWith("grid") || key === "rowGap") return bySelector(".switch-grid");
+  if (key === "cardSize" || key === "panelExtraRight") return cardRect;
+  if (key.startsWith("index") && cardRect) {
+    return {
+      left: cardRect.left + v("indexLeft"),
+      top: cardRect.top + v("indexTop"),
+      width: v("indexSize"),
+      height: v("indexSize")
+    };
+  }
+  if (key.startsWith("art")) return byCardSelector(".switch-art img") || byCardSelector(".switch-art");
+  if (key.startsWith("type")) return byCardSelector(".switch-type-icon") || byCardSelector(".switch-types");
+  if (key.startsWith("energy")) return byCardSelector(".switch-energy-chip");
+  if (key.startsWith("star")) {
+    const energyRect = byCardSelector(".switch-energy-chip");
+    if (!energyRect) return null;
+    const size = v("starSize");
+    return {
+      left: energyRect.left,
+      top: energyRect.top + (energyRect.height - size) / 2,
+      width: size,
+      height: size
+    };
+  }
+  if (key.startsWith("hp") || key === "barHeight") return byCardSelector(".switch-info .bar");
+  if ((key.startsWith("effect") || key.startsWith("arrow")) && cardRect) {
+    const size = v("effectSize");
+    const right = key === "effectDownRight" ? v("effectDownRight") : v("effectRight");
+    return {
+      left: cardRect.right - right - size,
+      top: cardRect.top + v("effectTop"),
+      width: size,
+      height: size
+    };
+  }
+
+  return cardRect;
+}
+
+function highlightSwitchTunerTarget(key, values = readSwitchTuning()) {
+  const view = document.querySelector(".battle-view");
+  if (!view) return;
+  if (!view.classList.contains("roco-show-switch")) openSwitchDrawerForTuning(view);
+
+  clearSwitchTunerHighlight();
+  const rect = switchTunerTargetRect(key, values, view);
+  const control = SWITCH_TUNER_CONTROLS.find(item => item.key === key);
+  addSwitchTunerHighlight(rect, control?.label || key);
+}
+
+function ensureSwitchTuner(view) {
+  if (!switchTunerEnabled()) {
+    switchTunerPanel?.remove();
+    switchTunerPanel = null;
+    clearSwitchTunerHighlight();
+    return;
+  }
+
+  const values = readSwitchTuning();
+  applySwitchTuning(values);
+  if (switchTunerPanel?.isConnected) return;
+
+  const panel = document.createElement("section");
+  panel.className = "roco-switch-tuner";
+  const title = document.createElement("div");
+  title.className = "roco-switch-tuner-title";
+  title.textContent = "Switch card tuner";
+
+  const controls = document.createElement("div");
+  controls.className = "roco-switch-tuner-controls";
+  const inputs = new Map();
+  let activeKey = null;
+
+  const syncInputs = key => {
+    const pair = inputs.get(key);
+    if (!pair) return;
+    pair.range.value = String(values[key]);
+    pair.number.value = String(values[key]);
+  };
+
+  const setValue = (key, rawValue) => {
+    const control = SWITCH_TUNER_CONTROLS.find(item => item.key === key);
+    const next = Number(rawValue);
+    if (!control || !Number.isFinite(next)) return;
+    values[key] = Math.min(control.max, Math.max(control.min, next));
+    syncInputs(key);
+    persistSwitchTuning(values);
+    applySwitchTuning(values);
+    highlightSwitchTunerTarget(key, values);
+  };
+
+  const activateRow = (row, key) => {
+    activeKey = key;
+    for (const node of controls.querySelectorAll(".roco-switch-tuner-row.active")) {
+      node.classList.remove("active");
+    }
+    row.classList.add("active");
+    highlightSwitchTunerTarget(key, values);
+  };
+
+  for (const control of SWITCH_TUNER_CONTROLS) {
+    const row = document.createElement("div");
+    row.className = "roco-switch-tuner-row";
+
+    const name = document.createElement("span");
+    name.textContent = control.label;
+
+    const range = document.createElement("input");
+    range.type = "range";
+    range.min = String(control.min);
+    range.max = String(control.max);
+    range.step = String(control.step);
+    range.value = String(values[control.key]);
+    range.addEventListener("input", () => setValue(control.key, range.value));
+
+    const number = document.createElement("input");
+    number.type = "number";
+    number.min = String(control.min);
+    number.max = String(control.max);
+    number.step = String(control.step);
+    number.value = String(values[control.key]);
+    number.addEventListener("input", () => setValue(control.key, number.value));
+
+    const resetOne = document.createElement("button");
+    resetOne.type = "button";
+    resetOne.className = "roco-switch-tuner-reset";
+    resetOne.textContent = "reset";
+    resetOne.title = `reset ${control.label}`;
+    resetOne.addEventListener("click", () => {
+      setValue(control.key, SWITCH_TUNER_DEFAULTS[control.key]);
+      status.textContent = `reset: ${control.label}`;
+    });
+
+    row.addEventListener("pointerenter", () => activateRow(row, control.key));
+    row.addEventListener("focusin", () => activateRow(row, control.key));
+
+    inputs.set(control.key, { range, number });
+    row.append(name, range, number, resetOne);
+    controls.append(row);
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "roco-switch-tuner-actions";
+
+  const status = document.createElement("div");
+  status.className = "roco-switch-tuner-status";
+
+  const openSwitch = document.createElement("button");
+  openSwitch.type = "button";
+  openSwitch.textContent = "open switch";
+  openSwitch.addEventListener("click", () => {
+    openSwitchDrawerForTuning(view);
+  });
+
+  const reset = document.createElement("button");
+  reset.type = "button";
+  reset.textContent = "reset";
+  reset.addEventListener("click", () => {
+    Object.assign(values, SWITCH_TUNER_DEFAULTS);
+    for (const key of Object.keys(values)) syncInputs(key);
+    persistSwitchTuning(values);
+    applySwitchTuning(values);
+    if (activeKey) highlightSwitchTunerTarget(activeKey, values);
+    status.textContent = "reset";
+  });
+
+  const save = document.createElement("button");
+  save.type = "button";
+  save.textContent = "save json";
+  save.addEventListener("click", async () => {
+    persistSwitchTuning(values);
+    const result = await saveSwitchTuning(values);
+    status.textContent = `saved: ${result.path}`;
+  });
+
+  const close = document.createElement("button");
+  close.type = "button";
+  close.textContent = "hide";
+  close.addEventListener("click", () => {
+    window.rocoSwitchTuner.close();
+  });
+
+  actions.append(openSwitch, reset, save, close);
+  panel.append(title, controls, actions, status);
+  document.body.append(panel);
+  switchTunerPanel = panel;
+}
+
+window.rocoSwitchTuner = {
+  open() {
+    sessionStorage.removeItem(SWITCH_TUNER_HIDDEN_KEY);
+    localStorage.setItem(SWITCH_TUNER_ENABLED_KEY, "1");
+    scheduleEnhance();
+  },
+  close() {
+    sessionStorage.setItem(SWITCH_TUNER_HIDDEN_KEY, "1");
+    localStorage.removeItem(SWITCH_TUNER_ENABLED_KEY);
+    switchTunerPanel?.remove();
+    switchTunerPanel = null;
+  },
+  toggle() {
+    if (switchTunerEnabled()) {
+      this.close();
+    } else {
+      this.open();
+    }
+  },
+  openSwitch() {
+    const view = document.querySelector(".battle-view");
+    if (view) openSwitchDrawerForTuning(view);
+  },
+  toggleSwitch() {
+    const view = document.querySelector(".battle-view");
+    if (view) toggleSwitchDrawerForTuning(view);
+  },
+  values: readSwitchTuning,
+  apply(values) {
+    const next = { ...readSwitchTuning(), ...values };
+    persistSwitchTuning(next);
+    applySwitchTuning(next);
+  },
+  save() {
+    return saveSwitchTuning(readSwitchTuning());
+  }
+};
+
+function openSwitchDrawerForTuning(view) {
+  view.dataset.rocoManualDrawer = "switch";
+  view.classList.remove("roco-show-report", "roco-show-capture", "roco-show-bag");
+  view.classList.add("roco-show-switch");
+  syncSwitchCards(view);
+  syncSwitchConfirm(view);
+}
+
+function closeSwitchDrawerForTuning(view) {
+  delete view.dataset.rocoManualDrawer;
+  clearSwitchConfirm(view);
+  view.classList.remove("roco-show-switch");
+}
+
+function toggleSwitchDrawerForTuning(view) {
+  if (view.classList.contains("roco-show-switch") && view.dataset.rocoManualDrawer === "switch") {
+    closeSwitchDrawerForTuning(view);
+    return;
+  }
+  openSwitchDrawerForTuning(view);
+}
+
+function handleSwitchTunerShortcut(event) {
+  if (event.defaultPrevented || event.repeat || routeName() !== "battle") return;
+
+  if (event.key === "F8") {
+    event.preventDefault();
+    window.rocoSwitchTuner.toggle();
+    return;
+  }
+
+  if (event.key === "F9") {
+    const view = document.querySelector(".battle-view");
+    if (!view) return;
+    event.preventDefault();
+    toggleSwitchDrawerForTuning(view);
+  }
+}
+
 function enhanceBattle() {
   if (routeName() !== "battle") return;
   const view = document.querySelector(".battle-view");
@@ -752,10 +1937,15 @@ function enhanceBattle() {
   if (autoPickInitialLead(view)) return;
   enhanceHud(view);
   enhanceMoves(view);
+  syncSwitchCards(view);
   updateMessage(view);
   updateEnergy(view);
+  syncBagPanel(view);
+  syncCapturePanel(view);
   autoSwitchDrawer(view);
   syncSwitchConfirm(view);
+  syncTargeting(view);
+  ensureSwitchTuner(view);
 }
 
 let scheduled = false;
@@ -772,6 +1962,7 @@ function scheduleEnhance() {
 syncRoute();
 scheduleEnhance();
 window.addEventListener("hashchange", scheduleEnhance);
+window.addEventListener("keydown", handleSwitchTunerShortcut);
 
 new MutationObserver(scheduleEnhance).observe(document.body, {
   childList: true,

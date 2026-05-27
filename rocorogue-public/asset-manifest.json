@@ -3596,5 +3596,11 @@
   "/types/虫.png",
   "/types/虫.webp",
   "/types/龙.png",
-  "/types/龙.webp"
+  "/types/龙.webp",
+  "/items/boss.png",
+  "/items/boss.webp",
+  "/items/wish.png",
+  "/items/wish.webp",
+  "/items/energybottle.png",
+  "/items/energybottle.webp"
 ]

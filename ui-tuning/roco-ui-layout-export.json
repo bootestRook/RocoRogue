@@ -1,0 +1,2960 @@
+{
+  "version": 1,
+  "app": "RocoRogue",
+  "mode": "ui-tuner",
+  "createdAt": "2026-05-27T01:07:44.016Z",
+  "route": "/?uiTune=1^&v=29842#/mechanics?view=pet-box",
+  "viewport": {
+    "width": 1991,
+    "height": 1280,
+    "devicePixelRatio": 1,
+    "designWidth": 1920,
+    "designHeight": 1080
+  },
+  "base": {
+    "gitCommit": "cef8d11b65b2cc48c228db0953bd0ad00d3702b5",
+    "branch": "main"
+  },
+  "items": {
+    "app.root": {
+      "id": "app.root",
+      "label": "应用根容器",
+      "selector": "[data-ui-id='app.root']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "app",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 0,
+        "y": 0,
+        "width": 1991,
+        "height": 1280
+      },
+      "boundsAfter": {
+        "x": 0,
+        "y": 0,
+        "width": 1991,
+        "height": 1280
+      }
+    },
+    "bag.backdrop": {
+      "id": "bag.backdrop",
+      "label": "精灵背包背景遮罩",
+      "selector": "[data-ui-id='bag.backdrop']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 0,
+        "y": 76,
+        "width": 1991,
+        "height": 1204
+      },
+      "boundsAfter": {
+        "x": 0,
+        "y": 76,
+        "width": 1991,
+        "height": 1204
+      }
+    },
+    "bag.background": {
+      "id": "bag.background",
+      "label": "精灵背包主背景",
+      "selector": "[data-ui-id='bag.background']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 0,
+        "y": 118,
+        "width": 1991,
+        "height": 1119.938
+      },
+      "boundsAfter": {
+        "x": 0,
+        "y": 118,
+        "width": 1991,
+        "height": 1119.938
+      }
+    },
+    "bag.bottomBoxSelector": {
+      "id": "bag.bottomBoxSelector",
+      "label": "底部盒子选择器",
+      "selector": "[data-ui-id='bag.bottomBoxSelector']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 518.49,
+        "y": 1018.098,
+        "width": 400.274,
+        "height": 85.032
+      },
+      "boundsAfter": {
+        "x": 518.49,
+        "y": 1018.098,
+        "width": 400.274,
+        "height": 85.032
+      }
+    },
+    "bag.bottomBoxSelector.next": {
+      "id": "bag.bottomBoxSelector.next",
+      "label": "下一页按钮",
+      "selector": "[data-ui-id='bag.bottomBoxSelector.next']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 842.027,
+        "y": 1028.468,
+        "width": 64.293,
+        "height": 64.293
+      },
+      "boundsAfter": {
+        "x": 842.027,
+        "y": 1028.468,
+        "width": 64.293,
+        "height": 64.293
+      }
+    },
+    "bag.bottomBoxSelector.pageIcon": {
+      "id": "bag.bottomBoxSelector.pageIcon",
+      "label": "当前盒子页图标",
+      "selector": "[data-ui-id='bag.bottomBoxSelector.pageIcon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 593.136,
+        "y": 1027.463,
+        "width": 72.589,
+        "height": 64.293
+      },
+      "boundsAfter": {
+        "x": 593.136,
+        "y": 1027.463,
+        "width": 72.589,
+        "height": 64.293
+      }
+    },
+    "bag.bottomBoxSelector.prev": {
+      "id": "bag.bottomBoxSelector.prev",
+      "label": "上一页按钮",
+      "selector": "[data-ui-id='bag.bottomBoxSelector.prev']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 531.97,
+        "y": 1028.468,
+        "width": 64.293,
+        "height": 64.293
+      },
+      "boundsAfter": {
+        "x": 531.97,
+        "y": 1028.468,
+        "width": 64.293,
+        "height": 64.293
+      }
+    },
+    "bag.bottomBoxSelector.title": {
+      "id": "bag.bottomBoxSelector.title",
+      "label": "盒子选择器标题",
+      "selector": "[data-ui-id='bag.bottomBoxSelector.title']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 669.03,
+        "y": 1038.838,
+        "width": 116.142,
+        "height": 43.553
+      },
+      "boundsAfter": {
+        "x": 669.03,
+        "y": 1038.838,
+        "width": 116.142,
+        "height": 43.553
+      }
+    },
+    "bag.closeButton": {
+      "id": "bag.closeButton",
+      "label": "关闭按钮",
+      "selector": "[data-ui-id='bag.closeButton']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1816.788,
+        "y": 147.035,
+        "width": 70.515,
+        "height": 70.515
+      },
+      "boundsAfter": {
+        "x": 1816.788,
+        "y": 147.035,
+        "width": 70.515,
+        "height": 70.515
+      }
+    },
+    "bag.detail.action.feed": {
+      "id": "bag.detail.action.feed",
+      "label": "精灵喂养按钮",
+      "selector": "[data-ui-id='bag.detail.action.feed']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1391.626,
+        "y": 1082.391,
+        "width": 238.505,
+        "height": 62.219
+      },
+      "boundsAfter": {
+        "x": 1391.626,
+        "y": 1082.391,
+        "width": 238.505,
+        "height": 62.219
+      }
+    },
+    "bag.detail.action.growth": {
+      "id": "bag.detail.action.growth",
+      "label": "精灵成长按钮",
+      "selector": "[data-ui-id='bag.detail.action.growth']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1729.681,
+        "y": 1082.391,
+        "width": 219.84,
+        "height": 62.219
+      },
+      "boundsAfter": {
+        "x": 1729.681,
+        "y": 1082.391,
+        "width": 219.84,
+        "height": 62.219
+      }
+    },
+    "bag.detail.bloodline": {
+      "id": "bag.detail.bloodline",
+      "label": "血脉属性",
+      "selector": "[data-ui-id='bag.detail.bloodline']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1767.013,
+        "y": 302.582,
+        "width": 122.364,
+        "height": 39.405
+      },
+      "boundsAfter": {
+        "x": 1767.013,
+        "y": 302.582,
+        "width": 122.364,
+        "height": 39.405
+      }
+    },
+    "bag.detail.bloodline.icon": {
+      "id": "bag.detail.bloodline.icon",
+      "label": "血脉属性图标",
+      "selector": "[data-ui-id='bag.detail.bloodline.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 27.966,
+        "y": -19.287,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1767.013,
+        "y": 304.656,
+        "width": 35.257,
+        "height": 35.257
+      },
+      "boundsAfter": {
+        "x": 1796.013,
+        "y": 284.656,
+        "width": 35.257,
+        "height": 35.257
+      }
+    },
+    "bag.detail.bloodline.label": {
+      "id": "bag.detail.bloodline.label",
+      "label": "血脉属性名称",
+      "selector": "[data-ui-id='bag.detail.bloodline.label']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 25.073,
+        "y": -21.215,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1808.492,
+        "y": 302.582,
+        "width": 68.441,
+        "height": 39.405
+      },
+      "boundsAfter": {
+        "x": 1834.492,
+        "y": 280.583,
+        "width": 68.441,
+        "height": 39.405
+      }
+    },
+    "bag.detail.elementIcon": {
+      "id": "bag.detail.elementIcon",
+      "label": "精灵属性图标",
+      "selector": "[data-ui-id='bag.detail.elementIcon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 6.751,
+        "y": 7.715,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": true,
+      "boundsBefore": {
+        "x": 1353.517,
+        "y": 239.586,
+        "width": 35.257,
+        "height": 35.257
+      },
+      "boundsAfter": {
+        "x": 1360.518,
+        "y": 247.586,
+        "width": 35.257,
+        "height": 35.257
+      }
+    },
+    "bag.detail.expBar.bg": {
+      "id": "bag.detail.expBar.bg",
+      "label": "经验条底",
+      "selector": "[data-ui-id='bag.detail.expBar.bg']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1387.478,
+        "y": 361.69,
+        "width": 501.898,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1387.478,
+        "y": 361.69,
+        "width": 501.898,
+        "height": 29.035
+      }
+    },
+    "bag.detail.expText": {
+      "id": "bag.detail.expText",
+      "label": "经验数值",
+      "selector": "[data-ui-id='bag.detail.expText']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -22.18,
+        "y": -1.929,
+        "scaleX": 0.794,
+        "scaleY": 0.794,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1831.305,
+        "y": 333.692,
+        "width": 82.958,
+        "height": 26.961
+      },
+      "boundsAfter": {
+        "x": 1816.85,
+        "y": 334.468,
+        "width": 65.869,
+        "height": 21.407
+      }
+    },
+    "bag.detail.ivButton.bg": {
+      "id": "bag.detail.ivButton.bg",
+      "label": "个体值按钮底",
+      "selector": "[data-ui-id='bag.detail.ivButton.bg']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0.964,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1384.367,
+        "y": 437.39,
+        "width": 197.026,
+        "height": 50.812
+      },
+      "boundsAfter": {
+        "x": 1384.367,
+        "y": 438.389,
+        "width": 197.026,
+        "height": 50.812
+      }
+    },
+    "bag.detail.ivButton.help": {
+      "id": "bag.detail.ivButton.help",
+      "label": "个体值说明按钮",
+      "selector": "[data-ui-id='bag.detail.ivButton.help']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -52.074,
+        "y": 0.964,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1586.578,
+        "y": 445.685,
+        "width": 31.109,
+        "height": 31.109
+      },
+      "boundsAfter": {
+        "x": 1532.578,
+        "y": 446.685,
+        "width": 31.109,
+        "height": 31.109
+      }
+    },
+    "bag.detail.ivButton.text": {
+      "id": "bag.detail.ivButton.text",
+      "label": "个体值按钮文字",
+      "selector": "[data-ui-id='bag.detail.ivButton.text']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -2.893,
+        "y": 4.822,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1406.144,
+        "y": 444.648,
+        "width": 165.917,
+        "height": 31.109
+      },
+      "boundsAfter": {
+        "x": 1403.144,
+        "y": 449.649,
+        "width": 165.917,
+        "height": 31.109
+      }
+    },
+    "bag.detail.level": {
+      "id": "bag.detail.level",
+      "label": "等级",
+      "selector": "[data-ui-id='bag.detail.level']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -88.719,
+        "y": 24.108,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1389.552,
+        "y": 333.692,
+        "width": 136.881,
+        "height": 37.331
+      },
+      "boundsAfter": {
+        "x": 1297.552,
+        "y": 358.691,
+        "width": 136.881,
+        "height": 37.331
+      }
+    },
+    "bag.detail.name": {
+      "id": "bag.detail.name",
+      "label": "精灵名称",
+      "selector": "[data-ui-id='bag.detail.name']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1408.218,
+        "y": 234.142,
+        "width": 311.094,
+        "height": 45.627
+      },
+      "boundsAfter": {
+        "x": 1408.218,
+        "y": 234.142,
+        "width": 311.094,
+        "height": 45.627
+      }
+    },
+    "bag.detail.nature.name": {
+      "id": "bag.detail.nature.name",
+      "label": "精灵性格",
+      "selector": "[data-ui-id='bag.detail.nature.name']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 57.861,
+        "y": 40.502,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1491.176,
+        "y": 881.217,
+        "width": 191.841,
+        "height": 47.701
+      },
+      "boundsAfter": {
+        "x": 1551.177,
+        "y": 923.216,
+        "width": 191.841,
+        "height": 47.701
+      }
+    },
+    "bag.detail.nature.pillBg": {
+      "id": "bag.detail.nature.pillBg",
+      "label": "精灵性格底",
+      "selector": "[data-ui-id='bag.detail.nature.pillBg']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 60.754,
+        "y": 41.467,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1491.176,
+        "y": 881.217,
+        "width": 191.841,
+        "height": 47.701
+      },
+      "boundsAfter": {
+        "x": 1554.177,
+        "y": 924.217,
+        "width": 191.841,
+        "height": 47.701
+      }
+    },
+    "bag.detail.panelBg": {
+      "id": "bag.detail.panelBg",
+      "label": "详情面板背景",
+      "selector": "[data-ui-id='bag.detail.panelBg']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0.964,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1162.405,
+        "y": 118,
+        "width": 829.583,
+        "height": 1119.938
+      },
+      "boundsAfter": {
+        "x": 1163.405,
+        "y": 118,
+        "width": 829.583,
+        "height": 1119.938
+      }
+    },
+    "bag.detail.radar.base": {
+      "id": "bag.detail.radar.base",
+      "label": "天赋雷达底盘",
+      "selector": "[data-ui-id='bag.detail.radar.base']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1472.51,
+        "y": 501.682,
+        "width": 342.203,
+        "height": 342.203
+      },
+      "boundsAfter": {
+        "x": 1472.51,
+        "y": 501.682,
+        "width": 342.203,
+        "height": 342.203
+      }
+    },
+    "bag.detail.radar.fill": {
+      "id": "bag.detail.radar.fill",
+      "label": "天赋雷达填充",
+      "selector": "[data-ui-id='bag.detail.radar.fill']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1472.51,
+        "y": 501.682,
+        "width": 342.203,
+        "height": 342.203
+      },
+      "boundsAfter": {
+        "x": 1472.51,
+        "y": 501.682,
+        "width": 342.203,
+        "height": 342.203
+      }
+    },
+    "bag.detail.star.0": {
+      "id": "bag.detail.star.0",
+      "label": "星级 1",
+      "selector": "[data-ui-id='bag.detail.star.0']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1408.218,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1408.218,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.star.1": {
+      "id": "bag.detail.star.1",
+      "label": "星级 2",
+      "selector": "[data-ui-id='bag.detail.star.1']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1441.401,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1441.401,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.star.2": {
+      "id": "bag.detail.star.2",
+      "label": "星级 3",
+      "selector": "[data-ui-id='bag.detail.star.2']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1474.584,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1474.584,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.star.3": {
+      "id": "bag.detail.star.3",
+      "label": "星级 4",
+      "selector": "[data-ui-id='bag.detail.star.3']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1507.768,
+        "y": 290.139,
+        "width": 29.036,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1507.768,
+        "y": 290.139,
+        "width": 29.036,
+        "height": 29.035
+      }
+    },
+    "bag.detail.star.4": {
+      "id": "bag.detail.star.4",
+      "label": "星级 5",
+      "selector": "[data-ui-id='bag.detail.star.4']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1540.951,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1540.951,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.star.5": {
+      "id": "bag.detail.star.5",
+      "label": "星级 6",
+      "selector": "[data-ui-id='bag.detail.star.5']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": true,
+      "boundsBefore": {
+        "x": 1574.134,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1574.134,
+        "y": 290.139,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.attack.icon": {
+      "id": "bag.detail.stat.attack.icon",
+      "label": "六维属性图标",
+      "selector": "[data-ui-id='bag.detail.stat.attack.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 9.643,
+        "y": 42.431,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1408.218,
+        "y": 534.866,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1418.217,
+        "y": 578.866,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.attack.value": {
+      "id": "bag.detail.stat.attack.value",
+      "label": "六维属性数值",
+      "selector": "[data-ui-id='bag.detail.stat.attack.value']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 12.536,
+        "y": 44.36,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1439.327,
+        "y": 534.866,
+        "width": 53.923,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1452.327,
+        "y": 580.866,
+        "width": 53.923,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.defense.icon": {
+      "id": "bag.detail.stat.defense.icon",
+      "label": "六维属性图标",
+      "selector": "[data-ui-id='bag.detail.stat.defense.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 32.788,
+        "y": 10.608,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1408.218,
+        "y": 736.04,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1442.218,
+        "y": 747.04,
+        "width": 29.036,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.defense.value": {
+      "id": "bag.detail.stat.defense.value",
+      "label": "六维属性数值",
+      "selector": "[data-ui-id='bag.detail.stat.defense.value']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 25.073,
+        "y": 11.572,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1439.327,
+        "y": 736.04,
+        "width": 53.923,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1465.327,
+        "y": 748.04,
+        "width": 53.923,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.hp.icon": {
+      "id": "bag.detail.stat.hp.icon",
+      "label": "六维属性图标",
+      "selector": "[data-ui-id='bag.detail.stat.hp.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -6.75,
+        "y": 54.003,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1615.614,
+        "y": 431.168,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1608.614,
+        "y": 487.168,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.hp.value": {
+      "id": "bag.detail.stat.hp.value",
+      "label": "六维属性数值",
+      "selector": "[data-ui-id='bag.detail.stat.hp.value']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -14.465,
+        "y": 53.039,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1646.723,
+        "y": 431.168,
+        "width": 53.923,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1631.723,
+        "y": 486.168,
+        "width": 53.923,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.magicAttack.icon": {
+      "id": "bag.detail.stat.magicAttack.icon",
+      "label": "六维属性图标",
+      "selector": "[data-ui-id='bag.detail.stat.magicAttack.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -45.324,
+        "y": 41.467,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1823.009,
+        "y": 534.866,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1776.009,
+        "y": 577.866,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.magicAttack.value": {
+      "id": "bag.detail.stat.magicAttack.value",
+      "label": "六维属性数值",
+      "selector": "[data-ui-id='bag.detail.stat.magicAttack.value']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -54.003,
+        "y": 41.467,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1854.119,
+        "y": 534.866,
+        "width": 53.923,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1798.119,
+        "y": 577.866,
+        "width": 53.923,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.magicDefense.icon": {
+      "id": "bag.detail.stat.magicDefense.icon",
+      "label": "六维属性图标",
+      "selector": "[data-ui-id='bag.detail.stat.magicDefense.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -39.538,
+        "y": 2.893,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1823.009,
+        "y": 736.04,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1782.009,
+        "y": 739.04,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.magicDefense.value": {
+      "id": "bag.detail.stat.magicDefense.value",
+      "label": "六维属性数值",
+      "selector": "[data-ui-id='bag.detail.stat.magicDefense.value']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -49.181,
+        "y": 3.857,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1854.119,
+        "y": 736.04,
+        "width": 53.923,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1803.119,
+        "y": 740.039,
+        "width": 53.923,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.speed.icon": {
+      "id": "bag.detail.stat.speed.icon",
+      "label": "六维属性图标",
+      "selector": "[data-ui-id='bag.detail.stat.speed.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -1.929,
+        "y": 33.752,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1615.614,
+        "y": 794.11,
+        "width": 29.035,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1613.613,
+        "y": 829.111,
+        "width": 29.035,
+        "height": 29.035
+      }
+    },
+    "bag.detail.stat.speed.value": {
+      "id": "bag.detail.stat.speed.value",
+      "label": "六维属性数值",
+      "selector": "[data-ui-id='bag.detail.stat.speed.value']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": -7.714,
+        "y": 34.717,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1646.723,
+        "y": 794.11,
+        "width": 53.923,
+        "height": 29.035
+      },
+      "boundsAfter": {
+        "x": 1638.724,
+        "y": 830.111,
+        "width": 53.923,
+        "height": 29.035
+      }
+    },
+    "bag.detail.trait.icon": {
+      "id": "bag.detail.trait.icon",
+      "label": "精灵特性图标",
+      "selector": "[data-ui-id='bag.detail.trait.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 27.966,
+        "y": 44.36,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1379.182,
+        "y": 850.107,
+        "width": 89.18,
+        "height": 89.18
+      },
+      "boundsAfter": {
+        "x": 1408.183,
+        "y": 896.108,
+        "width": 89.18,
+        "height": 89.18
+      }
+    },
+    "bag.detail.type.1": {
+      "id": "bag.detail.type.1",
+      "label": "属性1光",
+      "selector": "[data-ui-id='bag.detail.type.1']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1793.974,
+        "y": 242.438,
+        "width": 95.402,
+        "height": 39.405
+      },
+      "boundsAfter": {
+        "x": 1793.974,
+        "y": 242.438,
+        "width": 95.402,
+        "height": 39.405
+      }
+    },
+    "bag.detail.type.1.icon": {
+      "id": "bag.detail.type.1.icon",
+      "label": "属性1光图标",
+      "selector": "[data-ui-id='bag.detail.type.1.icon']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1793.974,
+        "y": 244.511,
+        "width": 35.257,
+        "height": 35.257
+      },
+      "boundsAfter": {
+        "x": 1793.974,
+        "y": 244.511,
+        "width": 35.257,
+        "height": 35.257
+      }
+    },
+    "bag.detail.type.1.label": {
+      "id": "bag.detail.type.1.label",
+      "label": "属性1光名称",
+      "selector": "[data-ui-id='bag.detail.type.1.label']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetDetail",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1835.453,
+        "y": 242.438,
+        "width": 47.701,
+        "height": 39.405
+      },
+      "boundsAfter": {
+        "x": 1835.453,
+        "y": 242.438,
+        "width": 47.701,
+        "height": 39.405
+      }
+    },
+    "bag.detailPanel": {
+      "id": "bag.detailPanel",
+      "label": "精灵背包详情面板",
+      "selector": "[data-ui-id='bag.detailPanel']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 1161.417,
+        "y": 118,
+        "width": 829.583,
+        "height": 1119.938
+      },
+      "boundsAfter": {
+        "x": 1161.417,
+        "y": 118,
+        "width": 829.583,
+        "height": 1119.938
+      }
+    },
+    "bag.filterButton": {
+      "id": "bag.filterButton",
+      "label": "筛选按钮",
+      "selector": "[data-ui-id='bag.filterButton']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 311.094,
+        "y": 1030.542,
+        "width": 66.367,
+        "height": 66.367
+      },
+      "boundsAfter": {
+        "x": 311.094,
+        "y": 1030.542,
+        "width": 66.367,
+        "height": 66.367
+      }
+    },
+    "bag.leftCategoryBar": {
+      "id": "bag.leftCategoryBar",
+      "label": "左侧分类栏",
+      "selector": "[data-ui-id='bag.leftCategoryBar']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 126.511,
+        "y": 293.249,
+        "width": 126.511,
+        "height": 769.438
+      },
+      "boundsAfter": {
+        "x": 126.511,
+        "y": 293.249,
+        "width": 126.511,
+        "height": 769.438
+      }
+    },
+    "bag.leftCategoryBar.tab.0": {
+      "id": "bag.leftCategoryBar.tab.0",
+      "label": "当前精灵分类标签",
+      "selector": "[data-ui-id='bag.leftCategoryBar.tab.0']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderSideTabs",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 142.066,
+        "y": 334.729,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 142.066,
+        "y": 334.729,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.leftCategoryBar.tab.1": {
+      "id": "bag.leftCategoryBar.tab.1",
+      "label": "精灵分类标签 2",
+      "selector": "[data-ui-id='bag.leftCategoryBar.tab.1']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderSideTabs",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 142.066,
+        "y": 440.501,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 142.066,
+        "y": 440.501,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.leftCategoryBar.tab.2": {
+      "id": "bag.leftCategoryBar.tab.2",
+      "label": "精灵分类标签 3",
+      "selector": "[data-ui-id='bag.leftCategoryBar.tab.2']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderSideTabs",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 142.066,
+        "y": 546.272,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 142.066,
+        "y": 546.272,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.leftCategoryBar.tab.3": {
+      "id": "bag.leftCategoryBar.tab.3",
+      "label": "精灵分类标签 4",
+      "selector": "[data-ui-id='bag.leftCategoryBar.tab.3']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderSideTabs",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 142.066,
+        "y": 652.044,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 142.066,
+        "y": 652.044,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.leftCategoryBar.tab.4": {
+      "id": "bag.leftCategoryBar.tab.4",
+      "label": "精灵分类标签 5",
+      "selector": "[data-ui-id='bag.leftCategoryBar.tab.4']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderSideTabs",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 142.066,
+        "y": 757.816,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 142.066,
+        "y": 757.816,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.leftCategoryBar.tab.5": {
+      "id": "bag.leftCategoryBar.tab.5",
+      "label": "精灵分类标签 6",
+      "selector": "[data-ui-id='bag.leftCategoryBar.tab.5']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderSideTabs",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 142.066,
+        "y": 863.588,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 142.066,
+        "y": 863.588,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.0": {
+      "id": "bag.petCard.0",
+      "label": "迪莫",
+      "selector": "[data-ui-id='bag.petCard.0']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 330.796,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 330.796,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.1": {
+      "id": "bag.petCard.1",
+      "label": "火花",
+      "selector": "[data-ui-id='bag.petCard.1']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 463.53,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 463.53,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.10": {
+      "id": "bag.petCard.10",
+      "label": "空精灵槽位 11",
+      "selector": "[data-ui-id='bag.petCard.10']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 861.73,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 861.73,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.11": {
+      "id": "bag.petCard.11",
+      "label": "空精灵槽位 12",
+      "selector": "[data-ui-id='bag.petCard.11']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 994.463,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 994.463,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.12": {
+      "id": "bag.petCard.12",
+      "label": "空精灵槽位 13",
+      "selector": "[data-ui-id='bag.petCard.12']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 330.796,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 330.796,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.13": {
+      "id": "bag.petCard.13",
+      "label": "空精灵槽位 14",
+      "selector": "[data-ui-id='bag.petCard.13']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 463.53,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 463.53,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.14": {
+      "id": "bag.petCard.14",
+      "label": "空精灵槽位 15",
+      "selector": "[data-ui-id='bag.petCard.14']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 596.263,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 596.263,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.15": {
+      "id": "bag.petCard.15",
+      "label": "空精灵槽位 16",
+      "selector": "[data-ui-id='bag.petCard.15']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 728.996,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 728.996,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.16": {
+      "id": "bag.petCard.16",
+      "label": "空精灵槽位 17",
+      "selector": "[data-ui-id='bag.petCard.16']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 861.73,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 861.73,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.17": {
+      "id": "bag.petCard.17",
+      "label": "空精灵槽位 18",
+      "selector": "[data-ui-id='bag.petCard.17']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 994.463,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 994.463,
+        "y": 591.9,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.18": {
+      "id": "bag.petCard.18",
+      "label": "空精灵槽位 19",
+      "selector": "[data-ui-id='bag.petCard.18']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 330.796,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 330.796,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.19": {
+      "id": "bag.petCard.19",
+      "label": "空精灵槽位 20",
+      "selector": "[data-ui-id='bag.petCard.19']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 463.53,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 463.53,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.2": {
+      "id": "bag.petCard.2",
+      "label": "水蓝蓝",
+      "selector": "[data-ui-id='bag.petCard.2']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 596.263,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 596.263,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.20": {
+      "id": "bag.petCard.20",
+      "label": "空精灵槽位 21",
+      "selector": "[data-ui-id='bag.petCard.20']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 596.263,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 596.263,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.21": {
+      "id": "bag.petCard.21",
+      "label": "空精灵槽位 22",
+      "selector": "[data-ui-id='bag.petCard.21']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 728.996,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 728.996,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.22": {
+      "id": "bag.petCard.22",
+      "label": "空精灵槽位 23",
+      "selector": "[data-ui-id='bag.petCard.22']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 861.73,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 861.73,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.23": {
+      "id": "bag.petCard.23",
+      "label": "空精灵槽位 24",
+      "selector": "[data-ui-id='bag.petCard.23']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 994.463,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 994.463,
+        "y": 721.522,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.24": {
+      "id": "bag.petCard.24",
+      "label": "空精灵槽位 25",
+      "selector": "[data-ui-id='bag.petCard.24']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 330.796,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 330.796,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.25": {
+      "id": "bag.petCard.25",
+      "label": "空精灵槽位 26",
+      "selector": "[data-ui-id='bag.petCard.25']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 463.53,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 463.53,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.26": {
+      "id": "bag.petCard.26",
+      "label": "空精灵槽位 27",
+      "selector": "[data-ui-id='bag.petCard.26']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 596.263,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 596.263,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.27": {
+      "id": "bag.petCard.27",
+      "label": "空精灵槽位 28",
+      "selector": "[data-ui-id='bag.petCard.27']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 728.996,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 728.996,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.28": {
+      "id": "bag.petCard.28",
+      "label": "空精灵槽位 29",
+      "selector": "[data-ui-id='bag.petCard.28']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 861.73,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 861.73,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.29": {
+      "id": "bag.petCard.29",
+      "label": "空精灵槽位 30",
+      "selector": "[data-ui-id='bag.petCard.29']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 994.463,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 994.463,
+        "y": 851.144,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.3": {
+      "id": "bag.petCard.3",
+      "label": "喵喵",
+      "selector": "[data-ui-id='bag.petCard.3']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 728.996,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 728.996,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.4": {
+      "id": "bag.petCard.4",
+      "label": "空精灵槽位 5",
+      "selector": "[data-ui-id='bag.petCard.4']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 861.73,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 861.73,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.5": {
+      "id": "bag.petCard.5",
+      "label": "空精灵槽位 6",
+      "selector": "[data-ui-id='bag.petCard.5']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 994.463,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 994.463,
+        "y": 332.655,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.6": {
+      "id": "bag.petCard.6",
+      "label": "空精灵槽位 7",
+      "selector": "[data-ui-id='bag.petCard.6']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 330.796,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 330.796,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.7": {
+      "id": "bag.petCard.7",
+      "label": "空精灵槽位 8",
+      "selector": "[data-ui-id='bag.petCard.7']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 463.53,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 463.53,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.8": {
+      "id": "bag.petCard.8",
+      "label": "空精灵槽位 9",
+      "selector": "[data-ui-id='bag.petCard.8']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 596.263,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 596.263,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petCard.9": {
+      "id": "bag.petCard.9",
+      "label": "空精灵槽位 10",
+      "selector": "[data-ui-id='bag.petCard.9']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 728.996,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      },
+      "boundsAfter": {
+        "x": 728.996,
+        "y": 462.277,
+        "width": 95.402,
+        "height": 95.402
+      }
+    },
+    "bag.petGrid": {
+      "id": "bag.petGrid",
+      "label": "精灵背包宠物格",
+      "selector": "[data-ui-id='bag.petGrid']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetGrid",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 330.796,
+        "y": 332.655,
+        "width": 759.069,
+        "height": 613.892
+      },
+      "boundsAfter": {
+        "x": 330.796,
+        "y": 332.655,
+        "width": 759.069,
+        "height": 613.892
+      }
+    },
+    "bag.root": {
+      "id": "bag.root",
+      "label": "精灵背包根容器",
+      "selector": "[data-ui-id='bag.root']",
+      "sourceHint": {
+        "file": "rocorogue-public/assets/pet-box/pet-box-view.js",
+        "component": "renderPetBox",
+        "styleFile": "rocorogue-public/assets/pet-box/pet-box.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 0,
+        "y": 76,
+        "width": 1991,
+        "height": 1204
+      },
+      "boundsAfter": {
+        "x": 0,
+        "y": 76,
+        "width": 1991,
+        "height": 1204
+      }
+    },
+    "nav.brand": {
+      "id": "nav.brand",
+      "label": "品牌区",
+      "selector": "[data-ui-id='nav.brand']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "brand",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 20,
+        "y": 10,
+        "width": 119.703,
+        "height": 37.188
+      },
+      "boundsAfter": {
+        "x": 20,
+        "y": 10,
+        "width": 119.703,
+        "height": 37.188
+      }
+    },
+    "nav.brand.logo": {
+      "id": "nav.brand.logo",
+      "label": "品牌图标",
+      "selector": "[data-ui-id='nav.brand.logo']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "brand",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 20,
+        "y": 10,
+        "width": 15.672,
+        "height": 37.188
+      },
+      "boundsAfter": {
+        "x": 20,
+        "y": 10,
+        "width": 15.672,
+        "height": 37.188
+      }
+    },
+    "nav.brand.name": {
+      "id": "nav.brand.name",
+      "label": "品牌名称",
+      "selector": "[data-ui-id='nav.brand.name']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "brand",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 43.672,
+        "y": 14.641,
+        "width": 96.031,
+        "height": 27.891
+      },
+      "boundsAfter": {
+        "x": 43.672,
+        "y": 14.641,
+        "width": 96.031,
+        "height": 27.891
+      }
+    },
+    "nav.tabs": {
+      "id": "nav.tabs",
+      "label": "顶部标签组",
+      "selector": "[data-ui-id='nav.tabs']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "tabs",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 163.703,
+        "y": 10.188,
+        "width": 216,
+        "height": 36.797
+      },
+      "boundsAfter": {
+        "x": 163.703,
+        "y": 10.188,
+        "width": 216,
+        "height": 36.797
+      }
+    },
+    "nav.tabs.battle": {
+      "id": "nav.tabs.battle",
+      "label": "对战标签",
+      "selector": "[data-ui-id='nav.tabs.battle']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "tabs",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 225.703,
+        "y": 10.188,
+        "width": 60,
+        "height": 36.797
+      },
+      "boundsAfter": {
+        "x": 225.703,
+        "y": 10.188,
+        "width": 60,
+        "height": 36.797
+      }
+    },
+    "nav.tabs.petBox": {
+      "id": "nav.tabs.petBox",
+      "label": "精灵背包标签",
+      "selector": "[data-ui-id='nav.tabs.petBox']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "tabs",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 287.703,
+        "y": 10.188,
+        "width": 92,
+        "height": 36.797
+      },
+      "boundsAfter": {
+        "x": 287.703,
+        "y": 10.188,
+        "width": 92,
+        "height": 36.797
+      }
+    },
+    "nav.tabs.team": {
+      "id": "nav.tabs.team",
+      "label": "队伍标签",
+      "selector": "[data-ui-id='nav.tabs.team']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "tabs",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 163.703,
+        "y": 10.188,
+        "width": 60,
+        "height": 36.797
+      },
+      "boundsAfter": {
+        "x": 163.703,
+        "y": 10.188,
+        "width": 60,
+        "height": 36.797
+      }
+    },
+    "nav.topBar": {
+      "id": "nav.topBar",
+      "label": "顶部导航栏",
+      "selector": "[data-ui-id='nav.topBar']",
+      "sourceHint": {
+        "file": "rocorogue-public/index.html",
+        "component": "topbar",
+        "styleFile": "rocorogue-public/assets/index-Oin_zZIo.css"
+      },
+      "transform": {
+        "x": 0,
+        "y": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "origin": "center center"
+      },
+      "deleted": false,
+      "boundsBefore": {
+        "x": 0,
+        "y": 0,
+        "width": 1991,
+        "height": 58.188
+      },
+      "boundsAfter": {
+        "x": 0,
+        "y": 0,
+        "width": 1991,
+        "height": 58.188
+      }
+    }
+  }
+}
